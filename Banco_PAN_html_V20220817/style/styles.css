@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+body {
+	background: rgba(2, 146, 245, 1);
+	background: linear-gradient(134deg, #07A5E9 49%, rgba(21, 178, 252, 0) 170%);
+	color: #fff;
+	font-family: 'Red Hat Display', sans-serif;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.title_page {
+	margin-bottom: 1rem;
+}
+
+button,
+input {
+	font-family: 'Red Hat Display',
+		sans-serif;
+	border-radius: 5px;
+	border: none;
+	font-size: 16px;
+	padding: 1rem .8rem;
+}
+
+button {
+	padding: 1rem 2rem;
+	color: #fff;
+	background-color: #0d1317;
+	border: 2px solid #0d1317;
+	cursor: pointer;
+}
