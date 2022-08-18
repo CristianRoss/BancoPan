@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sistema - Página Inicial - Banco PAN</title>
+
+	<link rel="stylesheet" type="text/css" href="./style/styles.css">
+	<link rel="stylesheet" href="./style/card.css">
+
+	<link rel="shortcut icon" href="./images/logo_banco_pan.png" type="image/x-icon">
+	<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+</head>
+
+
+<body onload="myFunction()">
+
+	<main>
+		<div class="title_page">
+			<!-- <img src="https://www.bancopan.com.br/bancopan-institucional/conteudo/estrutura/assets/img/mh-icons/mh-icon--logo-desktop.svg" alt=""> -->
+			<h1>Banco Pan</h1>
+		</div>
+
+		<div class="buttons">
+			<section class="cards">
+				<article class="card card--1">
+					<div class="card__img"></div>
+					<a href="./pages/BancoNovo.html" class="card_link">
+						<div class="card__img--hover"></div>
+					</a>
+					<div class="card__info">
+						<span class="card__category">BANCO NOVO</span>
+						<h3 class="card__title">Lorem ipsum dolor sit amet.</h3>
+						
+					</div>
+				</article>
+
+
+				<article class="card card--2">
+					<div class="card__img"></div>
+					<a href="./pages/BancoLegado.html" class="card_link">
+						<div class="card__img--hover"></div>
+					</a>
+					<div class="card__info">
+						<span class="card__category">BANCO LEGADO</span>
+						<h3 class="card__title">Lorem ipsum dolor sit amet.</h3>
+					</div>
+				</article>
+
+
+				<article class="card card--3">
+					<div class="card__img"></div>
+					<a href="./pages/Disparos_Marketing.html" class="card_link">
+						<div class="card__img--hover"></div>
+					</a>
+					<div class="card__info">
+						<span class="card__category">DISPARO DE MARKETING</span>
+						<h3 class="card__title">Lorem ipsum dolor sit amet.</h3>
+						
+					</div>
+				</article>
+			</section>
+		</div>
+	</main>
+
+
+	<script src="./js/script.js"></script>
+	<script src="./js/login_inicial.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+	<script>
+		function myFunction() {
+        Swal.fire({
+					title: 'Digite: url, porta, serviço, username, password',
+  				input: 'text',
+				},
+		)}
+
+
+	</script>
+</body>
+
+</html>
