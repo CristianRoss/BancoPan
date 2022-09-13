@@ -1,5 +1,5 @@
 -- Gerado por Oracle SQL Developer Data Modeler 22.2.0.165.1149
---   em:        2022-09-13 10:43:55 BRT
+--   em:        2022-09-13 10:36:51 BRT
 --   site:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
@@ -80,9 +80,9 @@ CREATE TABLE conta_corrente_fisica (
 
 ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_pk PRIMARY KEY ( id_cliente );
 
-ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_cpf_un UNIQUE ( cpf );
-
 ALTER TABLE conta_corrente_fisica ADD CONSTRAINT id_fisica_uk UNIQUE ( id_conta_fisica );
+
+ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_cpf_un UNIQUE ( cpf );
 
 CREATE TABLE conta_corrente_juridica (
     id_cliente   NUMBER(50) NOT NULL,
@@ -94,11 +94,16 @@ CREATE TABLE conta_corrente_juridica (
     cnpj         VARCHAR2(50) NOT NULL
 );
 
+CREATE INDEX conta_juridica_pj__un ON
+    conta_corrente_juridica (
+        cnpj
+    ASC );
+
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_pk PRIMARY KEY ( id_cliente );
 
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_corrente_juridica_pk UNIQUE ( id_conta_jur );
 
-ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_cnpj_uk UNIQUE ( cnpj );
+ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_corrente_juridica__un UNIQUE ( cnpj );
 
 CREATE TABLE emprestimos (
     id_emprestimo        NUMBER(50) NOT NULL,
@@ -263,7 +268,7 @@ ALTER TABLE poupanca
 -- Relatório do Resumo do Oracle SQL Developer Data Modeler: 
 -- 
 -- CREATE TABLE                            10
--- CREATE INDEX                             0
+-- CREATE INDEX                             1
 -- ALTER TABLE                             40
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
