@@ -1,5 +1,5 @@
 -- Gerado por Oracle SQL Developer Data Modeler 22.2.0.165.1149
---   em:        2022-09-13 14:05:24 BRT
+--   em:        2022-09-13 14:08:03 BRT
 --   site:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
@@ -82,16 +82,18 @@ ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_pk PRIMARY KEY ( i
 
 ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_cpf_un UNIQUE ( cpf );
 
+ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_numero_un UNIQUE ( numero );
+
 ALTER TABLE conta_corrente_fisica ADD CONSTRAINT id_fisica_uk UNIQUE ( id_conta_fisica );
 
 CREATE TABLE conta_corrente_juridica (
     id_cliente   INTEGER NOT NULL,
     id_conta_jur INTEGER NOT NULL,
+    cnpj         VARCHAR2(50) NOT NULL,
     numero       NUMBER(50) NOT NULL,
     saldo        NUMBER(52, 2) NOT NULL,
     data_criacao DATE NOT NULL,
-    status       INTEGER NOT NULL,
-    cnpj         VARCHAR2(50) NOT NULL
+    status       INTEGER NOT NULL
 );
 
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_pk PRIMARY KEY ( id_cliente );
@@ -99,6 +101,8 @@ ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_pk PRIMARY KEY
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_corrente_juridica_pk UNIQUE ( id_conta_jur );
 
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_cnpj_uk UNIQUE ( cnpj );
+
+ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_numero_un UNIQUE ( numero );
 
 CREATE TABLE emprestimos (
     id_emprestimo        NUMBER(50) NOT NULL,
@@ -264,7 +268,7 @@ ALTER TABLE poupanca
 -- 
 -- CREATE TABLE                            10
 -- CREATE INDEX                             0
--- ALTER TABLE                             40
+-- ALTER TABLE                             42
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0
