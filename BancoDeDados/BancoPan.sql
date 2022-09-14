@@ -1,5 +1,5 @@
 -- Gerado por Oracle SQL Developer Data Modeler 22.2.0.165.1149
---   em:        2022-09-13 14:27:45 BRT
+--   em:        2022-09-14 14:17:30 BRT
 --   site:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
@@ -51,12 +51,13 @@ ALTER TABLE cartao_debito ADD CONSTRAINT debito_numero_uk UNIQUE ( numero );
 CREATE TABLE cliente (
     id_cliente        INTEGER NOT NULL,
     nome              VARCHAR2(38) NOT NULL,
-    sexo              VARCHAR2(9) NOT NULL,
     celular           NUMBER(15) NOT NULL,
     email             VARCHAR2(38) NOT NULL,
     endereco          VARCHAR2(38) NOT NULL,
     id_cliente_fisica INTEGER,
-    id_cliente_jur    INTEGER
+    id_cliente_jur    INTEGER,
+    numero            INTEGER,
+    status            NUMBER(1) NOT NULL
 );
 
 ALTER TABLE cliente
@@ -67,42 +68,38 @@ ALTER TABLE cliente
 
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( id_cliente );
 
+ALTER TABLE cliente ADD CONSTRAINT cliente_numero_un UNIQUE ( numero );
+
 CREATE TABLE conta_corrente_fisica (
     id_cliente      INTEGER NOT NULL,
     id_conta_fisica INTEGER NOT NULL,
     cpf             VARCHAR2(38) NOT NULL,
     sobrenome       VARCHAR2(38) NOT NULL,
-    numero          NUMBER(38) NOT NULL,
     saldo           NUMBER(38, 2) NOT NULL,
+    sexo            VARCHAR2(9) NOT NULL,
     status          INTEGER NOT NULL,
     data_criacao    DATE NOT NULL
 );
 
 ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_pk PRIMARY KEY ( id_cliente );
 
-ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_cpf_un UNIQUE ( cpf );
-
-ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_numero_un UNIQUE ( numero );
-
 ALTER TABLE conta_corrente_fisica ADD CONSTRAINT id_fisica_uk UNIQUE ( id_conta_fisica );
+
+ALTER TABLE conta_corrente_fisica ADD CONSTRAINT conta_fisica_cpf_un UNIQUE ( cpf );
 
 CREATE TABLE conta_corrente_juridica (
     id_cliente   INTEGER NOT NULL,
     id_conta_jur INTEGER NOT NULL,
     cnpj         VARCHAR2(38) NOT NULL,
-    numero       NUMBER(38) NOT NULL,
     saldo        NUMBER(38, 2) NOT NULL,
-    data_criacao DATE NOT NULL,
-    status       INTEGER NOT NULL
+    data_criacao DATE NOT NULL
 );
 
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_pk PRIMARY KEY ( id_cliente );
 
-ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_corrente_juridica__un UNIQUE ( cnpj );
-
 ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_corrente_juridica_pk UNIQUE ( id_conta_jur );
 
-ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_juridica_numero_un UNIQUE ( numero );
+ALTER TABLE conta_corrente_juridica ADD CONSTRAINT conta_corrente_juridica__un UNIQUE ( cnpj );
 
 CREATE TABLE emprestimos (
     id_emprestimo        INTEGER NOT NULL,
@@ -268,7 +265,7 @@ ALTER TABLE poupanca
 -- 
 -- CREATE TABLE                            10
 -- CREATE INDEX                             0
--- ALTER TABLE                             42
+-- ALTER TABLE                             41
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0
