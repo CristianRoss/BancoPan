@@ -3,9 +3,9 @@ package br.fiap.Servicos;
 public abstract class Cartao extends Servicos{
 
     protected int numero;
-    protected int limite;
+    protected double limite;
 
-    public Cartao(int numero, int limite) {
+    public Cartao(int numero, double limite) {
         this.numero = numero;
         this.limite = limite;
     }
@@ -14,11 +14,11 @@ public abstract class Cartao extends Servicos{
         return numero;
     }
 
-    public int getLimite() {
+    public double getLimite() {
         return limite;
     }
 
-    public void setLimite(int limite) {
+    public void setLimite(double limite) {
         this.limite = limite;
     }
 }

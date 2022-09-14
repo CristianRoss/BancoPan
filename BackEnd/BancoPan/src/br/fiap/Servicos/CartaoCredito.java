@@ -1,13 +1,15 @@
 package br.fiap.Servicos;
 
+import java.sql.Date;
+
 public class CartaoCredito extends Cartao{
 
     private int idCartaoCredito;
     private double fatura;
-    private String dataVencimento;
+    private Date dataVencimento;
     private double jurosVencimento;
 
-    public CartaoCredito(int numero, int limite, int idCartaoCredito, double fatura, String dataVencimento, double jurosVencimento) {
+    public CartaoCredito(int numero, double limite, int idCartaoCredito, double fatura, Date dataVencimento, double jurosVencimento) {
         super(numero, limite);
         this.idCartaoCredito = idCartaoCredito;
         this.fatura = fatura;
@@ -27,11 +29,11 @@ public class CartaoCredito extends Cartao{
         this.fatura = fatura;
     }
 
-    public String getDataVencimento() {
+    public Date getDataVencimento() {
         return dataVencimento;
     }
 
-    public void setDataVencimento(String dataVencimento) {
+    public void setDataVencimento(Date dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 

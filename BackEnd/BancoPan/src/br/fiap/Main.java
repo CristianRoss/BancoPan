@@ -1,22 +1,36 @@
 package br.fiap;
 
 import br.fiap.Clientes.ContaFisica;
+import br.fiap.DAO.ClientesDAO;
 import br.fiap.DAO.ContaFisicaDAO;
+import br.fiap.DAO.LimparDados;
+import br.fiap.DAO.LimparDadosDAO;
 
 import java.sql.Date;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         ContaFisicaDAO dao=new ContaFisicaDAO();
+//
+//        ContaFisica conta=dao.pesquisarConta(1);
+//        System.out.println(conta);
+//
+        ContaFisica c=new ContaFisica(1, "Ana","Feminino",9999,"ana@gmail.com","Rua Bernardo",1,350.3,new Date(2012,9,15),1,1,"Silva","777");
+//        System.out.println(c);
+//        dao.inserirContaFisica(c);
 
-        ContaFisica conta=dao.pesquisarConta(1);
-        System.out.println(conta);
+//        TreeMap lista=new ClientesDAO().listarContas();
+//
+//        Set keys = lista.keySet();
+//        for (Iterator i = keys.iterator(); i.hasNext();) {
+//            Integer key = (Integer) i.next();
+//            ContaFisica value = (ContaFisica) lista.get(key);
+//            System.out.println(key + " = " + value);
+//        }
 
-        ContaFisica c=new ContaFisica(3, "Rafael","Masculino",9999,"ra@gmail.com","Rua Bernardo",1477,350.3,new Date(2019,6,13),1,3,"Daciolo","555");
-        System.out.println(c);
-        dao.inserirContaFisica(c);
+
     }
 
 }

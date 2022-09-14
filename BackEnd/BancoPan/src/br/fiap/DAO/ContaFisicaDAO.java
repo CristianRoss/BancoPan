@@ -1,9 +1,13 @@
 package br.fiap.DAO;
 
+import br.fiap.Clientes.Cliente;
 import br.fiap.Clientes.ContaFisica;
 import br.fiap.Conexao.Conexao;
 
 import java.sql.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.TreeMap;
 
 public class ContaFisicaDAO {
 
@@ -21,7 +25,7 @@ public class ContaFisicaDAO {
 
     public void inserirContaFisica(ContaFisica conta) {
 
-        sql = "insert into CONTA_CORRENTE_FISICA(id_cliente, id_conta_fisica, cpf, sobrenome, numero, saldo, status, data_criacao) values(?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "insert into CONTA_CORRENTE_FISICA values(?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -30,29 +34,28 @@ public class ContaFisicaDAO {
             ps.setInt(2, conta.getIdFisica());
             ps.setString(3, conta.getCpf());
             ps.setString(4, conta.getSobrenome());
-            ps.setInt(5, conta.getNumero());
-            ps.setDouble(6, conta.getSaldo());
-            ps.setInt(7, conta.getStatus());
-            ps.setDate(8, conta.getDataCriacao());
+            ps.setDouble(5, conta.getSaldo());
+            ps.setString(6, conta.getSexo());
+            ps.setDate(7, conta.getDataCriacao());
             ps.execute();
 
         }catch (SQLException e) {
             System.out.println("Erro ao inserir Conta Fisica: "+e);
         }
 
-        sql="insert into cliente values(?,?,?,?,?,?,?,?)";
+        sql="insert into cliente values(?,?,?,?,?,?,?,?,?)";
 
         try{
             ps=connection.prepareStatement(sql);
             ps.setInt(1, conta.getIdCliente());
             ps.setString(2, conta.getNome());
-            ps.setString(3, conta.getSexo());
-            ps.setInt(4, conta.getCelular());
-            ps.setString(5, conta.getEmail());
-            ps.setString(6, conta.getEndereco());
-            ps.setInt(7, conta.getIdFisica());
-            ps.setNull(8, Types.INTEGER);
-            System.out.println(sql);
+            ps.setInt(3, conta.getCelular());
+            ps.setString(4, conta.getEmail());
+            ps.setString(5, conta.getEndereco());
+            ps.setInt(6, conta.getIdFisica());
+            ps.setNull(7, Types.INTEGER);
+            ps.setInt(8, conta.getNumero());
+            ps.setInt(9, conta.getStatus());
             ps.execute();
         }catch (SQLException e) {
             System.out.println("Erro ao inserir Cliente: "+e);
@@ -62,9 +65,9 @@ public class ContaFisicaDAO {
 
 
     public ContaFisica pesquisarConta(int id) {
-        String nome = null,sexo=null,email=null,endereco=null;
+        String nome = null,email=null,endereco=null;
 
-        int cel=0;
+        int cel=0,numero=0,status=0;
 
         sql = "select * from CLIENTE where id_cliente = ?";
 
@@ -80,10 +83,11 @@ public class ContaFisicaDAO {
             while (rs.next()) {
                 if (rs.getInt("id_cliente")==id) {
                      nome=rs.getString("nome");
-                     sexo=rs.getString("sexo");
                      cel=rs.getInt("celular");
                      email= rs.getString("email");
                      endereco=rs.getString("endereco");
+                     numero=rs.getInt("numero");
+                     status=rs.getInt("status");
                 }
             }
         }catch (SQLException e) {
@@ -103,9 +107,9 @@ public class ContaFisicaDAO {
         try {
             while (rs.next()) {
                 if (rs.getInt("id_cliente")==id) {
-                    return new ContaFisica(id,nome,sexo,cel,email,endereco,
-                            rs.getInt("numero"),rs.getDouble("saldo"),rs.getDate("data_criacao"),
-                            rs.getInt("status"),rs.getInt("id_conta_fisica"), rs.getString("sobrenome"),
+                    return new ContaFisica(id,nome,rs.getString("sexo"),cel,email,endereco,
+                            numero,rs.getDouble("saldo"),rs.getDate("data_criacao"),
+                            status,rs.getInt("id_conta_fisica"), rs.getString("sobrenome"),
                             rs.getString("cpf"));
                 }
             }

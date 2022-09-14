@@ -4,15 +4,13 @@ public abstract class Cliente {
 
     protected int id_cliente;
     protected String nome;
-    protected String sexo;
     protected int celular;
     protected String email;
     protected String endereco;
 
 
-    public Cliente(int id_cliente,String nome, String sexo, int celular, String email, String endereco) {
+    public Cliente(int id_cliente,String nome, int celular, String email, String endereco) {
         this.nome = nome;
-        this.sexo = sexo;
         this.celular = celular;
         this.email = email;
         this.endereco = endereco;
@@ -26,15 +24,6 @@ public abstract class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
     public int getCelular() {
         return celular;
     }
@@ -61,6 +50,10 @@ public abstract class Cliente {
 
     public int getIdCliente() {
         return id_cliente;
+    }
+
+    public static void iniciarContador() {
+
     }
 
 }

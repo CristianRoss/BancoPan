@@ -5,7 +5,7 @@ public class CartaoDebito extends Cartao{
     private int idCartaoDebito;
 
 
-    public CartaoDebito(int numero, int limite, int idCartao) {
+    public CartaoDebito(int numero, double limite, int idCartao) {
         super(numero, limite);
         this.idCartaoDebito = idCartao;
     }

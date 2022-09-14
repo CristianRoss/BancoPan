@@ -1,5 +1,8 @@
 package br.fiap.Servicos;
 
+
+import java.sql.Date;
+
 public class Financiamento extends Servicos{
 
     private int idFinanciamneto;
@@ -7,11 +10,11 @@ public class Financiamento extends Servicos{
     private double valorParcelas;
     private int qtdParcelas;
     private double juros;
-    private String dataRealizacao;
-    private String data_fim;
+    private Date dataRealizacao;
+    private Date data_fim;
     private double entrada;
 
-    public Financiamento(int idFinanciamneto, double valorTotal, double valorParcelas, int qtdParcelas, double juros, String dataRealizacao, String data_fim, double entrada) {
+    public Financiamento(int idFinanciamneto, double valorTotal, double valorParcelas, int qtdParcelas, double juros, Date dataRealizacao, Date data_fim, double entrada) {
         this.idFinanciamneto = idFinanciamneto;
         this.valorTotal = valorTotal;
         this.valorParcelas = valorParcelas;
@@ -58,19 +61,19 @@ public class Financiamento extends Servicos{
         this.juros = juros;
     }
 
-    public String getDataRealizacao() {
+    public Date getDataRealizacao() {
         return dataRealizacao;
     }
 
-    public void setDataRealizacao(String dataRealizacao) {
+    public void setDataRealizacao(Date dataRealizacao) {
         this.dataRealizacao = dataRealizacao;
     }
 
-    public String getData_fim() {
+    public Date getData_fim() {
         return data_fim;
     }
 
-    public void setData_fim(String data_fim) {
+    public void setData_fim(Date data_fim) {
         this.data_fim = data_fim;
     }
 

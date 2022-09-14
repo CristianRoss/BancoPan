@@ -19,7 +19,7 @@ public class ContaJuridicaDAO {
 
     public void inserirContaJuridica(ContaJuridica conta) {
 
-        sql = "insert into CONTA_CORRENTE_JURIDICA(id_cliente, id_conta_jur, cnpj, numero, saldo, data_criacao, status) values(?, ?, ?, ?, ?, ?, ?)";
+        sql = "insert into CONTA_CORRENTE_JURIDICA(id_cliente, id_conta_jur, cnpj, saldo, data_criacao) values(?, ?, ?, ?, ?)";
 
         try {
 
@@ -27,28 +27,27 @@ public class ContaJuridicaDAO {
             ps.setInt(1, conta.getIdCliente());
             ps.setInt(2, conta.getIdConta());
             ps.setString(3, conta.getCnpj());
-            ps.setInt(5, conta.getNumero());
-            ps.setDouble(6, conta.getSaldo());
-            ps.setDate(7, conta.getDataCriacao());
-            ps.setInt(8, conta.getStatus());
+            ps.setDouble(4, conta.getSaldo());
+            ps.setDate(5, conta.getDataCriacao());
             ps.execute();
 
         }catch (SQLException e) {
             System.out.println("Erro ao inserir Conta Juridica: "+e);
         }
 
-        sql="insert into cliente values(?,?,?,?,?,?,?,?)";
+        sql="insert into cliente values(?,?,?,?,?,?,?,?,?,?)";
 
         try{
             ps=connection.prepareStatement(sql);
             ps.setInt(1, conta.getIdCliente());
             ps.setString(2, conta.getNome());
-            ps.setString(3, conta.getSexo());
-            ps.setInt(4, conta.getCelular());
-            ps.setString(5, conta.getEmail());
-            ps.setString(6, conta.getEndereco());
-            ps.setNull(7, Types.INTEGER);
-            ps.setInt(8, conta.getIdConta());
+            ps.setInt(3, conta.getCelular());
+            ps.setString(4, conta.getEmail());
+            ps.setString(5, conta.getEndereco());
+            ps.setNull(6, Types.INTEGER);
+            ps.setInt(7, conta.getIdConta());
+            ps.setInt(8, conta.getNumero());
+            ps.setInt(9, conta.getStatus());
             System.out.println(sql);
             ps.execute();
         }catch (SQLException e) {
@@ -59,9 +58,9 @@ public class ContaJuridicaDAO {
 
 
     public ContaJuridica pesquisarConta(int id) {
-        String nome = null,sexo=null,email=null,endereco=null;
+        String nome = null,email=null,endereco=null;
 
-        int cel=0;
+        int cel=0,numero=0,status=0;
 
         sql = "select * from CLIENTE where id_cliente = ?";
 
@@ -77,10 +76,11 @@ public class ContaJuridicaDAO {
             while (rs.next()) {
                 if (rs.getInt("id_cliente")==id) {
                     nome=rs.getString("nome");
-                    sexo=rs.getString("sexo");
                     cel=rs.getInt("celular");
                     email= rs.getString("email");
                     endereco=rs.getString("endereco");
+                    numero=rs.getInt("numero");
+                    status= rs.getInt(status);
                 }
             }
         }catch (SQLException e) {
@@ -100,9 +100,9 @@ public class ContaJuridicaDAO {
         try {
             while (rs.next()) {
                 if (rs.getInt("id_cliente")==id) {
-                    return new ContaJuridica(id,nome,sexo,cel,email,endereco,
-                            rs.getInt("numero"),rs.getDouble("saldo"),rs.getDate("data_criacao"),
-                            rs.getInt("status"),rs.getInt("id_conta_jur"),
+                    return new ContaJuridica(id,nome,cel,email,endereco,
+                            numero,rs.getDouble("saldo"),rs.getDate("data_criacao"),
+                            status,rs.getInt("id_conta_jur"),
                             rs.getString("cnpj"));
                 }
             }

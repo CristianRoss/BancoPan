@@ -1,15 +1,17 @@
 package br.fiap.Servicos;
 
+import java.sql.Date;
+
 public class Emprestimos extends Servicos{
 
     private int idEmprestimo;
     private double valor;
     private double juros;
-    private String dataRealizacao;
-    private String dataPagamento;
+    private Date dataRealizacao;
+    private Date dataPagamento;
     private int qtdParcelas;
 
-    public Emprestimos(int idEmprestimo, double valor, double juros, String dataRealizacao, String dataPagamento, int qtdParcelas) {
+    public Emprestimos(int idEmprestimo, double valor, double juros, Date dataRealizacao, Date dataPagamento, int qtdParcelas) {
         this.idEmprestimo = idEmprestimo;
         this.valor = valor;
         this.juros = juros;
@@ -38,19 +40,19 @@ public class Emprestimos extends Servicos{
         this.juros = juros;
     }
 
-    public String getDataRealizacao() {
+    public Date getDataRealizacao() {
         return dataRealizacao;
     }
 
-    public void setDataRealizacao(String dataRealizacao) {
+    public void setDataRealizacao(Date dataRealizacao) {
         this.dataRealizacao = dataRealizacao;
     }
 
-    public String getDataPagamento() {
+    public Date getDataPagamento() {
         return dataPagamento;
     }
 
-    public void setDataPagamento(String dataPagamento) {
+    public void setDataPagamento(Date dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
 

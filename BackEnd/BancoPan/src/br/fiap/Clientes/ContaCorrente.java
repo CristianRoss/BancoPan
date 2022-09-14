@@ -2,6 +2,7 @@ package br.fiap.Clientes;
 
 
 import java.sql.Date;
+import java.util.TreeMap;
 
 public abstract class ContaCorrente extends Cliente{
 
@@ -10,8 +11,8 @@ public abstract class ContaCorrente extends Cliente{
     protected Date data_criacao;
     protected int status;
 
-    public ContaCorrente(int id_cliente, String nome, String sexo, int celular, String email, String endereco, int numero, double saldo, Date data_criacao, int status) {
-        super(id_cliente, nome, sexo, celular, email, endereco);
+    public ContaCorrente(int id_cliente, String nome, int celular, String email, String endereco, int numero, double saldo, Date data_criacao, int status) {
+        super(id_cliente, nome, celular, email, endereco);
         this.numero = numero;
         this.saldo = saldo;
         this.data_criacao = data_criacao;

@@ -1,15 +1,17 @@
 package br.fiap.Servicos;
 
+import java.sql.Date;
+
 public class PIX extends Servicos{
 
     private int idPIX;
     private String chavePix;
     private String chaveDestino;
     private double limite;
-    private String limiteHorario;
+    private Date limiteHorario;
     private double valorPix;
 
-    public PIX(int idPIX, String chavePix, String chaveDestino, double limite, String limiteHorario, double valorPix) {
+    public PIX(int idPIX, String chavePix, String chaveDestino, double limite, Date limiteHorario, double valorPix) {
         this.idPIX = idPIX;
         this.chavePix = chavePix;
         this.chaveDestino = chaveDestino;
@@ -46,11 +48,11 @@ public class PIX extends Servicos{
         this.limite = limite;
     }
 
-    public String getLimiteHorario() {
+    public Date getLimiteHorario() {
         return limiteHorario;
     }
 
-    public void setLimiteHorario(String limiteHorario) {
+    public void setLimiteHorario(Date limiteHorario) {
         this.limiteHorario = limiteHorario;
     }
 

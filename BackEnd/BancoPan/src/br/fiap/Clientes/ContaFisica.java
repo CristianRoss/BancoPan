@@ -9,8 +9,11 @@ public class ContaFisica extends ContaCorrente{
     private String sobrenome;
     private String cpf;
 
+    private String sexo;
+
     public ContaFisica(int id_cliente, String nome, String sexo, int celular, String email, String endereco, int numero, double saldo, Date data_criacao, int status, int id_conta_fisica, String sobrenome, String cpf) {
-        super(id_cliente, nome, sexo, celular, email, endereco, numero, saldo, data_criacao, status);
+        super(id_cliente, nome, celular, email, endereco, numero, saldo, data_criacao, status);
+        this.sexo=sexo;
         this.id_conta_fisica = id_conta_fisica;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -34,6 +37,14 @@ public class ContaFisica extends ContaCorrente{
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     @Override
