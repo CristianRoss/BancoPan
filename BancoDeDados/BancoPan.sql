@@ -77,7 +77,6 @@ CREATE TABLE conta_corrente_fisica (
     sobrenome       VARCHAR2(38) NOT NULL,
     saldo           NUMBER(38, 2) NOT NULL,
     sexo            VARCHAR2(9) NOT NULL,
-    status          INTEGER NOT NULL,
     data_criacao    DATE NOT NULL
 );
 
