@@ -16,7 +16,7 @@ CREATE TABLE cartao_credito (
     fatura            NUMBER(38, 2) NOT NULL,
     data_vencimento   DATE NOT NULL,
     juros_credito     NUMBER(5, 2) NOT NULL,
-    limite_credito    NUMBER(38, 2),
+    limite_credito    NUMBER(38, 2) NOT NULL,
     id_cliente        INTEGER NOT NULL
 );
 
