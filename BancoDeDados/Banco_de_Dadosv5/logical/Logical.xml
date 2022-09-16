@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="C660B698-518D-75F1-F69B-24AC82E67499" mainViewID="FC3BA210-2ECF-61A6-6CBE-EE212096E5BB">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:02:59 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

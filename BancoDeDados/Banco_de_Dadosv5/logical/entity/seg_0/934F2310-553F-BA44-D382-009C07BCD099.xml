@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="934F2310-553F-BA44-D382-009C07BCD099" name="FINANCIAMENTOS">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:23:55 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_financiamento" id="9B235AEB-3E94-04C0-94AB-F9E048396BFB">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:24:03 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor_total" id="6BABE4D1-E24A-BFBF-AB9B-BC0196428F22">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:24:16 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor_parcelas" id="81A044B0-57B3-C827-5CA7-25DB6DFC185A">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:24:30 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="qtd_parcelas" id="6D60C394-EE16-9E5E-46E9-B75BADEEFB9C">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:24:54 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="juros" id="EDB84B00-E09E-75FA-53EA-DBEE749B546E">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:25:09 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="entrada" id="9A44C175-F8A1-79AE-8320-77F14CCC85F7">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:25:24 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data_realizacao" id="D7A4EE97-466A-96C4-EA85-B6625A88D83A">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:25:45 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data_fim" id="62ED135E-B794-D7F7-9824-CE0D00BA66AB">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:27:41 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="CC2DC5CE-2966-DB5F-4801-D7204045EF66">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:08 UTC</createdTime>
+<generatorID>5950804F-40AD-41B7-71CC-C6504B8F5085</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<referedAttribute>E080266C-4589-4950-A65F-E2D2493477CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3B98941C-FD31-CDA2-91AD-6DABDEBCB997" name="FINANCIAMENTOS PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:24:15 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9B235AEB-3E94-04C0-94AB-F9E048396BFB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

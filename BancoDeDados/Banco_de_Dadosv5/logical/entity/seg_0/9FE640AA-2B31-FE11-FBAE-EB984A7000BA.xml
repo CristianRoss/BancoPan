@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9FE640AA-2B31-FE11-FBAE-EB984A7000BA" name="PIX">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:13:46 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_pix" id="BA7C1C79-4EE1-8E4C-0DF3-C74D0B1F6483">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:13:51 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="chave_conta" id="A7E27C5B-7CF5-1FF4-83E0-6C20D5EA1E11">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:14:03 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>38</dataTypeSize>
+<ownDataTypeParameters>38,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="chave_destino" id="E33CDDC4-6F32-A992-E999-16FEDD84C56C">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:14:23 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>38</dataTypeSize>
+<ownDataTypeParameters>38,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valor" id="2AA4F494-9F73-6D91-FE31-3AD20812D820">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:14:35 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data" id="52C83BBF-C7D3-8781-F402-4D2B05E67C25">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:14:49 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="limite_valor" id="88BBA9F3-74EB-8EE7-0235-6894124B30F2">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:23:04 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="limite_horario" id="2D323C1D-686C-D212-4E6F-55FE9F9DD6E8">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:23:20 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="1CE4F068-341C-0CF5-3F89-8562529B174B">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:37:49 UTC</createdTime>
+<generatorID>D5E753D2-4F88-F7A8-0189-53490B6D4931</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<referedAttribute>E080266C-4589-4950-A65F-E2D2493477CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A9BCC49D-DDC2-EA79-1FD8-0C876E42D706" name="PIX PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:14:02 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BA7C1C79-4EE1-8E4C-0DF3-C74D0B1F6483</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

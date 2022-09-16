@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AC70548C-11DC-E603-2BED-EC18EC3BD90D" name="MAQUININHA">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:36:08 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_maquininha" id="1025D942-5905-10CA-949F-4D39E5A03803">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:36:15 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="taxas" id="83725C97-21D7-9B0E-0D79-19B946F1C8AE">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:36:29 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vendas" id="69F15625-2FBC-4082-511F-76CEE6148E3D">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:36:46 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,38,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vendas_por_mes" id="2716BD40-B5B0-EF91-1ADD-B56360DB4B89">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:36:59 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,38,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="C9912C0A-E462-F7F6-5DA8-B4C46CA360D5">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:00 UTC</createdTime>
+<generatorID>DEE137BF-64FC-A7A7-653C-C385CE5B238D</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<referedAttribute>E080266C-4589-4950-A65F-E2D2493477CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2525F302-32B4-DBAB-A103-D1F9EF985EF4" name="MAQUININHA PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:36:28 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1025D942-5905-10CA-949F-4D39E5A03803</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

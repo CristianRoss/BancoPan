@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4DD9CC17-4233-181F-BCB8-522D5FF1C223" name="CARTAO_DEBITO">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:28:08 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_cartao_debito" id="C27A3797-8B65-BA70-FD0C-B0AA3A2C9B29">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:28:17 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numero" id="CC0BD751-E98C-594F-27CF-C2B7242F69A6">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:28:36 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="limite" id="2D7A97C6-2D52-3428-6F6C-A2EF5ECF2687">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:28:44 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_cliente" id="6E2CC902-834E-E1BE-51CA-7F2696C5DA7B">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:12 UTC</createdTime>
+<generatorID>42583A85-C167-C0D1-A95F-B5A58CDACB98</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<referedAttribute>E080266C-4589-4950-A65F-E2D2493477CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="67CC1229-8922-978C-2C2D-E2D77716DA0B" name="CARTAO_DEBITO PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:28:35 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C27A3797-8B65-BA70-FD0C-B0AA3A2C9B29</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="1B8B2A62-D10E-FB46-5AEC-CF497A2DF84F" name="CARTAO_DEBITO_NUM_UK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:29:47 UTC</createdTime>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<newElementsIDs>CC0BD751-E98C-594F-27CF-C2B7242F69A6</newElementsIDs>
+</identifier>
+</identifiers>
+</Entity>
