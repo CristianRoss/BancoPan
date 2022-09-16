@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Banco_de_Dadosv5" id="52AF4E01-6428-FEA6-A8F3-A488D038AA86" version="3.5">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:02:59 UTC</createdTime>
-<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>52AF4E01-6428-FEA6-A8F3-A488D038AA86</designId>
-</OSDM_Design>

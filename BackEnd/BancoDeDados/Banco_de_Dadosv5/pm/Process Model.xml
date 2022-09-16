@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="2220F740-9D67-1C15-F41C-C895355A77F5">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:02:59 UTC</createdTime>
-<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>
