@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="587C8570-52F4-F56F-F30F-F0C1246A4983" name="MAQUININHA">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>AC70548C-11DC-E603-2BED-EC18EC3BD90D</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_maquininha" id="1F05C847-9597-69FE-5CBA-8B82EBC1EAAA">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>1025D942-5905-10CA-949F-4D39E5A03803</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taxas" id="9DDBE00B-3A8B-7602-E2E7-E71694234A50">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>83725C97-21D7-9B0E-0D79-19B946F1C8AE</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vendas" id="A07A5588-DB2C-E028-4214-7E79D5C2FCE9">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>69F15625-2FBC-4082-511F-76CEE6148E3D</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,38,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vendas_por_mes" id="9C0B224B-97DE-7FE8-A717-784C7371F8A7">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>2716BD40-B5B0-EF91-1ADD-B56360DB4B89</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<ownDataTypeParameters>,38,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_cliente" id="A546D6F9-BFD5-75B7-6D72-33D2EF658D9A">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>C9912C0A-E462-F7F6-5DA8-B4C46CA360D5</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6931744F-053F-D4A0-4A14-D1E45AA6DC54" referredColumn="C0E84755-EA2C-611F-D84A-53B01F2D81F9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FE508333-BA15-4C85-4D2A-29F1D6EECE4B" name="MAQUININHA_PK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>2525F302-32B4-DBAB-A103-D1F9EF985EF4</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F05C847-9597-69FE-5CBA-8B82EBC1EAAA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="564F1C3B-5849-8495-2BF5-2C777946B3A4" name="MAQUININHA_CLIENTES_FK">
+<createdBy>logonrmlocal</createdBy>
+<createdTime>2022-09-16 13:38:48 UTC</createdTime>
+<generatorID>DEE137BF-64FC-A7A7-653C-C385CE5B238D</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A546D6F9-BFD5-75B7-6D72-33D2EF658D9A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
