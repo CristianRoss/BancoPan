@@ -9,6 +9,7 @@
 
 -- predefined type, no DDL - XMLTYPE
 
+
 CREATE TABLE cartao_credito (
     id_cartao_credito INTEGER NOT NULL,
     numero_credito    INTEGER NOT NULL,
@@ -92,11 +93,11 @@ ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_pk PRIMARY KEY ( id_pou
 ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_numero_un UNIQUE ( numero );
 
 CREATE TABLE documento_conta (
-    id_documento        INTEGER NOT NULL,
-    numero              INTEGER NOT NULL,
-    id_cliente INTEGER NOT NULL,
-    id_poupanca         INTEGER,
-    id_conta_corrente    INTEGER
+    id_documento     INTEGER NOT NULL,
+    numero           INTEGER NOT NULL,
+    id_cliente       INTEGER NOT NULL,
+    id_poupanca      INTEGER,
+    id_conta_corrente INTEGER
 );
 
 ALTER TABLE documento_conta
@@ -173,11 +174,11 @@ ALTER TABLE conta_poupanca
         REFERENCES clientes ( id_cliente );
 
 ALTER TABLE documento_conta
-    ADD CONSTRAINT documento_clientes_fk FOREIGN KEY ( clientes_id_cliente )
+    ADD CONSTRAINT documento_clientes_fk FOREIGN KEY ( id_cliente )
         REFERENCES clientes ( id_cliente );
 
 ALTER TABLE documento_conta
-    ADD CONSTRAINT documento_conta_corrente_fk FOREIGN KEY ( id_conta_corente )
+    ADD CONSTRAINT documento_conta_corrente_fk FOREIGN KEY ( id_conta_corrente )
         REFERENCES conta_corrente ( id_conta_corrente );
 
 ALTER TABLE documento_conta
@@ -198,7 +199,7 @@ ALTER TABLE maquininha
 
 ALTER TABLE pix
     ADD CONSTRAINT pix_clientes_fk FOREIGN KEY ( id_cliente )
-        REFERENCES clientes ( id_cliente );
+        REFERENCES clientes ( id_cliente );  
 
 
 
