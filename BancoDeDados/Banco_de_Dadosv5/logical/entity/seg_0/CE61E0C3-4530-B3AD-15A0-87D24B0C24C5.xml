@@ -79,19 +79,19 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_cliente" id="A92017D6-D646-D98C-39F8-361E063DBB96">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:37:55 UTC</createdTime>
-<generatorID>EB09538F-EB57-9CB8-DEBA-DB249C44C911</generatorID>
+<Attribute name="chave_pix" id="2960CC49-45AC-CE7B-C5B2-9B380E6CD998">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:44:23 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
 <engineerTo>
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
 </engineerTo>
-<referedAttribute>E080266C-4589-4950-A65F-E2D2493477CE</referedAttribute>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>38</dataTypeSize>
+<ownDataTypeParameters>38,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -99,8 +99,9 @@
 <createdBy>logonrmlocal</createdBy>
 <createdTime>2022-09-16 13:11:24 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
@@ -115,6 +116,9 @@
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
 </engineerTo>
 <newElementsIDs>F6C5C75B-F959-E2BF-4895-44FC89A62C74</newElementsIDs>
+<usedAttributes>
+<attributeRef>F6C5C75B-F959-E2BF-4895-44FC89A62C74</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

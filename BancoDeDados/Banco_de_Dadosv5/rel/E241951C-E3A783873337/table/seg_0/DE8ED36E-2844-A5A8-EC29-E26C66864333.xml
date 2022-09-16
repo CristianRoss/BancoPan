@@ -107,7 +107,7 @@
 <colUsage columnID="37BBC974-98A0-438E-1F59-1A15DDC87341"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B7616F55-E9E0-28BB-4A40-316E29948284" name="CONTA_POUPANCA_NUM_UN">
+<ind_PK_UK id="B7616F55-E9E0-28BB-4A40-316E29948284" name="CONTA_POUPANCA_numero_UN">
 <createdBy>logonrmlocal</createdBy>
 <createdTime>2022-09-16 13:38:48 UTC</createdTime>
 <generatorID>F9224C4A-1EA7-16E4-8942-BCBB25AC58E7</generatorID>

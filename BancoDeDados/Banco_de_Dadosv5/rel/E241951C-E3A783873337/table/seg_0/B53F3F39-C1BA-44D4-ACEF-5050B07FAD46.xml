@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B53F3F39-C1BA-44D4-ACEF-5050B07FAD46" name="DOCUMENTO_CONTA">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>E5B469EF-F45E-260C-8287-584DEE05F748</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_documento" id="98A3432E-F093-5896-A532-962BF1A8A40E">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>22491DEF-9FF3-D118-452A-850B3702E0BD</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numero" id="5B20C1EE-03BA-40A5-7B5E-851BDF7E7392">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>AD49D5E7-B3F8-4D30-823B-DC6BCCE92F72</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_cliente" id="3D76CE83-9D83-343F-4697-874A207E4752">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>4CC3469D-1099-6A40-91A4-0C83B5282BA0</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EA9DDFBE-3680-B08E-1F47-FC5AAF93AC4D" referredColumn="C0E84755-EA2C-611F-D84A-53B01F2D81F9"/>
+</associations>
+</Column>
+<Column name="id_poupanca" id="9903F79B-FAEE-3D03-6EA0-714305A4CC06">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>0CA546EC-CAD8-E1D6-C19A-187F515E38B1</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A13D75B3-FB2F-B58F-1D06-115946FE8D3E" referredColumn="37BBC974-98A0-438E-1F59-1A15DDC87341"/>
+</associations>
+</Column>
+<Column name="id_conta_corrente" id="19EBBF7D-E142-F22D-F864-C2B1C0D2144C">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>81D01587-C6B2-D7FC-48CB-1032EC9334D2</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4144DA92-8C30-9C73-9C36-1AFB860AE732" referredColumn="90CB90F1-020F-C507-678E-AB689BECF3ED"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C3A7623F-190E-7CCB-A8C6-4D820D7CF8C7" name="DOCUMENTO_CONTA_PK">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>4B1DDC18-4392-AD67-9062-E7E03D3F7EB2</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="98A3432E-F093-5896-A532-962BF1A8A40E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AE5265A3-9FBF-1BBF-7262-F59411F1CBE0" name="DOCUMENTO_CLIENTES_FK">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>F0CA57DF-5263-9CCE-B603-976C2B02DFBC</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D76CE83-9D83-343F-4697-874A207E4752"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D9CDF6A4-AAA9-9B28-ADED-1EB04D9C78EA" name="DOCUMENTO_POUPANCA_FK">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>4B74F629-BFDC-66B2-B561-9D0B31A80E06</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9903F79B-FAEE-3D03-6EA0-714305A4CC06"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4E2E2698-E87C-097B-D3A4-7B442658C815" name="DOCUMENTO_CONTA_CORRENTE_FK">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>6166855D-7F8C-6190-83AE-868086A041B5</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="19EBBF7D-E142-F22D-F864-C2B1C0D2144C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

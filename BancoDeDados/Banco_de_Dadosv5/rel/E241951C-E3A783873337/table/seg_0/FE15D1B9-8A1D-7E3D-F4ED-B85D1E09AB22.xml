@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_conta_corente" id="90CB90F1-020F-C507-678E-AB689BECF3ED">
+<Column name="id_conta_corrente" id="90CB90F1-020F-C507-678E-AB689BECF3ED">
 <createdBy>logonrmlocal</createdBy>
 <createdTime>2022-09-16 13:38:48 UTC</createdTime>
 <generatorID>0A64748F-FA74-B186-BDC1-50DE4120E11A</generatorID>
@@ -82,6 +82,19 @@
 <colAssociation fkAssociation="6CF10FDE-2ACA-8A1E-638E-BAF2C0DDB686" referredColumn="C0E84755-EA2C-611F-D84A-53B01F2D81F9"/>
 </associations>
 </Column>
+<Column name="chave_pix" id="8B3E2941-8AB9-058F-E715-77C43706F705">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:43 UTC</createdTime>
+<generatorID>2960CC49-45AC-CE7B-C5B2-9B380E6CD998</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>38</dataTypeSize>
+<ownDataTypeParameters>38,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="65E19DA7-7454-BB99-28C4-96CBCBD4E743" name="CONTA_CORRENTE_PK">
@@ -96,7 +109,7 @@
 <colUsage columnID="90CB90F1-020F-C507-678E-AB689BECF3ED"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="884E6A02-9948-A8CF-7562-CAC90A51251B" name="CONTA_CORRENTE_NUM_UK">
+<ind_PK_UK id="884E6A02-9948-A8CF-7562-CAC90A51251B" name="CONTA_CORRENTE_NUM_UN">
 <createdBy>logonrmlocal</createdBy>
 <createdTime>2022-09-16 13:38:48 UTC</createdTime>
 <generatorID>75806864-F45D-E04E-F215-C0445C4CC2E1</generatorID>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AC70548C-11DC-E603-2BED-EC18EC3BD90D" name="MAQUININHA">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:36:08 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E5B469EF-F45E-260C-8287-584DEE05F748" name="DOCUMENTO_CONTA">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:45:07 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
 <engineerTo>
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_maquininha" id="1025D942-5905-10CA-949F-4D39E5A03803">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:36:15 UTC</createdTime>
+<Attribute name="id_documento" id="22491DEF-9FF3-D118-452A-850B3702E0BD">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:45:17 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
 <engineerTo>
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
@@ -27,50 +27,22 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="taxas" id="83725C97-21D7-9B0E-0D79-19B946F1C8AE">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:36:29 UTC</createdTime>
+<Attribute name="numero" id="AD49D5E7-B3F8-4D30-823B-DC6BCCE92F72">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:45:30 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
 <engineerTo>
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>38</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,38,2</ownDataTypeParameters>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="vendas" id="69F15625-2FBC-4082-511F-76CEE6148E3D">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:36:46 UTC</createdTime>
-<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
-<engineerTo>
-<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>38</dataTypePrecision>
-<ownDataTypeParameters>,38,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="vendas_por_mes" id="2716BD40-B5B0-EF91-1ADD-B56360DB4B89">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:36:59 UTC</createdTime>
-<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
-<engineerTo>
-<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>38</dataTypePrecision>
-<ownDataTypeParameters>,38,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="id_cliente" id="C9912C0A-E462-F7F6-5DA8-B4C46CA360D5">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:38:00 UTC</createdTime>
-<generatorID>DEE137BF-64FC-A7A7-653C-C385CE5B238D</generatorID>
+<Attribute name="id_cliente" id="4CC3469D-1099-6A40-91A4-0C83B5282BA0">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:45:57 UTC</createdTime>
+<generatorID>F0CA57DF-5263-9CCE-B603-976C2B02DFBC</generatorID>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
 <engineerTo>
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
@@ -81,19 +53,46 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id_poupanca" id="0CA546EC-CAD8-E1D6-C19A-187F515E38B1">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:06 UTC</createdTime>
+<generatorID>4B74F629-BFDC-66B2-B561-9D0B31A80E06</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<referedAttribute>FFD5C4A4-9D0E-7920-83EC-C7784340BBAF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_conta_corente" id="81D01587-C6B2-D7FC-48CB-1032EC9334D2">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:46:13 UTC</createdTime>
+<generatorID>6166855D-7F8C-6190-83AE-868086A041B5</generatorID>
+<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<engineerTo>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+</engineerTo>
+<referedAttribute>0A64748F-FA74-B186-BDC1-50DE4120E11A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="2525F302-32B4-DBAB-A103-D1F9EF985EF4" name="MAQUININHA PK">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:36:28 UTC</createdTime>
+<identifier id="4B1DDC18-4392-AD67-9062-E7E03D3F7EB2" name="DOCUMENTO_CONTA PK">
+<createdBy>choco</createdBy>
+<createdTime>2022-09-16 15:45:29 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="E241951C-814C-6879-9286-E3A783873337" value="false"/>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>1025D942-5905-10CA-949F-4D39E5A03803</attributeRef>
+<attributeRef>22491DEF-9FF3-D118-452A-850B3702E0BD</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

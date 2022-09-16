@@ -91,28 +91,15 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_cliente" id="495706FB-E51C-5004-9F97-70B4692C46D6">
-<createdBy>logonrmlocal</createdBy>
-<createdTime>2022-09-16 13:37:45 UTC</createdTime>
-<generatorID>C28162CF-0B58-4EDA-2BF1-65E8C956E398</generatorID>
-<ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
-<engineerTo>
-<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
-</engineerTo>
-<referedAttribute>E080266C-4589-4950-A65F-E2D2493477CE</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="DCA850ED-7B31-09FC-9863-A92CA76529A3" name="CONTA_POUPANCA PK">
 <createdBy>logonrmlocal</createdBy>
 <createdTime>2022-09-16 13:16:45 UTC</createdTime>
 <ownerDesignName>Banco_de_Dadosv5</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
+<item key="E241951C-814C-6879-9286-E3A783873337" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
@@ -127,6 +114,9 @@
 <item key="E241951C-814C-6879-9286-E3A783873337" value="true"/>
 </engineerTo>
 <newElementsIDs>4A126663-9F0C-5549-0201-C80776AC453C</newElementsIDs>
+<usedAttributes>
+<attributeRef>4A126663-9F0C-5549-0201-C80776AC453C</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>
