@@ -52,7 +52,7 @@ ALTER TABLE clientes ADD CONSTRAINT clientes_cpf_un UNIQUE ( cpf );
 ALTER TABLE clientes ADD CONSTRAINT clientes_cnpj_un UNIQUE ( cnpj );
 
 ALTER TABLE clientes
-    ADD CONSTRAINT fkarc_clientes CHECK ( ( ( cpf IS NOT NULL )
+    ADD CONSTRAINT arc_clientes CHECK ( ( ( cpf IS NOT NULL )
                                           AND ( cnpj IS NULL ) )
                                         OR ( ( cnpj IS NOT NULL )
                                              AND ( cpf IS NULL ) ) );
@@ -64,17 +64,18 @@ ALTER TABLE clientes
                                                 AND ( sobrenome IS NULL ) ) );
 
 CREATE TABLE conta_corrente (
-    id_conta_corente INTEGER NOT NULL,
-    numero           INTEGER NOT NULL,
-    saldo            NUMBER(38, 2) NOT NULL,
-    juros            NUMBER(5, 2) NOT NULL,
-    data_criacao     DATE NOT NULL,
-    id_cliente       INTEGER NOT NULL
+    id_conta_corrente INTEGER NOT NULL,
+    numero            INTEGER NOT NULL,
+    saldo             NUMBER(38, 2) NOT NULL,
+    juros             NUMBER(5, 2) NOT NULL,
+    data_criacao      DATE NOT NULL,
+    id_cliente        INTEGER NOT NULL,
+    chave_pix         VARCHAR2(38)
 );
 
-ALTER TABLE conta_corrente ADD CONSTRAINT conta_corrente_pk PRIMARY KEY ( id_conta_corente );
+ALTER TABLE conta_corrente ADD CONSTRAINT conta_corrente_pk PRIMARY KEY ( id_conta_corrente );
 
-ALTER TABLE conta_corrente ADD CONSTRAINT conta_corrente_num_uk UNIQUE ( numero );
+ALTER TABLE conta_corrente ADD CONSTRAINT conta_corrente_num_un UNIQUE ( numero );
 
 CREATE TABLE conta_poupanca (
     id_poupanca    INTEGER NOT NULL,
@@ -88,7 +89,23 @@ CREATE TABLE conta_poupanca (
 
 ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_pk PRIMARY KEY ( id_poupanca );
 
-ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_num_un UNIQUE ( numero );
+ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_numero_un UNIQUE ( numero );
+
+CREATE TABLE documento_conta (
+    id_documento        INTEGER NOT NULL,
+    numero              INTEGER NOT NULL,
+    id_cliente INTEGER NOT NULL,
+    id_poupanca         INTEGER,
+    id_conta_corrente    INTEGER
+);
+
+ALTER TABLE documento_conta
+    ADD CONSTRAINT fkarc_contas CHECK ( ( ( id_poupanca IS NOT NULL )
+                                          AND ( id_conta_corrente IS NULL ) )
+                                        OR ( ( id_conta_corrente IS NOT NULL )
+                                             AND ( id_poupanca IS NULL ) ) );
+
+ALTER TABLE documento_conta ADD CONSTRAINT documento_conta_pk PRIMARY KEY ( id_documento );
 
 CREATE TABLE emprestimos (
     id_emprestimo   INTEGER NOT NULL,
@@ -154,6 +171,18 @@ ALTER TABLE conta_corrente
 ALTER TABLE conta_poupanca
     ADD CONSTRAINT conta_poupanca_clientes_fk FOREIGN KEY ( id_cliente )
         REFERENCES clientes ( id_cliente );
+
+ALTER TABLE documento_conta
+    ADD CONSTRAINT documento_clientes_fk FOREIGN KEY ( clientes_id_cliente )
+        REFERENCES clientes ( id_cliente );
+
+ALTER TABLE documento_conta
+    ADD CONSTRAINT documento_conta_corrente_fk FOREIGN KEY ( id_conta_corente )
+        REFERENCES conta_corrente ( id_conta_corrente );
+
+ALTER TABLE documento_conta
+    ADD CONSTRAINT documento_poupanca_fk FOREIGN KEY ( id_poupanca )
+        REFERENCES conta_poupanca ( id_poupanca );
 
 ALTER TABLE emprestimos
     ADD CONSTRAINT emprestimos_clientes_fk FOREIGN KEY ( id_cliente )
