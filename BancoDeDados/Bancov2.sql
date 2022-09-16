@@ -56,6 +56,12 @@ ALTER TABLE clientes
                                           AND ( cnpj IS NULL ) )
                                         OR ( ( cnpj IS NOT NULL )
                                              AND ( cpf IS NULL ) ) );
+                                             
+ALTER TABLE clientes
+    ADD CONSTRAINT sobrenome_check CHECK ( ( ( cpf IS NOT NULL )
+                                             AND ( sobrenome IS NOT NULL ) )
+                                           OR ( ( cnpj IS NOT NULL )
+                                                AND ( sobrenome IS NULL ) ) );
 
 CREATE TABLE conta_corrente (
     id_conta_corente INTEGER NOT NULL,
