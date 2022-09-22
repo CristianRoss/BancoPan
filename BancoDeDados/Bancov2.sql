@@ -57,6 +57,7 @@ CREATE TABLE clientes (
     telefone        NUMBER(38) NOT NULL,
     email           VARCHAR2(38) NOT NULL,
     endereco        VARCHAR2(38) NOT NULL,
+    cep             VARCHAR2(9)  NOT NULL,
     data_nascimento DATE
 );
 
@@ -262,7 +263,21 @@ ALTER TABLE maquininha
 ALTER TABLE pix
     ADD CONSTRAINT pix_clientes_fk FOREIGN KEY ( id_cliente )
         REFERENCES clientes ( id_cliente );  
+        
+--Populando Clientes
      
+insert into clientes values (seq_clientes.nextval,'443.434.555-15',null,'Ricardo','Rodriges',1199146335,'ricaro@gmail.com','Rua Domingos Marino 1182','15810-090',TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'554.541.950-06',null,'Rodolfo','Dias',1180406528,'rodolfo@gmail.com','Rua Irmã Efigênia 255','04017-060',TO_DATE('1977/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'331.995.460-13',null,'João','Fernandez',1178809888,'joaofe@gmail.com','Rua José de La Morena 430','15061-753',,TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'009.028.500-08',null,'Maria','Gomes',1961783730,'magomes@gmail.com','Avenida Américo Brasiliense 661','13405-244',TO_DATE('1992/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'562.526.100-89',null,'Bob','Rogers',8486483629,'bobrogers@hotmail.com','Rua Abel Cabral 1265','59080-550',TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'522.718.820-36',null,'Joel','Genuino',4395552068,'joel@ig.com','Rua Guaíra 929','86188-520',TO_DATE('2000/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,null,'26.152.361/0001-47','Dia',null,1162783347,'dia@dia.com','Rua Bento Fernandes 1014','07160-050',null);
+insert into clientes values (seq_clientes.nextval,null,'01.344.082/0001-54','Adminitração LTA',null,6759949168,'admDourados@gmail.com','Rua José Ademar R. Perdomo 1084','79814-090',null);
+insert into clientes values (seq_clientes.nextval,null,'34.772.365/0001-56','Pão de Açucar',null,5599422771,'paodeacucar@gmail.com','Travessa Caroba 1766','98805-785',,null);
+insert into clientes values (seq_clientes.nextval,null,'63.823.510/0001-89','Razer',null,3875917026,'razer@hotmail.com','Rua Francisco Gonçalves Santos 1580','39401-430',null);
+
+COMMIT;
 
 
 
