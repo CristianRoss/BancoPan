@@ -268,7 +268,7 @@ ALTER TABLE pix
      
 insert into clientes values (seq_clientes.nextval,'443.434.555-15',null,'Ricardo','Rodriges',1199146335,'ricaro@gmail.com','Rua Domingos Marino 1182','15810-090',TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
 insert into clientes values (seq_clientes.nextval,'554.541.950-06',null,'Rodolfo','Dias',1180406528,'rodolfo@gmail.com','Rua Irmã Efigênia 255','04017-060',TO_DATE('1977/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into clientes values (seq_clientes.nextval,'331.995.460-13',null,'João','Fernandez',1178809888,'joaofe@gmail.com','Rua José de La Morena 430','15061-753',,TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'331.995.460-13',null,'João','Fernandez',1178809888,'joaofe@gmail.com','Rua José de La Morena 430','15061-753',TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
 insert into clientes values (seq_clientes.nextval,'009.028.500-08',null,'Maria','Gomes',1961783730,'magomes@gmail.com','Avenida Américo Brasiliense 661','13405-244',TO_DATE('1992/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
 insert into clientes values (seq_clientes.nextval,'562.526.100-89',null,'Bob','Rogers',8486483629,'bobrogers@hotmail.com','Rua Abel Cabral 1265','59080-550',TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
 insert into clientes values (seq_clientes.nextval,'522.718.820-36',null,'Joel','Genuino',4395552068,'joel@ig.com','Rua Guaíra 929','86188-520',TO_DATE('2000/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
