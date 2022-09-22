@@ -1,0 +1,10 @@
+drop table Clientes cascade constraints purge;
+drop table Cartao_debito cascade constraints purge;
+drop table Cartao_Credito cascade constraints purge;
+drop table Conta_Corrente cascade constraints purge;
+drop table Conta_Poupanca cascade constraints purge;
+drop table Documento_Conta cascade constraints purge;
+drop table Emprestimos cascade constraints purge;
+drop table Financiamentos cascade constraints purge;
+drop table Maquininha cascade constraints purge;
+drop table PIX cascade constraints purge;
