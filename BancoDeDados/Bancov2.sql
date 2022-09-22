@@ -24,6 +24,12 @@ ALTER TABLE cartao_credito ADD CONSTRAINT cartao_credito_pk PRIMARY KEY ( id_car
 
 ALTER TABLE cartao_credito ADD CONSTRAINT cartao_credito_num_un UNIQUE ( numero_credito );
 
+CREATE SEQUENCE seq_cartao_crediito
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
 CREATE TABLE cartao_debito (
     id_cartao_debito INTEGER NOT NULL,
     numero           INTEGER NOT NULL,
@@ -31,9 +37,16 @@ CREATE TABLE cartao_debito (
     id_cliente       INTEGER NOT NULL
 );
 
+
 ALTER TABLE cartao_debito ADD CONSTRAINT cartao_debito_pk PRIMARY KEY ( id_cartao_debito );
 
 ALTER TABLE cartao_debito ADD CONSTRAINT cartao_debito_num_un UNIQUE ( numero );
+
+CREATE SEQUENCE seq_cartao_debito
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
 
 CREATE TABLE clientes (
     id_cliente      INTEGER NOT NULL,
@@ -64,6 +77,12 @@ ALTER TABLE clientes
                                              AND ( sobrenome IS NOT NULL ) )
                                            OR ( ( cnpj IS NOT NULL )
                                                 AND ( sobrenome IS NULL ) ) );
+                                                
+CREATE SEQUENCE seq_clientes
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
 
 CREATE TABLE conta_corrente (
     id_conta_corrente INTEGER NOT NULL,
@@ -79,6 +98,12 @@ ALTER TABLE conta_corrente ADD CONSTRAINT conta_corrente_pk PRIMARY KEY ( id_con
 
 ALTER TABLE conta_corrente ADD CONSTRAINT conta_corrente_num_un UNIQUE ( numero );
 
+CREATE SEQUENCE seq_conta_corrente
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
 CREATE TABLE conta_poupanca (
     id_poupanca    INTEGER NOT NULL,
     numero         INTEGER NOT NULL,
@@ -92,6 +117,12 @@ CREATE TABLE conta_poupanca (
 ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_pk PRIMARY KEY ( id_poupanca );
 
 ALTER TABLE conta_poupanca ADD CONSTRAINT conta_poupanca_numero_un UNIQUE ( numero );
+
+CREATE SEQUENCE seq_conta_poupanca
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
 
 CREATE TABLE documento_conta (
     id_documento     INTEGER NOT NULL,
@@ -109,6 +140,12 @@ ALTER TABLE documento_conta
 
 ALTER TABLE documento_conta ADD CONSTRAINT documento_conta_pk PRIMARY KEY ( id_documento );
 
+CREATE SEQUENCE seq_documento_conta
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
 CREATE TABLE emprestimos (
     id_emprestimo   INTEGER NOT NULL,
     valor           NUMBER(38, 2) NOT NULL,
@@ -120,6 +157,12 @@ CREATE TABLE emprestimos (
 );
 
 ALTER TABLE emprestimos ADD CONSTRAINT emprestimos_pk PRIMARY KEY ( id_emprestimo );
+
+CREATE SEQUENCE seq_emprestimos
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
 
 CREATE TABLE financiamentos (
     id_financiamento INTEGER NOT NULL,
@@ -135,6 +178,12 @@ CREATE TABLE financiamentos (
 
 ALTER TABLE financiamentos ADD CONSTRAINT financiamentos_pk PRIMARY KEY ( id_financiamento );
 
+CREATE SEQUENCE seq_financiamento
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
 CREATE TABLE maquininha (
     id_maquininha  INTEGER NOT NULL,
     taxas          NUMBER(38, 2) NOT NULL,
@@ -144,6 +193,12 @@ CREATE TABLE maquininha (
 );
 
 ALTER TABLE maquininha ADD CONSTRAINT maquininha_pk PRIMARY KEY ( id_maquininha );
+
+CREATE SEQUENCE seq_maquininha
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
 
 CREATE TABLE pix (
     id_pix         INTEGER NOT NULL,
@@ -155,6 +210,12 @@ CREATE TABLE pix (
     limite_horario DATE,
     id_cliente     INTEGER NOT NULL
 );
+
+CREATE SEQUENCE seq_pix
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
 
 ALTER TABLE pix ADD CONSTRAINT pix_pk PRIMARY KEY ( id_pix );
 
@@ -201,6 +262,7 @@ ALTER TABLE maquininha
 ALTER TABLE pix
     ADD CONSTRAINT pix_clientes_fk FOREIGN KEY ( id_cliente )
         REFERENCES clientes ( id_cliente );  
+     
 
 
 
