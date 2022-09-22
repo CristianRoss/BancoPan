@@ -50,7 +50,7 @@ CACHE 10;
 
 CREATE TABLE clientes (
     id_cliente      INTEGER NOT NULL,
-    cpf             VARCHAR2(15),
+    cpf             VARCHAR2(14),
     cnpj            VARCHAR2(20),
     nome            VARCHAR2(38) NOT NULL,
     sobrenome       VARCHAR2(38),
