@@ -41,6 +41,7 @@ CREATE TABLE clientes (
     cnpj            VARCHAR2(20),
     nome            VARCHAR2(38) NOT NULL,
     sobrenome       VARCHAR2(38),
+    telefone        NUMBER(38) NOT NULL,
     email           VARCHAR2(38) NOT NULL,
     endereco        VARCHAR2(38) NOT NULL,
     data_nascimento DATE
