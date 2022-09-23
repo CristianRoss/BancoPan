@@ -276,33 +276,72 @@ insert into clientes values (seq_clientes.nextval,null,'26.152.361/0001-47','Dia
 insert into clientes values (seq_clientes.nextval,null,'01.344.082/0001-54','Adminitração LTA',null,6759949168,'admDourados@gmail.com','Rua José Ademar R. Perdomo 1084','79814-090',null);
 insert into clientes values (seq_clientes.nextval,null,'34.772.365/0001-56','Pão de Açucar',null,5599422771,'paodeacucar@gmail.com','Travessa Caroba 1766','98805-785',null);
 insert into clientes values (seq_clientes.nextval,null,'63.823.510/0001-89','Razer',null,3875917026,'razer@hotmail.com','Rua Francisco Gonçalves Santos 1580','39401-430',null);
+insert into clientes values (seq_clientes.nextval,'372.091.150-05',null,'Donal','H. Rich',3103026774,'DonaldHRich@teleworm.us','3122 Libby Street','90291',TO_DATE('1973/09/24 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'537.924.930-20',null,'Mateus','Oliveira Lima',1163696465,'MateusOliveiraLima@dayrep.com','Estrada da Alpina 351','06278-020',TO_DATE('1974/07/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'207.206.570-40',null,'Murilo ','Cunha Barbosa',1239358114,'MuriloCunhaBarbosa@dayrep.com','Rua Vinte e Oito de Setembro 833','12282-270',TO_DATE('1978/05/22 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'617.227.140-77',null,'Guilherme','Rodrigues Cardoso',2133858881,'GuilhermeRodriguesCardoso@rhyta.com','Rua Sete 496','24738-522',TO_DATE('1967/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+insert into clientes values (seq_clientes.nextval,'122.681.360-78',null,'Mariana','Almeida Goncalves',8549209837,'MarianaAlmeidaGoncalves@armyspy.com','Vila Neza 1405','60540-281',TO_DATE('1991/12/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
 
 --Populando Conta_Conrrente
 
-insert into Conta_Corrente values (seq_conta_corrente.nextval,52245692,1300.00,0.05,sysdate,2,'ricaro@gmail.com');
-insert into Conta_Corrente values (seq_conta_corrente.nextval,49138857,1300.00,0.05,TO_DATE('2022/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),3,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,84251919,5909.90,0.05,TO_DATE('2020/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),4,'bobrogers@hotmail.com');
-insert into Conta_Corrente values (seq_conta_corrente.nextval,87307954,1300.00,0.05,sysdate,5,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,69603459,8990.90,0.05,TO_DATE('2021/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),6,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,82637708,1477.00,0.05,TO_DATE('2018/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),7,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,24150589,9756.00,0.05,TO_DATE('2019/07/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),8,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,79803778,12128.00,0.05,TO_DATE('2017/06/06 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),9,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,15007619,1545.55,0.05,TO_DATE('2016/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),10,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,74728804,13789.99,0.05,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),11,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,52245692,1300.00,0.05,sysdate,1,'ricaro@gmail.com');
+insert into Conta_Corrente values (seq_conta_corrente.nextval,49138857,1300.00,0.05,TO_DATE('2022/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,84251919,5909.90,0.05,TO_DATE('2020/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),3,'bobrogers@hotmail.com');
+insert into Conta_Corrente values (seq_conta_corrente.nextval,87307954,1300.00,0.05,sysdate,4,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,69603459,8990.90,0.05,TO_DATE('2021/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),5,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,82637708,1477.00,0.05,TO_DATE('2018/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),6,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,24150589,9756.00,0.05,TO_DATE('2019/07/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),7,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,79803778,12128.00,0.05,TO_DATE('2017/06/06 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),8,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,15007619,1545.55,0.05,TO_DATE('2016/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),9,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,74728804,13789.99,0.05,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),10,null);
 
 -- Populando Conta_Poupanca
 
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/11/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,61216444,177.56,0.01,TO_DATE('2010/11/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2020/11/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),3);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,32029779,3232.56,0.01,TO_DATE('2019/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),4);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,53655095,6783.56,0.01,TO_DATE('2022/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),5);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
-insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,36082159,1232.56,0.01,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/11/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),1);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,61216444,177.56,0.01,TO_DATE('2010/11/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2020/11/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,32029779,3232.56,0.01,TO_DATE('2019/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),3);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,53655095,6783.56,0.01,TO_DATE('2022/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),4);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,44336697,1232.56,0.01,TO_DATE('2017/01/04 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2017/02/04 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),5);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,23820100,87522.56,0.01,TO_DATE('2017/05/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2017/05/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),6);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,94314595,31243.96,0.01,TO_DATE('2018/08/29 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2018/08/29 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),7);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,62807303,57554.86,0.01,TO_DATE('2019/04/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2019/04/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),8);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,45755749,8167.45,0.01,TO_DATE('2022/02/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/02/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),9);
+insert into Conta_Poupanca values (seq_conta_poupanca.nextval,79153443,30423.32,0.01,TO_DATE('2016/04/28 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2016/04/28 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),10);
 
+-- Populando Documento_Conta
+
+insert into Documento_Conta values (seq_documento_conta,52623,1,null,1);
+insert into Documento_Conta values (seq_documento_conta,27715,2,null,2);
+insert into Documento_Conta values (seq_documento_conta,26158,3,null,3);
+insert into Documento_Conta values (seq_documento_conta,17450,4,null,4);
+insert into Documento_Conta values (seq_documento_conta,52062,5,null,5);
+insert into Documento_Conta values (seq_documento_conta,30171,6,null,6);
+insert into Documento_Conta values (seq_documento_conta,18967,7,null,7);
+insert into Documento_Conta values (seq_documento_conta,12503,8,null,8);
+insert into Documento_Conta values (seq_documento_conta,14109,9,null,9);
+insert into Documento_Conta values (seq_documento_conta,88967,10,null,10);
+insert into Documento_Conta values (seq_documento_conta,77106,1,1,null);
+insert into Documento_Conta values (seq_documento_conta,69464,2,2,null);
+insert into Documento_Conta values (seq_documento_conta,94727,3,3,null);
+insert into Documento_Conta values (seq_documento_conta,75205,4,4,null);
+insert into Documento_Conta values (seq_documento_conta,46380,5,5,null);
+insert into Documento_Conta values (seq_documento_conta,63408,6,6,null);
+insert into Documento_Conta values (seq_documento_conta,40100,7,7,null);
+insert into Documento_Conta values (seq_documento_conta,43918,8,8,null);
+insert into Documento_Conta values (seq_documento_conta,48442,9,9,null);
+insert into Documento_Conta values (seq_documento_conta,21965,10,10,null);
+insert into Documento_Conta values (seq_documento_conta,52623,11,1,null);
+insert into Documento_Conta values (seq_documento_conta,27715,12,2,null);
+insert into Documento_Conta values (seq_documento_conta,26158,13,3,null);
+insert into Documento_Conta values (seq_documento_conta,17450,14,4,null);
+insert into Documento_Conta values (seq_documento_conta,52062,15,5,null);
+insert into Documento_Conta values (seq_documento_conta,77106,11,null,1);
+insert into Documento_Conta values (seq_documento_conta,69464,12,null,2);
+insert into Documento_Conta values (seq_documento_conta,94727,13,null,3);
+insert into Documento_Conta values (seq_documento_conta,75205,14,null,4);
+insert into Documento_Conta values (seq_documento_conta,46380,15,null,5);
+
+--Populando Emprestimos
 
 COMMIT;
 
