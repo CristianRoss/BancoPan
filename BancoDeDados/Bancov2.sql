@@ -344,6 +344,21 @@ insert into Documento_Conta values (seq_documento_conta.nextval,46380,15,null,5)
 
 --Populando Emprestimos
 
+insert into emprestimos values(seq_emprestimos.nextval, 81757, 0.15, 20, TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2019/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),1);
+insert into emprestimos values(seq_emprestimos.nextval, 22650, 0.2, 25, TO_DATE('2017/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2017/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2);
+insert into emprestimos values(seq_emprestimos.nextval, 48610, 0.25, 27, TO_DATE('2018/06/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2018/07/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),4);
+insert into emprestimos values(seq_emprestimos.nextval, 60915, 0.15, 10, TO_DATE('2015/04/01 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2015/05/01 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),5);
+insert into emprestimos values(seq_emprestimos.nextval, 24929, 0.2, 5, TO_DATE('2020/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2021/01/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),7);
+insert into emprestimos values(seq_emprestimos.nextval, 14818, 0.17, 11, TO_DATE('2019/03/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2019/04/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),10);
+insert into emprestimos values(seq_emprestimos.nextval, 78329, 0.19, 22, TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2019/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),11);
+insert into emprestimos values(seq_emprestimos.nextval, 998, 0.14, 37, TO_DATE('2017/10/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2017/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),1);
+insert into emprestimos values(seq_emprestimos.nextval, 19875, 0.11, 42, TO_DATE('2015/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2015/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),4);
+insert into emprestimos values(seq_emprestimos.nextval, 77896, 0.16, 15, TO_DATE('2016/08/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), TO_DATE('2016/09/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),5);
+
+--Populando Financiamentos
+
+insert into financiamentos values(seq_financiamento.nextval)
+
 COMMIT;
 
 
