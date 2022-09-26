@@ -25,6 +25,8 @@ ALTER TABLE cartao_credito ADD CONSTRAINT cartao_credito_pk PRIMARY KEY ( id_car
 
 ALTER TABLE cartao_credito ADD CONSTRAINT cartao_credito_num_un UNIQUE ( numero_credito );
 
+ALTER TABLE cartao_credito ADD CONSTRAINT ccartao_credito_limite_check check ( fatura < limite_credito );
+
 CREATE SEQUENCE seq_cartao_credito
 MINVALUE 1
 START WITH 1
@@ -42,6 +44,7 @@ CREATE TABLE cartao_debito (
 ALTER TABLE cartao_debito ADD CONSTRAINT cartao_debito_pk PRIMARY KEY ( id_cartao_debito );
 
 ALTER TABLE cartao_debito ADD CONSTRAINT cartao_debito_num_un UNIQUE ( numero );
+
 
 CREATE SEQUENCE seq_cartao_debito
 MINVALUE 1
