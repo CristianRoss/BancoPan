@@ -13,6 +13,7 @@
 CREATE TABLE cartao_credito (
     id_cartao_credito INTEGER NOT NULL,
     numero_credito    INTEGER NOT NULL,
+    cvv               NUMBER(3,0) NOT NULL,
     fatura            NUMBER(38, 2) NOT NULL,
     data_vencimento   DATE NOT NULL,
     juros_credito     NUMBER(5, 2) NOT NULL,
@@ -380,6 +381,19 @@ insert into Cartao_Debito values(seq_cartao_debito.nextval, 731213, 0, 7);
 insert into Cartao_Debito values(seq_cartao_debito.nextval, 239028, 4550, 8);
 insert into Cartao_Debito values(seq_cartao_debito.nextval, 113782, 0, 9);
 insert into Cartao_Debito values(seq_cartao_debito.nextval, 475835, 9900, 10);
+
+-- Populando Cartao_Credito
+
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 663941, 123, 5022, TO_DATE('2022/10/03', 'yyyy/mm/dd'),0.23,0,1);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 205818, 322, 3905, TO_DATE('2022/10/07', 'yyyy/mm/dd'),0.22,0,2);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 888290, 463, 1569, TO_DATE('2022/10/08', 'yyyy/mm/dd'),0.20,1600,3);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 984681, 159, 8374, TO_DATE('2022/10/13', 'yyyy/mm/dd'),0.13,0,4);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 420910, 157, 5652, TO_DATE('2022/10/23', 'yyyy/mm/dd'),0.33,9999,5);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 198254, 739, 3948, TO_DATE('2022/10/13', 'yyyy/mm/dd'),0.40,7800,6);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 788792, 269, 349, TO_DATE('2022/10/15', 'yyyy/mm/dd'),0.32,15000,7);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 594243, 433, 4785, TO_DATE('2022/10/04', 'yyyy/mm/dd'),0.56,30000,8);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 825963, 105, 3429, TO_DATE('2022/10/08', 'yyyy/mm/dd'),0.15,100000,9);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 825965, 115, 34366, TO_DATE('2022/10/09', 'yyyy/mm/dd'),0.15,120000,10);
 
 COMMIT;
 
