@@ -53,10 +53,10 @@ CREATE TABLE clientes (
     cpf             VARCHAR2(14),
     cnpj            VARCHAR2(20),
     nome            VARCHAR2(38) NOT NULL,
-    sobrenome       VARCHAR2(38),
+    sobrenome       VARCHAR2(100),
     telefone        NUMBER(38) NOT NULL,
     email           VARCHAR2(38) NOT NULL,
-    endereco        VARCHAR2(38) NOT NULL,
+    endereco        VARCHAR2(100) NOT NULL,
     cep             VARCHAR2(9)  NOT NULL,
     data_nascimento DATE
 );
@@ -367,6 +367,19 @@ insert into financiamentos values(seq_financiamento.nextval, 32626, 7226, 50, 0.
 insert into financiamentos values(seq_financiamento.nextval, 7586, 9899, 40, 0.09, 468, TO_DATE('2015/11/15', 'yyyy/mm/dd'),TO_DATE('2028/12/31', 'yyyy/mm/dd'),9);
 insert into financiamentos values(seq_financiamento.nextval, 61959, 7896, 57, 0.70, 9728, TO_DATE('2019/12/31', 'yyyy/mm/dd'),TO_DATE('2025/11/30', 'yyyy/mm/dd'),10);
 insert into financiamentos values(seq_financiamento.nextval, 8210, 5958, 51, 0.56, 4607, TO_DATE('2018/10/03', 'yyyy/mm/dd'),TO_DATE('2024/10/30', 'yyyy/mm/dd'),11);
+
+--Populando Cartao de Debito
+
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 248199, 0, 1);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 903538, 0, 2);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 699293, 3500, 3);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 506755, 2000, 4);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 831486, 1500, 5);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 237614, 0, 6);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 731213, 0, 7);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 239028, 4550, 8);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 113782, 0, 9);
+insert into Cartao_Debito values(seq_cartao_debito.nextval, 475835, 9900, 10);
 
 COMMIT;
 
