@@ -360,13 +360,13 @@ insert into emprestimos values(seq_emprestimos.nextval, 77896, 0.16, 15, TO_DATE
 insert into financiamentos values(seq_financiamento.nextval, 8585, 1400, 27, 0.27, 3000, TO_DATE('2019/10/31', 'yyyy/mm/dd'),TO_DATE('2021/10/31', 'yyyy/mm/dd'),1);
 insert into financiamentos values(seq_financiamento.nextval, 37829, 1700, 32, 0.20, 0, TO_DATE('2019/11/30', 'yyyy/mm/dd'),TO_DATE('2022/10/31', 'yyyy/mm/dd'),2);
 insert into financiamentos values(seq_financiamento.nextval, 51466, 3900, 20, 0.15, 3500, TO_DATE('2016/05/31', 'yyyy/mm/dd'),TO_DATE('2021/10/31', 'yyyy/mm/dd'),3);
-insert into financiamentos values(seq_financiamento.nextval, 78893, 1700, 15, 0.30, 7000, TO_DATE('2014/07/30', 'yyyy/mm/dd'),TO_DATE('2018/10/31', 'yyyy/mm/dd'),1);
-insert into financiamentos values(seq_financiamento.nextval, 13749, 3558, 82, 0.07, 8871, TO_DATE('2018/06/15', 'yyyy/mm/dd'),TO_DATE('2021/10/31', 'yyyy/mm/dd'),1);
-insert into financiamentos values(seq_financiamento.nextval, 44540, 6841, 18, 0.20, 2239, TO_DATE('2017/04/16', 'yyyy/mm/dd'),TO_DATE('2022/11/30', 'yyyy/mm/dd'),1);
-insert into financiamentos values(seq_financiamento.nextval, 32626, 7226, 50, 0.99, 165, TO_DATE('2016/08/29', 'yyyy/mm/dd'),TO_DATE('2024/10/31', 'yyyy/mm/dd'),1);
-insert into financiamentos values(seq_financiamento.nextval, 7586, 9899, 40, 0.09, 468, TO_DATE('2015/11/15', 'yyyy/mm/dd'),TO_DATE('2028/12/31', 'yyyy/mm/dd'),1);
-insert into financiamentos values(seq_financiamento.nextval, 61959, 7896, 57, 0.70, 9728, TO_DATE('2019/12/31', 'yyyy/mm/dd'),TO_DATE('2025/11/30', 'yyyy/mm/dd'),1);
-insert into financiamentos values(seq_financiamento.nextval, 8210, 5958, 51, 0.56, 4607, TO_DATE('2018/10/03', 'yyyy/mm/dd'),TO_DATE('2024/10/30', 'yyyy/mm/dd'),1);
+insert into financiamentos values(seq_financiamento.nextval, 78893, 1700, 15, 0.30, 7000, TO_DATE('2014/07/30', 'yyyy/mm/dd'),TO_DATE('2018/10/31', 'yyyy/mm/dd'),4);
+insert into financiamentos values(seq_financiamento.nextval, 13749, 3558, 82, 0.07, 8871, TO_DATE('2018/06/15', 'yyyy/mm/dd'),TO_DATE('2021/10/31', 'yyyy/mm/dd'),3);
+insert into financiamentos values(seq_financiamento.nextval, 44540, 6841, 18, 0.20, 2239, TO_DATE('2017/04/16', 'yyyy/mm/dd'),TO_DATE('2022/11/30', 'yyyy/mm/dd'),2);
+insert into financiamentos values(seq_financiamento.nextval, 32626, 7226, 50, 0.99, 165, TO_DATE('2016/08/29', 'yyyy/mm/dd'),TO_DATE('2024/10/31', 'yyyy/mm/dd'),7);
+insert into financiamentos values(seq_financiamento.nextval, 7586, 9899, 40, 0.09, 468, TO_DATE('2015/11/15', 'yyyy/mm/dd'),TO_DATE('2028/12/31', 'yyyy/mm/dd'),9);
+insert into financiamentos values(seq_financiamento.nextval, 61959, 7896, 57, 0.70, 9728, TO_DATE('2019/12/31', 'yyyy/mm/dd'),TO_DATE('2025/11/30', 'yyyy/mm/dd'),10);
+insert into financiamentos values(seq_financiamento.nextval, 8210, 5958, 51, 0.56, 4607, TO_DATE('2018/10/03', 'yyyy/mm/dd'),TO_DATE('2024/10/30', 'yyyy/mm/dd'),11);
 
 COMMIT;
 
