@@ -211,7 +211,7 @@ CREATE TABLE pix (
     chave_destino  VARCHAR2(38) NOT NULL,
     valor          NUMBER(38, 2) NOT NULL,
     data           DATE NOT NULL,
-    limite_valor   NUMBER(38, 2),
+    limite_valor   NUMBER(38, 2) NOT NULL,
     limite_horario DATE,
     id_cliente     INTEGER NOT NULL
 );
@@ -289,15 +289,15 @@ insert into clientes values (seq_clientes.nextval,'122.681.360-78',null,'Mariana
 --Populando Conta_Conrrente
 
 insert into Conta_Corrente values (seq_conta_corrente.nextval,52245692,1300.00,0.05,sysdate,1,'ricaro@gmail.com');
-insert into Conta_Corrente values (seq_conta_corrente.nextval,49138857,1300.00,0.05,TO_DATE('2022/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,49138857,1300.00,0.05,TO_DATE('2022/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),2,'554.541.950-06');
 insert into Conta_Corrente values (seq_conta_corrente.nextval,84251919,5909.90,0.05,TO_DATE('2020/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),3,'bobrogers@hotmail.com');
-insert into Conta_Corrente values (seq_conta_corrente.nextval,87307954,1300.00,0.05,sysdate,4,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,87307954,1300.00,0.05,sysdate,4,'magomes@gmail.com');
 insert into Conta_Corrente values (seq_conta_corrente.nextval,69603459,8990.90,0.05,TO_DATE('2021/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),5,null);
 insert into Conta_Corrente values (seq_conta_corrente.nextval,82637708,1477.00,0.05,TO_DATE('2018/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),6,null);
 insert into Conta_Corrente values (seq_conta_corrente.nextval,24150589,9756.00,0.05,TO_DATE('2019/07/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),7,null);
 insert into Conta_Corrente values (seq_conta_corrente.nextval,79803778,12128.00,0.05,TO_DATE('2017/06/06 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),8,null);
 insert into Conta_Corrente values (seq_conta_corrente.nextval,15007619,1545.55,0.05,TO_DATE('2016/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),9,null);
-insert into Conta_Corrente values (seq_conta_corrente.nextval,74728804,13789.99,0.05,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),10,null);
+insert into Conta_Corrente values (seq_conta_corrente.nextval,74728804,13789.99,0.05,TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),10,'razer@hotmail.com');
 
 -- Populando Conta_Poupanca
 
@@ -397,6 +397,32 @@ insert into Cartao_Credito values (seq_cartao_credito.nextval, 788792, 269, 349,
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 594243, 433, 4785, TO_DATE('2022/10/04', 'yyyy/mm/dd'),0.56,30000,8);
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 825963, 105, 3429, TO_DATE('2022/10/08', 'yyyy/mm/dd'),0.15,100000,9);
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 825965, 115, 34366, TO_DATE('2022/10/09', 'yyyy/mm/dd'),0.15,120000,10);
+
+--Populando PIX
+
+insert into PIX values (seq_pix.nextval, 'magomes@gmail.com', '695.169.910-09', 8955, TO_DATE('2022/09/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 0, null, 4);
+insert into PIX values (seq_pix.nextval, 'ricaro@gmail.com', '327.632.620-58', 6844, TO_DATE('2021/10/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 0, null, 1);
+insert into PIX values (seq_pix.nextval, '554.541.950-06', '758.636.350-10', 810, TO_DATE('2020/05/14 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 3500, null, 4);
+insert into PIX values (seq_pix.nextval, 'bobrogers@hotmail.com', '361.579.100-20', 301, TO_DATE('2022/04/27 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 1000, null, 3);
+insert into PIX values (seq_pix.nextval, 'razer@hotmail.com', '465.808.060-52', 1269, TO_DATE('2021/02/22 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 0, null, 10);
+insert into PIX values (seq_pix.nextval, 'magomes@gmail.com', '045.339.420-59', 3576, TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 0, null, 4);
+insert into PIX values (seq_pix.nextval, 'ricaro@gmail.com', '185.638.210-91', 3592, TO_DATE('2022/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 0, null, 1);
+insert into PIX values (seq_pix.nextval, '554.541.950-06', '482.618.090-05', 2935, TO_DATE('2021/12/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 3500, null, 4);
+insert into PIX values (seq_pix.nextval, 'bobrogers@hotmail.com', '557.096.190-94', 152, TO_DATE('2020/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 1000, null, 3);
+insert into PIX values (seq_pix.nextval, 'razer@hotmail.com', '770.155.240-58', 4830, TO_DATE('2022/07/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'), 0, null, 10);
+
+-- Populando Maquininha
+
+insert into maquininha values (seq_maquininha.nextval, 0.13, 566236,812,1);
+insert into maquininha values (seq_maquininha.nextval, 0.12, 277833,897,2);
+insert into maquininha values (seq_maquininha.nextval, 0.10, 827832,210,3);
+insert into maquininha values (seq_maquininha.nextval, 0.09, 923461,419,4);
+insert into maquininha values (seq_maquininha.nextval, 0.13, 379349,957,5);
+insert into maquininha values (seq_maquininha.nextval, 0.12, 78307,845,6);
+insert into maquininha values (seq_maquininha.nextval, 0.11, 586877,593,7);
+insert into maquininha values (seq_maquininha.nextval, 0.10, 315135,232,8);
+insert into maquininha values (seq_maquininha.nextval, 0.13, 667023,755,9);
+insert into maquininha values (seq_maquininha.nextval, 0.14, 666687,643,10);
 
 COMMIT;
 
