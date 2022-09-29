@@ -387,10 +387,10 @@ insert into Cartao_Debito values(seq_cartao_debito.nextval, 475835, 9900, 10);
 
 -- Populando Cartao_Credito
 
-insert into Cartao_Credito values (seq_cartao_credito.nextval, 663941, 123, 5022, TO_DATE('2022/10/03', 'yyyy/mm/dd'),0.23,0,1);
-insert into Cartao_Credito values (seq_cartao_credito.nextval, 205818, 322, 3905, TO_DATE('2022/10/07', 'yyyy/mm/dd'),0.22,0,2);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 663941, 123, 5022, TO_DATE('2022/10/03', 'yyyy/mm/dd'),0.23,120000,1);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 205818, 322, 3905, TO_DATE('2022/10/07', 'yyyy/mm/dd'),0.22,120000,2);
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 888290, 463, 1569, TO_DATE('2022/10/08', 'yyyy/mm/dd'),0.20,1600,3);
-insert into Cartao_Credito values (seq_cartao_credito.nextval, 984681, 159, 8374, TO_DATE('2022/10/13', 'yyyy/mm/dd'),0.13,0,4);
+insert into Cartao_Credito values (seq_cartao_credito.nextval, 984681, 159, 8374, TO_DATE('2022/10/13', 'yyyy/mm/dd'),0.13,120000,4);
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 420910, 157, 5652, TO_DATE('2022/10/23', 'yyyy/mm/dd'),0.33,9999,5);
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 198254, 739, 3948, TO_DATE('2022/10/13', 'yyyy/mm/dd'),0.40,7800,6);
 insert into Cartao_Credito values (seq_cartao_credito.nextval, 788792, 269, 349, TO_DATE('2022/10/15', 'yyyy/mm/dd'),0.32,15000,7);
