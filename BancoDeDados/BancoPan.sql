@@ -1,13 +1,10 @@
--- Gerado por Oracle SQL Developer Data Modeler 22.2.0.165.1149
---   em:        2022-09-14 14:17:30 BRT
---   site:      Oracle Database 11g
---   tipo:      Oracle Database 11g
+-- Integrantes:
+-- RM: 87896 - Cristian Dias Rossmann Martinelli
+-- RM: 88865 - Diogo Osório França
+-- RM: 89291 - Fábio Fernando Sousa
+-- RM: 89355 - WENDEL EDUARDO MENDES GENUINO
+-- RM: 86549 - Pedro Henrique Pacheco Faria
 
-
-
--- predefined type, no DDL - MDSYS.SDO_GEOMETRY
-
--- predefined type, no DDL - XMLTYPE
 
 CREATE TABLE cartao_de_credito (
     id_cartao_credito INTEGER NOT NULL,
@@ -260,65 +257,643 @@ ALTER TABLE poupanca
         
 -- Populando Conta Fisica
 
-insert into conta_corrente_fisica values (1,1,'443.434.555-15','Rodriges',1300.00,'Masculino',sysdate);
-insert into conta_corrente_fisica values (2,2,'554.541.950-06','Dias',1300.00,'Masculino',TO_DATE('2020/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (3,3,'331.995.460-13','Fernandez',1300.00,'Masculino', TO_DATE('2021/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (4,4,'009.028.500-08','Gomes',1300.00,'Feminino',TO_DATE('2022/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (5,5,'562.526.100-89','Rogers',1300.00,'Masculino',TO_DATE('2021/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (6,6,'522.718.820-36','Genuino',1300.00,'Masculino',TO_DATE('2020/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (7,7,'372.091.150-05','H. Rich',1300.00,'Masculino',TO_DATE('2021/09/24 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (8,8,'537.924.930-20','Oliveira Lima',1300.00,'Masculino',TO_DATE('2019/07/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (9,9,'207.206.570-40','Cunha Barbosa',1300.00,'Masculino',TO_DATE('2018/05/22 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_fisica values (10,10,'617.227.140-77','Rodrigues Cardoso',1300.00,'Masculino',TO_DATE('2017/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO conta_corrente_fisica VALUES (
+    1,
+    1,
+    '443.434.555-15',
+    'Rodriges',
+    1300.00,
+    'Masculino',
+    sysdate
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    2,
+    2,
+    '554.541.950-06',
+    'Dias',
+    300.00,
+    'Masculino',
+    TO_DATE('2020/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    3,
+    3,
+    '331.995.460-13',
+    'Fernandez',
+    4300.00,
+    'Masculino',
+    TO_DATE('2021/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    4,
+    4,
+    '009.028.500-08',
+    'Gomes',
+    7800.00,
+    'Feminino',
+    TO_DATE('2022/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    5,
+    5,
+    '562.526.100-89',
+    'Rogers',
+    900.00,
+    'Masculino',
+    TO_DATE('2021/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    6,
+    6,
+    '522.718.820-36',
+    'Genuino',
+    3200.00,
+    'Masculino',
+    TO_DATE('2020/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    7,
+    7,
+    '372.091.150-05',
+    'H. Rich',
+    5600.00,
+    'Masculino',
+    TO_DATE('2021/09/24 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    8,
+    8,
+    '537.924.930-20',
+    'Oliveira Lima',
+    6600.00,
+    'Masculino',
+    TO_DATE('2019/07/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    9,
+    9,
+    '207.206.570-40',
+    'Cunha Barbosa',
+    6606.00,
+    'Masculino',
+    TO_DATE('2018/05/22 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_fisica VALUES (
+    10,
+    10,
+    '617.227.140-77',
+    'Rodrigues Cardoso',
+    1500.00,
+    'Masculino',
+    TO_DATE('2017/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
 
 -- Populando Conta Juridica
 
-insert into conta_corrente_juridica values (11,1,'26.152.361/0001-47',82615,TO_DATE('2022/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (12,2,'01.344.082/0001-54',264805,TO_DATE('2021/05/24 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (13,3,'34.772.365/0001-56',8180614,TO_DATE('2020/06/27 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (14,4,'63.823.510/0001-89',78398,TO_DATE('2019/07/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (15,5,'78.467.557/0001-24',70045,TO_DATE('2019/07/05 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (16,6,'45.639.521/0001-21',615788,TO_DATE('2020/10/07 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (17,7,'22.297.758/0001-76',345715,TO_DATE('2021/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (18,8,'32.801.052/0001-53',54011,TO_DATE('2020/12/27 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (19,9,'36.243.893/0001-43',53743,TO_DATE('2022/01/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
-insert into conta_corrente_juridica values (20,10,'37.573.315/0001-38',7347,TO_DATE('2021/08/12 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));
+INSERT INTO conta_corrente_juridica VALUES (
+    11,
+    11,
+    '26.152.361/0001-47',
+    82615,
+    TO_DATE('2022/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    12,
+    12,
+    '01.344.082/0001-54',
+    264805,
+    TO_DATE('2021/05/24 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    13,
+    13,
+    '34.772.365/0001-56',
+    8180614,
+    TO_DATE('2020/06/27 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    14,
+    14,
+    '63.823.510/0001-89',
+    78398,
+    TO_DATE('2019/07/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    15,
+    15,
+    '78.467.557/0001-24',
+    70045,
+    TO_DATE('2019/07/05 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    16,
+    16,
+    '45.639.521/0001-21',
+    615788,
+    TO_DATE('2020/10/07 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    17,
+    17,
+    '22.297.758/0001-76',
+    345715,
+    TO_DATE('2021/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    18,
+    18,
+    '32.801.052/0001-53',
+    54011,
+    TO_DATE('2020/12/27 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    19,
+    19,
+    '36.243.893/0001-43',
+    53743,
+    TO_DATE('2022/01/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
+
+INSERT INTO conta_corrente_juridica VALUES (
+    20,
+    20,
+    '37.573.315/0001-38',
+    7347,
+    TO_DATE('2021/08/12 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
+);
 
 -- Populando Cliente
 
-insert into cliente values (1,'Ricardo',1199146335,'ricaro@gmail.com','Rua Domingos Marino 1182',1,null,895466,1);
-insert into cliente values (2,'Rodolfo',1180406528,'rodolfo@gmail.com','Rua Irmã Efigênia 255',2,null,895467,1);
-insert into cliente values (3,'João',1178809888,'joaofe@gmail.com','Rua José de La Morena 430',3,null,895468,1);
-insert into cliente values (4,'Maria',1961783730,'magomes@gmail.com','Avenida Américo Brasiliense 661',4,null,895469,1);
-insert into cliente values (5,'Bob',8486483629,'bobrogers@hotmail.com','Rua Abel Cabral 1265',5,null,895470,1);
-insert into cliente values (6,'Joel',4395552068,'joel@ig.com','Rua Guaíra 929',6,null,895476,1);
-insert into cliente values (7,'Donal',3103026774,'DonaldHRich@teleworm.us','3122 Libby Street',7,null,895486,1);
-insert into cliente values (8,'Mateus',1163696465,'MateusOliveiraLima@dayrep.com','Estrada da Alpina 351',8,null,899466,1);
-insert into cliente values (9,'Murilo',1239358114,'MuriloCunhaBarbosa@dayrep.com','Rua Vinte e Oito de Setembro 833',9,null,865466,1);
-insert into cliente values (10,'Guilherme',2133858881,'GuilhermeRodriguesCardoso@rhyta.com','Rua Sete 496',10,null,675466,1);
-insert into cliente values (11,'Dia',1162783347,'dia@dia.com','Rua Bento Fernandes 1014',null,11,395466,1);
-insert into cliente values (12,'Adminitração LTA',6759949168,'admDourados@gmail.com','Rua José Ademar R. Perdomo 1084',null,12,555666,1);
-insert into cliente values (13,'Pão de Açucar',1199146335,'paodeacucar@gmail.com','Travessa Caroba 1766',null,13,395436,1);
-insert into cliente values (14,'Razer',3875917026,'razer@hotmail.com','Rua Francisco Gonçalves Santos 1580',null,14,992456,1);
-insert into cliente values (15,'HyperX',3103026774,'hyperx@gmail.com','Vila Neza 1405',null,15,915443,1);
-insert into cliente values (16,'DELL',1197166536,'dell@gmail.com','Rua Sete 500',null,16,905066,1);
-insert into cliente values (17,'MICROSOFT',1199146335,'mircosoft@microsoft.com','Rua Domingos Mariana 1382',null,17,555787,1);
-insert into cliente values (18,'Emporio Informatica',1199146335,'emporioinfo@gmail.com','Rua Dr Cesar 1512',null,18,555789,1);
-insert into cliente values (19,'Buggati',1199146335,'buggati@hotmail.com','AV Braz Leme 1189',null,19,566789,1);
-insert into cliente values (20,'CVC',1199146335,'cvc@gmail.com','Rua Leonardo Pardilho 1504',null,20,569789,1);
+INSERT INTO cliente VALUES (
+    1,
+    'Ricardo',
+    1199146335,
+    'ricaro@gmail.com',
+    'Rua Domingos Marino 1182',
+    1,
+    NULL,
+    895466,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    2,
+    'Rodolfo',
+    1180406528,
+    'rodolfo@gmail.com',
+    'Rua Irmã Efigênia 255',
+    2,
+    NULL,
+    895467,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    3,
+    'João',
+    1178809888,
+    'joaofe@gmail.com',
+    'Rua José de La Morena 430',
+    3,
+    NULL,
+    895468,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    4,
+    'Maria',
+    1961783730,
+    'magomes@gmail.com',
+    'Avenida Américo Brasiliense 661',
+    4,
+    NULL,
+    895469,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    5,
+    'Bob',
+    8486483629,
+    'bobrogers@hotmail.com',
+    'Rua Abel Cabral 1265',
+    5,
+    NULL,
+    895470,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    6,
+    'Joel',
+    4395552068,
+    'joel@ig.com',
+    'Rua Guaíra 929',
+    6,
+    NULL,
+    895476,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    7,
+    'Donal',
+    3103026774,
+    'DonaldHRich@teleworm.us',
+    '3122 Libby Street',
+    7,
+    NULL,
+    895486,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    8,
+    'Mateus',
+    1163696465,
+    'MateusOliveiraLima@dayrep.com',
+    'Estrada da Alpina 351',
+    8,
+    NULL,
+    899466,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    9,
+    'Murilo',
+    1239358114,
+    'MuriloCunhaBarbosa@dayrep.com',
+    'Rua Vinte e Oito de Setembro 833',
+    9,
+    NULL,
+    865466,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    10,
+    'Guilherme',
+    2133858881,
+    'GuilhermeRodriguesCardoso@rhyta.com',
+    'Rua Sete 496',
+    10,
+    NULL,
+    675466,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    11,
+    'Dia',
+    1162783347,
+    'dia@dia.com',
+    'Rua Bento Fernandes 1014',
+    NULL,
+    11,
+    395466,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    12,
+    'Adminitração LTA',
+    6759949168,
+    'admDourados@gmail.com',
+    'Rua José Ademar R. Perdomo 1084',
+    NULL,
+    12,
+    555666,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    13,
+    'Pão de Açucar',
+    1199146335,
+    'paodeacucar@gmail.com',
+    'Travessa Caroba 1766',
+    NULL,
+    13,
+    395436,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    14,
+    'Razer',
+    3875917026,
+    'razer@hotmail.com',
+    'Rua Francisco Gonçalves Santos 1580',
+    NULL,
+    14,
+    992456,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    15,
+    'HyperX',
+    3103026774,
+    'hyperx@gmail.com',
+    'Vila Neza 1405',
+    NULL,
+    15,
+    915443,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    16,
+    'DELL',
+    1197166536,
+    'dell@gmail.com',
+    'Rua Sete 500',
+    NULL,
+    16,
+    905066,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    17,
+    'MICROSOFT',
+    1199146335,
+    'mircosoft@microsoft.com',
+    'Rua Domingos Mariana 1382',
+    NULL,
+    17,
+    555787,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    18,
+    'Emporio Informatica',
+    1199146335,
+    'emporioinfo@gmail.com',
+    'Rua Dr Cesar 1512',
+    NULL,
+    18,
+    555789,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    19,
+    'Buggati',
+    1199146335,
+    'buggati@hotmail.com',
+    'AV Braz Leme 1189',
+    NULL,
+    19,
+    566789,
+    1
+);
+
+INSERT INTO cliente VALUES (
+    20,
+    'CVC',
+    1199146335,
+    'cvc@gmail.com',
+    'Rua Leonardo Pardilho 1504',
+    NULL,
+    20,
+    569789,
+    1
+);
 
 -- Populando Poupanca
 
-insert into poupanca values (1,13148,0.01,TO_DATE('2017/11/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),null,1);
-insert into poupanca values (2,78947,0.01,TO_DATE('2018/11/19 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/19 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),null,2);
-insert into poupanca values (3,31927,0.01,TO_DATE('2019/11/20 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/20 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),null,3);
-insert into poupanca values (4,5298,0.01,TO_DATE('2020/11/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),null,4);
-insert into poupanca values (5,96743,0.01,TO_DATE('2021/11/17 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/17 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),null,5);
-insert into poupanca values (6,65439,0.01,TO_DATE('2016/11/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),11,null);
-insert into poupanca values (7,64644,0.01,TO_DATE('2017/11/14 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/14 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),12,null);
-insert into poupanca values (8,94574,0.01,TO_DATE('2018/11/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),13,null);
-insert into poupanca values (9,26405,0.01,TO_DATE('2019/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),14,null);
-insert into poupanca values (10,53331,0.01,TO_DATE('2020/11/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),TO_DATE('2022/10/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),15,null);
+INSERT INTO poupanca VALUES (
+    1,
+    13148,
+    0.01,
+    TO_DATE('2017/11/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    NULL,
+    1
+);
+
+INSERT INTO poupanca VALUES (
+    2,
+    78947,
+    0.01,
+    TO_DATE('2018/11/19 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/19 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    NULL,
+    2
+);
+
+INSERT INTO poupanca VALUES (
+    3,
+    31927,
+    0.01,
+    TO_DATE('2019/11/20 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/20 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    NULL,
+    3
+);
+
+INSERT INTO poupanca VALUES (
+    4,
+    5298,
+    0.01,
+    TO_DATE('2020/11/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    NULL,
+    4
+);
+
+INSERT INTO poupanca VALUES (
+    5,
+    96743,
+    0.01,
+    TO_DATE('2021/11/17 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/17 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    NULL,
+    5
+);
+
+INSERT INTO poupanca VALUES (
+    6,
+    65439,
+    0.01,
+    TO_DATE('2016/11/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    11,
+    NULL
+);
+
+INSERT INTO poupanca VALUES (
+    7,
+    64644,
+    0.01,
+    TO_DATE('2017/11/14 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/14 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    12,
+    NULL
+);
+
+INSERT INTO poupanca VALUES (
+    8,
+    94574,
+    0.01,
+    TO_DATE('2018/11/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    13,
+    NULL
+);
+
+INSERT INTO poupanca VALUES (
+    9,
+    26405,
+    0.01,
+    TO_DATE('2019/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    14,
+    NULL
+);
+
+INSERT INTO poupanca VALUES (
+    10,
+    53331,
+    0.01,
+    TO_DATE('2020/11/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2022/10/13 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
+    15,
+    NULL
+);
+
+--Populando PIX
+
+INSERT INTO pix VALUES (
+    1,
+    'ricaro@gmail.com',
+    '554.541.950-06',
+    1000,
+    NULL,
+    380,
+    NULL,
+    1
+);
+
+INSERT INTO pix VALUES (
+    2,
+    '331.995.460-13',
+    'dell@gmail.com',
+    2000,
+    NULL,
+    480,
+    NULL,
+    3
+);
+
+INSERT INTO pix VALUES (
+    3,
+    '554.541.950-06',
+    'bobrogers@hotmail.com',
+    1000,
+    NULL,
+    380,
+    NULL,
+    2
+);
+
+INSERT INTO pix VALUES (
+    4,
+    'magomes@gmail.com',
+    '554.541.950-06',
+    1000,
+    NULL,
+    30,
+    NULL,
+    4
+);
+
+INSERT INTO pix VALUES (
+    5,
+    '372.091.150-05',
+    'magomes@gmail.com',
+    3000,
+    NULL,
+    550,
+    NULL,
+    7
+);
+
+INSERT INTO pix VALUES (
+    6,
+    'paodeacucar@gmail.com',
+    '554.541.950-06',
+    NULL,
+    NULL,
+    3080,
+    13,
+    NULL
+);
+
+INSERT INTO pix VALUES (
+    7,
+    'razer@hotmail.com',
+    'dell@gmail.com',
+    NULL,
+    NULL,
+    50000,
+    14,
+    NULL
+);
+
+INSERT INTO pix VALUES (
+    8,
+    'ricaro@gmail.com',
+    'dell@gmail.com',
+    1000,
+    NULL,
+    800,
+    NULL,
+    1
+);
+
+INSERT INTO pix VALUES (
+    9,
+    '372.091.150-05',
+    'ricaro@gmail.com',
+    1000,
+    NULL,
+    87,
+    NULL,
+    7
+);
+
+INSERT INTO pix VALUES (
+    10,
+    'magomes@gmail.com',
+    '554.541.950-06',
+    1000,
+    NULL,
+    580,
+    NULL,
+    4
+);
 
 -- Populando Cartao de Credito
 
@@ -329,7 +904,7 @@ INSERT INTO cartao_de_credito VALUES (
     TO_DATE('2022/10/03', 'yyyy/mm/dd'),
     0.23,
     120000,
-    null,
+    NULL,
     1
 );
 
@@ -340,7 +915,7 @@ INSERT INTO cartao_de_credito VALUES (
     TO_DATE('2022/10/07', 'yyyy/mm/dd'),
     0.22,
     120000,
-    null,
+    NULL,
     2
 );
 
@@ -351,7 +926,7 @@ INSERT INTO cartao_de_credito VALUES (
     TO_DATE('2022/10/08', 'yyyy/mm/dd'),
     0.20,
     1600,
-    null,
+    NULL,
     3
 );
 
@@ -362,7 +937,7 @@ INSERT INTO cartao_de_credito VALUES (
     TO_DATE('2022/10/13', 'yyyy/mm/dd'),
     0.13,
     120000,
-    null,
+    NULL,
     4
 );
 
@@ -373,7 +948,7 @@ INSERT INTO cartao_de_credito VALUES (
     TO_DATE('2022/10/23', 'yyyy/mm/dd'),
     0.33,
     9999,
-    null,
+    NULL,
     5
 );
 
@@ -385,7 +960,7 @@ INSERT INTO cartao_de_credito VALUES (
     0.40,
     7800,
     11,
-    null
+    NULL
 );
 
 INSERT INTO cartao_de_credito VALUES (
@@ -396,7 +971,7 @@ INSERT INTO cartao_de_credito VALUES (
     0.32,
     15000,
     12,
-    null
+    NULL
 );
 
 INSERT INTO cartao_de_credito VALUES (
@@ -407,7 +982,7 @@ INSERT INTO cartao_de_credito VALUES (
     0.56,
     30000,
     13,
-    null
+    NULL
 );
 
 INSERT INTO cartao_de_credito VALUES (
@@ -418,7 +993,7 @@ INSERT INTO cartao_de_credito VALUES (
     0.15,
     100000,
     14,
-    null
+    NULL
 );
 
 INSERT INTO cartao_de_credito VALUES (
@@ -429,7 +1004,7 @@ INSERT INTO cartao_de_credito VALUES (
     0.15,
     120000,
     15,
-    null
+    NULL
 );
 
 -- Populando Cartao de Debito
@@ -438,7 +1013,7 @@ INSERT INTO cartao_debito VALUES (
     1,
     248199,
     0,
-    null,
+    NULL,
     1
 );
 
@@ -446,7 +1021,7 @@ INSERT INTO cartao_debito VALUES (
     2,
     903538,
     0,
-    null,
+    NULL,
     2
 );
 
@@ -454,7 +1029,7 @@ INSERT INTO cartao_debito VALUES (
     3,
     699293,
     3500,
-    null,
+    NULL,
     3
 );
 
@@ -462,7 +1037,7 @@ INSERT INTO cartao_debito VALUES (
     4,
     506755,
     2000,
-    null,
+    NULL,
     4
 );
 
@@ -470,7 +1045,7 @@ INSERT INTO cartao_debito VALUES (
     5,
     831486,
     1500,
-    null,
+    NULL,
     5
 );
 
@@ -479,7 +1054,7 @@ INSERT INTO cartao_debito VALUES (
     237614,
     0,
     11,
-    null
+    NULL
 );
 
 INSERT INTO cartao_debito VALUES (
@@ -487,7 +1062,7 @@ INSERT INTO cartao_debito VALUES (
     731213,
     0,
     12,
-    null
+    NULL
 );
 
 INSERT INTO cartao_debito VALUES (
@@ -495,7 +1070,7 @@ INSERT INTO cartao_debito VALUES (
     239028,
     4550,
     13,
-    null
+    NULL
 );
 
 INSERT INTO cartao_debito VALUES (
@@ -503,7 +1078,7 @@ INSERT INTO cartao_debito VALUES (
     113782,
     0,
     14,
-    null
+    NULL
 );
 
 INSERT INTO cartao_debito VALUES (
@@ -511,7 +1086,7 @@ INSERT INTO cartao_debito VALUES (
     475835,
     9900,
     15,
-    null
+    NULL
 );
 
 -- Populando Emprestimos
@@ -523,7 +1098,7 @@ INSERT INTO emprestimos VALUES (
     20,
     TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2019/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
-    null,
+    NULL,
     1
 );
 
@@ -534,7 +1109,7 @@ INSERT INTO emprestimos VALUES (
     25,
     TO_DATE('2017/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2017/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
-    null,
+    NULL,
     2
 );
 
@@ -545,7 +1120,7 @@ INSERT INTO emprestimos VALUES (
     27,
     TO_DATE('2018/06/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2018/07/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
-    null,
+    NULL,
     4
 );
 
@@ -556,7 +1131,7 @@ INSERT INTO emprestimos VALUES (
     10,
     TO_DATE('2015/04/01 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2015/05/01 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
-    null,
+    NULL,
     5
 );
 
@@ -567,7 +1142,7 @@ INSERT INTO emprestimos VALUES (
     5,
     TO_DATE('2020/12/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2021/01/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
-    null,
+    NULL,
     7
 );
 
@@ -579,7 +1154,7 @@ INSERT INTO emprestimos VALUES (
     TO_DATE('2019/03/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2019/04/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     11,
-    null
+    NULL
 );
 
 INSERT INTO emprestimos VALUES (
@@ -590,7 +1165,7 @@ INSERT INTO emprestimos VALUES (
     TO_DATE('2019/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2019/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     12,
-    null
+    NULL
 );
 
 INSERT INTO emprestimos VALUES (
@@ -601,7 +1176,7 @@ INSERT INTO emprestimos VALUES (
     TO_DATE('2017/10/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2017/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     13,
-    null
+    NULL
 );
 
 INSERT INTO emprestimos VALUES (
@@ -612,7 +1187,7 @@ INSERT INTO emprestimos VALUES (
     TO_DATE('2015/10/31 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2015/11/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     12,
-    null
+    NULL
 );
 
 INSERT INTO emprestimos VALUES (
@@ -623,54 +1198,231 @@ INSERT INTO emprestimos VALUES (
     TO_DATE('2016/08/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     TO_DATE('2016/09/30 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),
     15,
-    null
+    NULL
 );
 
 -- Populando Fianciamento
 
+INSERT INTO financiamento VALUES (
+    1,
+    8585,
+    1400,
+    27,
+    0.27,
+    TO_DATE('2019/10/31', 'yyyy/mm/dd'),
+    TO_DATE('2021/10/31', 'yyyy/mm/dd'),
+    3000,
+    NULL,
+    1
+);
+
+INSERT INTO financiamento VALUES (
+    2,
+    37829,
+    1700,
+    32,
+    0.20,
+    TO_DATE('2019/11/30', 'yyyy/mm/dd'),
+    TO_DATE('2022/10/31', 'yyyy/mm/dd'),
+    0,
+    NULL,
+    2
+);
+
+INSERT INTO financiamento VALUES (
+    3,
+    51466,
+    3900,
+    20,
+    0.15,
+    TO_DATE('2016/05/31', 'yyyy/mm/dd'),
+    TO_DATE('2021/10/31', 'yyyy/mm/dd'),
+    3500,
+    NULL,
+    3
+);
+
+INSERT INTO financiamento VALUES (
+    4,
+    78893,
+    1700,
+    15,
+    0.30,
+    TO_DATE('2014/07/30', 'yyyy/mm/dd'),
+    TO_DATE('2018/10/31', 'yyyy/mm/dd'),
+    7000,
+    NULL,
+    4
+);
+
+INSERT INTO financiamento VALUES (
+    5,
+    13749,
+    3558,
+    82,
+    0.07,
+    TO_DATE('2018/06/15', 'yyyy/mm/dd'),
+    TO_DATE('2021/10/31', 'yyyy/mm/dd'),
+    8871,
+    NULL,
+    3
+);
+
+INSERT INTO financiamento VALUES (
+    6,
+    44540,
+    6841,
+    18,
+    0.20,
+    TO_DATE('2017/04/16', 'yyyy/mm/dd'),
+    TO_DATE('2022/11/30', 'yyyy/mm/dd'),
+    2239,
+    12,
+    NULL
+);
+
+INSERT INTO financiamento VALUES (
+    7,
+    32626,
+    7226,
+    50,
+    0.99,
+    TO_DATE('2016/08/29', 'yyyy/mm/dd'),
+    TO_DATE('2024/10/31', 'yyyy/mm/dd'),
+    165,
+    17,
+    NULL
+);
+
+INSERT INTO financiamento VALUES (
+    8,
+    7586,
+    9899,
+    40,
+    0.09,
+    TO_DATE('2015/11/15', 'yyyy/mm/dd'),
+    TO_DATE('2028/12/31', 'yyyy/mm/dd'),
+    468,
+    18,
+    NULL
+);
+
+INSERT INTO financiamento VALUES (
+    9,
+    61959,
+    7896,
+    57,
+    0.70,
+    TO_DATE('2019/12/31', 'yyyy/mm/dd'),
+    TO_DATE('2025/11/30', 'yyyy/mm/dd'),
+    9728,
+    19,
+    NULL
+);
+
+INSERT INTO financiamento VALUES (
+    10,
+    8210,
+    5958,
+    51,
+    0.56,
+    TO_DATE('2018/10/03', 'yyyy/mm/dd'),
+    TO_DATE('2024/10/30', 'yyyy/mm/dd'),
+    4607,
+    20,
+    NULL
+);
+
+-- Populando Maquininha
+
+INSERT INTO maquininha VALUES (
+    1,
+    0.13,
+    566236,
+    812,
+    11,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    2,
+    0.12,
+    277833,
+    897,
+    12,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    3,
+    0.10,
+    827832,
+    210,
+    13,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    4,
+    0.09,
+    923461,
+    419,
+    14,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    5,
+    0.13,
+    379349,
+    957,
+    15,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    6,
+    0.12,
+    78307,
+    845,
+    16,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    7,
+    0.11,
+    586877,
+    593,
+    17,
+    NULL
+);
+
+INSERT INTO maquininha VALUES (
+    8,
+    0.10,
+    315135,
+    232,
+    NULL,
+    8
+);
+
+INSERT INTO maquininha VALUES (
+    9,
+    0.13,
+    667023,
+    755,
+    NULL,
+    9
+);
+
+INSERT INTO maquininha VALUES (
+    10,
+    0.14,
+    666687,
+    643,
+    NULL,
+    10
+);
+
 COMMIT;
-
-
-
--- Relatório do Resumo do Oracle SQL Developer Data Modeler: 
--- 
--- CREATE TABLE                            10
--- CREATE INDEX                             0
--- ALTER TABLE                             41
--- CREATE VIEW                              0
--- ALTER VIEW                               0
--- CREATE PACKAGE                           0
--- CREATE PACKAGE BODY                      0
--- CREATE PROCEDURE                         0
--- CREATE FUNCTION                          0
--- CREATE TRIGGER                           0
--- ALTER TRIGGER                            0
--- CREATE COLLECTION TYPE                   0
--- CREATE STRUCTURED TYPE                   0
--- CREATE STRUCTURED TYPE BODY              0
--- CREATE CLUSTER                           0
--- CREATE CONTEXT                           0
--- CREATE DATABASE                          0
--- CREATE DIMENSION                         0
--- CREATE DIRECTORY                         0
--- CREATE DISK GROUP                        0
--- CREATE ROLE                              0
--- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          0
--- CREATE MATERIALIZED VIEW                 0
--- CREATE MATERIALIZED VIEW LOG             0
--- CREATE SYNONYM                           0
--- CREATE TABLESPACE                        0
--- CREATE USER                              0
--- 
--- DROP TABLESPACE                          0
--- DROP DATABASE                            0
--- 
--- REDACTION POLICY                         0
--- 
--- ORDS DROP SCHEMA                         0
--- ORDS ENABLE SCHEMA                       0
--- ORDS ENABLE OBJECT                       0
--- 
--- ERRORS                                   0
--- WARNINGS                                 0
