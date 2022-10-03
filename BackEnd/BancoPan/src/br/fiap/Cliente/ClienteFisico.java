@@ -8,8 +8,8 @@ public class ClienteFisico extends Cliente{
     private String sobrenome;
     private Date dataNascimento;
 
-    public ClienteFisico(int idCliente, String nome, String email, String endereco, String cpf, String sobrenome, Date dataNascimento) {
-        super(idCliente, nome, email, endereco);
+    public ClienteFisico(int idCliente, String nome, String email, String endereco,int telefone,String CEP , String cpf, String sobrenome, Date dataNascimento) {
+        super(idCliente, nome, email, endereco, telefone,CEP);
         this.cpf = cpf;
         this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
@@ -37,5 +37,17 @@ public class ClienteFisico extends Cliente{
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    @Override
+    public String toString() {
+        String aux="Nome: "+getNome();
+        aux+="\nSobrenome: "+getSobrenome();
+        aux+="\nCPF: "+getCpf();
+        aux+="\nemail: "+getEmail();
+        aux+="\nendereco: "+getEndereco();
+        aux+="\nCEP: "+getCEP();
+        aux+="\naniversario: "+getDataNascimento();
+        return aux;
     }
 }

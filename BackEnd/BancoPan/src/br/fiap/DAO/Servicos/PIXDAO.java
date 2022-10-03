@@ -21,27 +21,26 @@ public class PIXDAO {
     }
 
     public void inserirPIX(PIX pix) {
-        sql="insert into PIX values(?,?,?,?,?,?,?,?)";
+        sql="insert into PIX values(seq_pix.nextval,?,?,?,?,?,?,?)";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1, pix.getIdPIX());
-            ps.setString(2, pix.getChaveConta());
-            ps.setString(3, pix.getChaveDestino());
-            ps.setDouble(4, pix.getValorPix());
-            ps.setDate(5, pix.getData());
-            ps.setDouble(6, pix.getLimiteValor());
+            ps.setString(1, pix.getChaveConta());
+            ps.setString(2, pix.getChaveDestino());
+            ps.setDouble(3, pix.getValorPix());
+            ps.setDate(4, pix.getData());
+            ps.setDouble(5, pix.getLimiteValor());
             if (pix.getLimiteHorario()==null) {
-                ps.setNull(7, Types.DATE);
+                ps.setNull(6, Types.DATE);
             }else{
-                ps.setDate(7, pix.getLimiteHorario());
+                ps.setDate(6, pix.getLimiteHorario());
             }
-            ps.setInt(8, pix.getIdCliente());
+            ps.setInt(7, pix.getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
-            System.out.println("Falha ao inserir cliente: "+e);
+            System.out.println("Falha ao inserir pix: "+e);
         }
 
     }

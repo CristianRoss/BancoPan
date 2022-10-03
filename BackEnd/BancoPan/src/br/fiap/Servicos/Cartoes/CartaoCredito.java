@@ -8,11 +8,14 @@ public class CartaoCredito extends Cartao{
     private Date dataVencimento;
     private double jurosCredito;
 
-    public CartaoCredito(int idCliente, int idCartao, int numero, double limite, double fatura, Date dataVencimento, double jurosCredito) {
+    private int cvv;
+
+    public CartaoCredito(int idCliente, int idCartao, int numero, double limite, double fatura, Date dataVencimento, double jurosCredito, int cvv) {
         super(idCliente, idCartao, numero, limite);
         this.fatura = fatura;
         this.dataVencimento = dataVencimento;
         this.jurosCredito = jurosCredito;
+        this.cvv=cvv;
     }
 
     public double getFatura() {
@@ -37,5 +40,13 @@ public class CartaoCredito extends Cartao{
 
     public void setJurosCredito(double jurosCredito) {
         this.jurosCredito = jurosCredito;
+    }
+
+    public int getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
     }
 }

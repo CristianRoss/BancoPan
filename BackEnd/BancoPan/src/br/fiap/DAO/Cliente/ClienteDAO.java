@@ -6,8 +6,7 @@ import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.Conexao.Conexao;
 
 import java.sql.*;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class ClienteDAO {
 
@@ -16,31 +15,31 @@ public class ClienteDAO {
     private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
     private String sql; // utilizada para montar as instrusql
 
-
     public ClienteDAO(){
         connection=new Conexao().conectar();
     }
 
     public void inserirCliente(Cliente cliente) {
-        sql = "insert into clientes values(?,?,?,?,?,?,?,?)";
+        sql = "insert into clientes values(seq_clientes.nextval,?,?,?,?,?,?,?,?,?)";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1 ,cliente.getIdCliente());
-            ps.setString(4, cliente.getNome());
+            ps.setString(3, cliente.getNome());
+            ps.setInt(5,cliente.getTelefone());
             ps.setString(6, cliente.getEmail());
             ps.setString(7, cliente.getEndereco());
+            ps.setString(8, cliente.getCEP());
             if (cliente instanceof ClienteFisico) {
-                ps.setString(2, ((ClienteFisico) cliente).getCpf());
-                ps.setNull(3, Types.VARCHAR);
-                ps.setString(5, ((ClienteFisico) cliente).getSobrenome());
-                ps.setDate(8, ((ClienteFisico) cliente).getDataNascimento());
-            }else{
+                ps.setString(1, ((ClienteFisico) cliente).getCpf());
                 ps.setNull(2, Types.VARCHAR);
-                ps.setString(3, ((ClienteJuridico) cliente).getCnpj());
-                ps.setNull(5, Types.VARCHAR);
-                ps.setNull(8, Types.DATE);
+                ps.setString(4, ((ClienteFisico) cliente).getSobrenome());
+                ps.setDate(9, ((ClienteFisico) cliente).getDataNascimento());
+            }else{
+                ps.setNull(1, Types.VARCHAR);
+                ps.setString(2, ((ClienteJuridico) cliente).getCnpj());
+                ps.setNull(4, Types.VARCHAR);
+                ps.setNull(9, Types.DATE);
             }
 
             ps.execute();
@@ -49,6 +48,63 @@ public class ClienteDAO {
             System.out.println("Falha ao inserir Cliente: "+e);
         }
 
+    }
+
+    public Cliente getCliente(String identificacao){
+
+        if (identificacao.length()>13) {
+            sql = "select * from Clientes where cnpj = ?";
+
+            try {
+
+                ps=connection.prepareStatement(sql);
+                ps.setString(1,identificacao);
+                rs=ps.executeQuery();
+
+            }catch (SQLException e) {
+                System.out.println("Erro ao pesquisar cliente por cnpj: "+e);
+            }
+
+            try {
+
+                while (rs.next()) {
+                    return new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
+                            rs.getString("nome"),rs.getString("email"),
+                            rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"));
+                }
+
+            }catch (SQLException e) {
+                System.out.println("Erro ao pesquisar cliente por cnpj: "+e);
+            }
+
+        }else{
+            sql = "select * from Clientes where cpf = ?";
+
+            try {
+
+                ps=connection.prepareStatement(sql);
+                ps.setString(1,identificacao);
+                rs=ps.executeQuery();
+
+            }catch (SQLException e) {
+                System.out.println("Erro ao pesquisar cliente por cpf: "+e);
+            }
+
+            try {
+
+                while (rs.next()) {
+                    return new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
+                            rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
+                            ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
+                            rs.getDate("data_nascimento"));
+                }
+
+            }catch (SQLException e) {
+                System.out.println("Erro ao pesquisar cliente por cpf: "+e);
+            }
+        }
+
+        return null;
     }
 
     public Cliente getCliente(int id) {
@@ -69,13 +125,13 @@ public class ClienteDAO {
             while (rs.next()) {
               if (rs.getString("cpf")!=null) {
                 return new ClienteFisico(id, rs.getString("nome"),
-                        rs.getString("email"), rs.getString("endereco"),
-                        rs.getString("cpf"), rs.getString("sobrenome"),
+                        rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
+                        ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
                         rs.getDate("data_nascimento"));
               }else{
                   return new ClienteJuridico(id, rs.getString("cnpj"),
                           rs.getString("nome"),rs.getString("email"),
-                          rs.getString("endereco"));
+                          rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"));
               }
             }
 
@@ -105,13 +161,13 @@ public class ClienteDAO {
             while (rs.next()) {
                 if (rs.getString("cpf")!=null) {
                     lista.add(new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
-                            rs.getString("email"), rs.getString("endereco"),
-                            rs.getString("cpf"), rs.getString("sobrenome"),
+                            rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone"),
+                            rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
                             rs.getDate("data_nascimento")));
                 }else{
                     lista.add(new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
                             rs.getString("nome"),rs.getString("email"),
-                            rs.getString("endereco")));
+                            rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep")));
                 }
             }
 

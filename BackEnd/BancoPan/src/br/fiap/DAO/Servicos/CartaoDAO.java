@@ -28,15 +28,14 @@ public class CartaoDAO {
 
         if (cartao instanceof CartaoDebito) {
 
-            sql="insert into cartao_debito values(?,?,?,?)";
+            sql="insert into cartao_debito values(seq_cartao_debito.nextval,?,?,?)";
 
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, cartao.getIdCartao());
-                ps.setInt(2, cartao.getNumero());
-                ps.setDouble(3, cartao.getLimite());
-                ps.setInt(4, cartao.getIdCliente());
+                ps.setInt(1, cartao.getNumero());
+                ps.setDouble(2, cartao.getLimite());
+                ps.setInt(3, cartao.getIdCliente());
                 ps.execute();
 
             }catch (SQLException e) {
@@ -45,18 +44,19 @@ public class CartaoDAO {
 
         }else {
 
-            sql="insert into cartao_credito values(?,?,?,?,?,?,?)";
+            sql="insert into cartao_credito values(seq_cartao_credito.nextval,?,?,?,?,?,?,?)";
 
             try {
 
                 ps=connection.prepareStatement(sql);
                 ps.setInt(1, cartao.getIdCartao());
                 ps.setInt(2, cartao.getNumero());
-                ps.setDouble(3, ((CartaoCredito)cartao).getFatura());
-                ps.setDate(4, ((CartaoCredito)cartao).getDataVencimento());
-                ps.setDouble(5, ((CartaoCredito)cartao).getJurosCredito());
-                ps.setDouble(6, ((CartaoCredito)cartao).getLimite());
-                ps.setInt(7, cartao.getIdCliente());
+                ps.setInt(3, ((CartaoCredito)cartao).getCvv());
+                ps.setDouble(4, ((CartaoCredito)cartao).getFatura());
+                ps.setDate(5, ((CartaoCredito)cartao).getDataVencimento());
+                ps.setDouble(6, ((CartaoCredito)cartao).getJurosCredito());
+                ps.setDouble(7, ((CartaoCredito)cartao).getLimite());
+                ps.setInt(8, cartao.getIdCliente());
                 ps.execute();
 
             }catch (SQLException e) {
@@ -111,7 +111,7 @@ public class CartaoDAO {
                 lista.add(new CartaoCredito(idCliente,
                         rs.getInt("id_cartao_debito"), rs.getInt("numro"),
                         rs.getDouble("limite"), rs.getDouble("fatura"),
-                        rs.getDate("data_vencimento"),rs.getDouble("juros_credito")));
+                        rs.getDate("data_vencimento"),rs.getDouble("juros_credito"), rs.getInt("cvv")));
             }
 
         }catch (SQLException e){

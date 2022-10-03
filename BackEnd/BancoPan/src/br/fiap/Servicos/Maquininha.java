@@ -1,5 +1,7 @@
 package br.fiap.Servicos;
 
+import br.fiap.Cliente.Cliente;
+
 public class Maquininha extends Servicos{
 
     private int idMaquininha;
@@ -7,8 +9,8 @@ public class Maquininha extends Servicos{
     private int vendas;
     private int vendasPorMes;
 
-    public Maquininha(int idCliente, int idMaquininha, double taxa, int vendas, int vendasPorMes) {
-        super(idCliente);
+    public Maquininha(int IdCliente, int idMaquininha, double taxa, int vendas, int vendasPorMes) {
+        super(IdCliente);
         this.idMaquininha = idMaquininha;
         this.taxa = taxa;
         this.vendas = vendas;

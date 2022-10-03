@@ -1,5 +1,7 @@
 package br.fiap.Cliente;
 
+import java.util.Objects;
+
 public abstract class Cliente {
 
     protected int idCliente;
@@ -7,11 +9,17 @@ public abstract class Cliente {
     protected String email;
     protected String endereco;
 
-    public Cliente(int idCliente, String nome, String email, String endereco) {
+    protected int telefone;
+
+    protected String CEP;
+
+    public Cliente(int idCliente, String nome, String email, String endereco, int telefone,String CEP) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.email = email;
         this.endereco = endereco;
+        this.telefone=telefone;
+        this.CEP=CEP;
     }
 
     public int getIdCliente() {
@@ -45,4 +53,21 @@ public abstract class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
+    }
+
 }
