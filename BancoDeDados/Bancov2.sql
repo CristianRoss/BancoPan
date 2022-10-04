@@ -62,6 +62,7 @@ CREATE TABLE clientes (
     email           VARCHAR2(38) NOT NULL,
     endereco        VARCHAR2(100) NOT NULL,
     cep             VARCHAR2(9)  NOT NULL,
+    sexo            VARCHAR2(9),
     data_nascimento DATE
 );
 
@@ -82,6 +83,15 @@ ALTER TABLE clientes
                                              AND ( sobrenome IS NOT NULL ) )
                                            OR ( ( cnpj IS NOT NULL )
                                                 AND ( sobrenome IS NULL ) ) );
+                                                
+ ALTER TABLE clientes
+    ADD CONSTRAINT sexo_check_fisico CHECK ( ( ( cpf IS NOT NULL )
+                                             AND ( sexo IS NOT NULL ) )
+                                           OR ( ( cnpj IS NOT NULL )
+                                                AND ( sexo IS NULL ) ) );
+                                               
+ ALTER TABLE clientes
+  ADD CONSTRAINT sexo_check CHECK ((sexo='MASCULINO')OR(sexo='FEMININO'));
                                                 
 CREATE SEQUENCE seq_clientes
 MINVALUE 1
