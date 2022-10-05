@@ -48,6 +48,10 @@ public class ClienteDAO {
             System.out.println("Falha ao inserir Cliente: "+e);
         }
 
+        if (!Cliente.clientes.containsKey(cliente.getIdCliente())) {
+            Cliente.clientes.put(cliente.getIdCliente(),cliente);
+        }
+
     }
 
     public Cliente getCliente(String identificacao){
