@@ -72,9 +72,11 @@ public class ClienteDAO {
             try {
 
                 while (rs.next()) {
-                    return new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
+                    ClienteJuridico cliente = new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
                             rs.getString("nome"),rs.getString("email"),
                             rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"));
+                    Cliente.clientes.put(cliente.getIdCliente(),cliente);
+                    return cliente;
                 }
 
             }catch (SQLException e) {
@@ -97,10 +99,12 @@ public class ClienteDAO {
             try {
 
                 while (rs.next()) {
-                    return new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
+                    ClienteFisico cliente = new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
                             rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
                             ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
                             rs.getDate("data_nascimento"));
+                    Cliente.clientes.put(cliente.getIdCliente(),cliente);
+                    return cliente;
                 }
 
             }catch (SQLException e) {
