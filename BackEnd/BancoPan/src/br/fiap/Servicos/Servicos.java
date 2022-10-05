@@ -1,18 +1,20 @@
 package br.fiap.Servicos;
 
+import br.fiap.Cliente.Cliente;
+
 public abstract class Servicos {
 
-    protected int idCliente;
+    protected Cliente cliente;
 
-    public Servicos(int idCliente) {
-        this.idCliente = idCliente;
+    public Servicos(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

@@ -1,5 +1,6 @@
 package br.fiap.Servicos.Contas;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Servicos.Servicos;
 
 public class DocumentoConta extends Servicos {
@@ -8,8 +9,8 @@ public class DocumentoConta extends Servicos {
     private ContaCorrente ContaCorrente;
     private ContaPoupanca ContaPoupanca;
 
-    public DocumentoConta(int idCliente, int numero) {
-        super(idCliente);
+    public DocumentoConta(Cliente cliente, int numero) {
+        super(cliente);
         this.numero = numero;
     }
 

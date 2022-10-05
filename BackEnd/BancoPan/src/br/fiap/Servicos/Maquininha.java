@@ -9,8 +9,8 @@ public class Maquininha extends Servicos{
     private int vendas;
     private int vendasPorMes;
 
-    public Maquininha(int IdCliente, int idMaquininha, double taxa, int vendas, int vendasPorMes) {
-        super(IdCliente);
+    public Maquininha(Cliente cliente, int idMaquininha, double taxa, int vendas, int vendasPorMes) {
+        super(cliente);
         this.idMaquininha = idMaquininha;
         this.taxa = taxa;
         this.vendas = vendas;

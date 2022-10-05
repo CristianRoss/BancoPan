@@ -1,5 +1,7 @@
 package br.fiap.Servicos.Cartoes;
 
+import br.fiap.Cliente.Cliente;
+
 import java.sql.Date;
 
 public class CartaoCredito extends Cartao{
@@ -10,8 +12,8 @@ public class CartaoCredito extends Cartao{
 
     private int cvv;
 
-    public CartaoCredito(int idCliente, int idCartao, int numero, double limite, double fatura, Date dataVencimento, double jurosCredito, int cvv) {
-        super(idCliente, idCartao, numero, limite);
+    public CartaoCredito(Cliente cliente, int idCartao, int numero, double limite, double fatura, Date dataVencimento, double jurosCredito, int cvv) {
+        super(cliente, idCartao, numero, limite);
         this.fatura = fatura;
         this.dataVencimento = dataVencimento;
         this.jurosCredito = jurosCredito;

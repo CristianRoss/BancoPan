@@ -1,6 +1,8 @@
 package br.fiap.DAO.Servicos.Contas;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Contas.ContaPoupanca;
 
@@ -38,7 +40,8 @@ public class ContaPoupancaDAO {
 
         try {
 
-            return new ContaPoupanca(rs.getInt("id_cliente"),id, rs.getInt("numero"), rs.getDouble("saldo"),
+            Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+            return new ContaPoupanca(cliente,id, rs.getInt("numero"), rs.getDouble("saldo"),
                     rs.getDate("data_criacao"),rs.getDate("data_acrescimo"), rs.getDouble("juros"));
 
 

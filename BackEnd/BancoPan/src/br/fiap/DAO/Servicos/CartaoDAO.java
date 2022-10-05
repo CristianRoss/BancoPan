@@ -1,6 +1,8 @@
 package br.fiap.DAO.Servicos;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Cartoes.Cartao;
 import br.fiap.Servicos.Cartoes.CartaoCredito;
 import br.fiap.Servicos.Cartoes.CartaoDebito;
@@ -35,7 +37,7 @@ public class CartaoDAO {
                 ps=connection.prepareStatement(sql);
                 ps.setInt(1, cartao.getNumero());
                 ps.setDouble(2, cartao.getLimite());
-                ps.setInt(3, cartao.getIdCliente());
+                ps.setInt(3, cartao.getCliente().getIdCliente());
                 ps.execute();
 
             }catch (SQLException e) {
@@ -56,7 +58,7 @@ public class CartaoDAO {
                 ps.setDate(5, ((CartaoCredito)cartao).getDataVencimento());
                 ps.setDouble(6, ((CartaoCredito)cartao).getJurosCredito());
                 ps.setDouble(7, ((CartaoCredito)cartao).getLimite());
-                ps.setInt(8, cartao.getIdCliente());
+                ps.setInt(8, cartao.getCliente().getIdCliente());
                 ps.execute();
 
             }catch (SQLException e) {
@@ -85,7 +87,8 @@ public class CartaoDAO {
         try {
 
             while (rs.next()) {
-                lista.add(new CartaoDebito(idCliente,rs.getInt("id_cartao_debito"), rs.getInt("numro"),
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                lista.add(new CartaoDebito(cliente,rs.getInt("id_cartao_debito"), rs.getInt("numro"),
                         rs.getDouble("limite")));
             }
 
@@ -108,7 +111,8 @@ public class CartaoDAO {
         try {
 
             while (rs.next()) {
-                lista.add(new CartaoCredito(idCliente,
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                lista.add(new CartaoCredito(cliente,
                         rs.getInt("id_cartao_debito"), rs.getInt("numro"),
                         rs.getDouble("limite"), rs.getDouble("fatura"),
                         rs.getDate("data_vencimento"),rs.getDouble("juros_credito"), rs.getInt("cvv")));

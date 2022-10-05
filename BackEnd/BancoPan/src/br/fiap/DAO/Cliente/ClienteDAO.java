@@ -108,40 +108,50 @@ public class ClienteDAO {
     }
 
     public Cliente getCliente(int id) {
-        sql = "select * from Clientes where id_cliente = ?";
+        if (!Cliente.clientes.containsKey(id)) {
+            sql = "select * from Clientes where id_cliente = ?";
 
-        try {
+            try {
 
-            ps=connection.prepareStatement(sql);
-            ps.setInt(1, id);
-            rs=ps.executeQuery();
+                ps=connection.prepareStatement(sql);
+                ps.setInt(1, id);
+                rs=ps.executeQuery();
 
-        }catch (SQLException e) {
-            System.out.println("Falha ao pesquisar Cliente: "+e);
-        }
-
-        try {
-
-            while (rs.next()) {
-              if (rs.getString("cpf")!=null) {
-                return new ClienteFisico(id, rs.getString("nome"),
-                        rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
-                        ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
-                        rs.getDate("data_nascimento"));
-              }else{
-                  return new ClienteJuridico(id, rs.getString("cnpj"),
-                          rs.getString("nome"),rs.getString("email"),
-                          rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"));
-              }
+            }catch (SQLException e) {
+                System.out.println("Falha ao pesquisar Cliente: "+e);
             }
 
-        }catch (SQLException e) {
-            System.out.println("Falha ao pesquisar Cliente: "+e);
+            try {
+
+                while (rs.next()) {
+                    if (rs.getString("cpf")!=null) {
+                        ClienteFisico cliente = new ClienteFisico(id, rs.getString("nome"),
+                                rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
+                                ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
+                                rs.getDate("data_nascimento"));
+                        Cliente.clientes.put(cliente.getIdCliente(),cliente);
+                        return cliente;
+                    }else{
+                        ClienteJuridico cliente= new ClienteJuridico(id, rs.getString("cnpj"),
+                                rs.getString("nome"),rs.getString("email"),
+                                rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"));
+                        Cliente.clientes.put(cliente.getIdCliente(),cliente);
+                        return cliente;
+                    }
+
+                }
+
+            }catch (SQLException e) {
+                System.out.println("Falha ao pesquisar Cliente: "+e);
+            }
+        }else{
+            return Cliente.clientes.get(id);
         }
 
         return null;
     }
 
+    @Deprecated
     public List<Cliente> listarClientes(){
         List<Cliente> lista=new LinkedList<Cliente>();
 

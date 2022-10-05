@@ -1,6 +1,8 @@
 package br.fiap.DAO.Servicos.Contas;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Contas.ContaCorrente;
 
 import java.sql.Connection;
@@ -38,7 +40,8 @@ public class ContaCorrenteDAO {
         try {
 
            while (rs.next())  {
-               return new ContaCorrente(rs.getInt("id_cliente"),id, rs.getInt("numero"), rs.getDouble("saldo"),
+               Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+               return new ContaCorrente(cliente,id, rs.getInt("numero"), rs.getDouble("saldo"),
                        rs.getDate("data_criacao"),rs.getDouble("juros"),rs.getString("chave_pix"));
 
            }

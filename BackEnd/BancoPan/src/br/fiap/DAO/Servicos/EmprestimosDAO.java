@@ -1,6 +1,8 @@
 package br.fiap.DAO.Servicos;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Emprestimos;
 
 import java.sql.Connection;
@@ -35,7 +37,7 @@ public class EmprestimosDAO {
             ps.setInt(4, emp.getQtdParcelas());
             ps.setDate(5, emp.getDataRealizacao());
             ps.setDate(6, emp.getDiaPagamento());
-            ps.setInt(7, emp.getIdCliente());
+            ps.setInt(7, emp.getCliente().getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
@@ -62,7 +64,8 @@ public class EmprestimosDAO {
         try {
 
             while (rs.next()) {
-                lista.add(new Emprestimos(idCliente, rs.getInt("id_emprestimo"),
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                lista.add(new Emprestimos(cliente, rs.getInt("id_emprestimo"),
                         rs.getDouble("valor"), rs.getDouble("juros"),
                         rs.getDate("data_realizacao"),rs.getDate("dia_parcela"),
                         rs.getInt("qtd_parcelas")));

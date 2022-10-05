@@ -28,25 +28,24 @@ public class ContasDAO {
 
         if (conta instanceof ContaCorrente) {
 
-          sql="insert into conta_corrente values(?,?,?,?,?,?,?)";
+          sql="insert into conta_corrente values(seq_conta_corrente.nextval,?,?,?,?,?,?)";
 
 
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, conta.getIdConta());
-                ps.setInt(2, conta.getNumero());
-                ps.setDouble(3, conta.getSaldo());
-                ps.setDouble(4, conta.getJuros());
-                ps.setDate(5, conta.getDataCriacao());
-                ps.setInt(6, conta.getIdCliente());
+                ps.setInt(1, conta.getNumero());
+                ps.setDouble(2, conta.getSaldo());
+                ps.setDouble(3, conta.getJuros());
+                ps.setDate(4, conta.getDataCriacao());
+                ps.setInt(5, conta.getCliente().getIdCliente());
                 if (((ContaCorrente) conta).getChavePIX()!=null) {
-                    ps.setString(7, ((ContaCorrente) conta).getChavePIX());
+                    ps.setString(6, ((ContaCorrente) conta).getChavePIX());
                 }else{
-                    ps.setNull(7, Types.VARCHAR);
+                    ps.setNull(6, Types.VARCHAR);
                 }
                 ps.execute();
-                linkarContaAoCliente(conta, conta.getIdCliente());
+                linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
 
             }catch (SQLException e){
                 System.out.println("Erro ao Linkar Contas: "+e);
@@ -55,21 +54,20 @@ public class ContasDAO {
         }else {
 
 
-            sql="insert into conta_poupanca values(?,?,?,?,?,?,?)";
+            sql="insert into conta_poupanca values(seq_conta_poupanca.nextval,?,?,?,?,?,?)";
 
 
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, conta.getIdConta());
-                ps.setInt(2, conta.getNumero());
-                ps.setDouble(3, conta.getSaldo());
-                ps.setDouble(4, conta.getJuros());
-                ps.setDate(5, conta.getDataCriacao());
-                ps.setDate(6, ((ContaPoupanca) conta).getDataAcrescimo());
-                ps.setInt(7, conta.getIdCliente());
+                ps.setInt(1, conta.getNumero());
+                ps.setDouble(2, conta.getSaldo());
+                ps.setDouble(3, conta.getJuros());
+                ps.setDate(4, conta.getDataCriacao());
+                ps.setDate(5, ((ContaPoupanca) conta).getDataAcrescimo());
+                ps.setInt(6, conta.getCliente().getIdCliente());
                 ps.execute();
-                linkarContaAoCliente(conta, conta.getIdCliente());
+                linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
 
             }catch (SQLException e){
                 System.out.println("Erro ao Linkar Contas: "+e);
@@ -81,20 +79,19 @@ public class ContasDAO {
 
     public void linkarContaAoCliente(Conta conta, int idCliente) {
 
-        sql="insert into Documento_Conta values(?,?,?,?,?)";
+        sql="insert into Documento_Conta values(seq_documento_conta.nextval,?,?,?,?)";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(idCliente+""+conta.getIdConta()));
-            ps.setInt(2, new Random().nextInt(9999999));
-            ps.setInt(3, idCliente);
+            ps.setInt(1, new Random().nextInt(9999999));
+            ps.setInt(2, idCliente);
             if (conta instanceof  ContaCorrente) {
-                ps.setNull(4, Types.INTEGER);
-                ps.setInt(5, conta.getIdConta());
-            }else{
+                ps.setNull(3, Types.INTEGER);
                 ps.setInt(4, conta.getIdConta());
-                ps.setNull(5, Types.INTEGER);
+            }else{
+                ps.setInt(3, conta.getIdConta());
+                ps.setNull(4, Types.INTEGER);
             }
             ps.execute();
 
@@ -104,6 +101,7 @@ public class ContasDAO {
 
     }
 
+    @Deprecated
     public List<Conta> listarContas(int idCliente) {
         List<Conta> lista=new LinkedList<Conta>();
 

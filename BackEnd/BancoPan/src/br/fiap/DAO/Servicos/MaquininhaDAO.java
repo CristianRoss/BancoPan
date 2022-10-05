@@ -1,6 +1,8 @@
 package br.fiap.DAO.Servicos;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Maquininha;
 
 import java.sql.Connection;
@@ -24,16 +26,15 @@ public class MaquininhaDAO {
 
     public void inserir(Maquininha m) {
 
-        sql="insert into Maquininha values(?,?,?,?,?)";
+        sql="insert into Maquininha values(seq_maquininha.nextval,?,?,?,?)";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1, m.getIdMaquininha());
-            ps.setDouble(2, m.getTaxa());
-            ps.setInt(3, m.getVendas());
-            ps.setInt(4, m.getVendasPorMes());
-            ps.setInt(5, m.getIdCliente());
+            ps.setDouble(1, m.getTaxa());
+            ps.setInt(2, m.getVendas());
+            ps.setInt(3, m.getVendasPorMes());
+            ps.setInt(4, m.getCliente().getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
@@ -60,7 +61,8 @@ public class MaquininhaDAO {
         try {
 
             while (rs.next()){
-                lista.add(new Maquininha(idCliente, rs.getInt("id_maquininha"), rs.getDouble("taxas"),
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                lista.add(new Maquininha(cliente, rs.getInt("id_maquininha"), rs.getDouble("taxas"),
                         rs.getInt("vendas"), rs.getInt("vendas_por_mes")));
             }
 

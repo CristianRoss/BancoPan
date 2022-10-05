@@ -1,5 +1,6 @@
 package br.fiap.Servicos.Contas;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Servicos.Servicos;
 
 import java.sql.Date;
@@ -13,8 +14,8 @@ public abstract class Conta extends Servicos {
 
     protected double juros;
 
-    public Conta(int idCliente, int idConta, int numero, double saldo, Date dataCriacao, double juros) {
-        super(idCliente);
+    public Conta(Cliente cliente, int idConta, int numero, double saldo, Date dataCriacao, double juros) {
+        super(cliente);
         this.idConta = idConta;
         this.numero = numero;
         this.saldo = saldo;

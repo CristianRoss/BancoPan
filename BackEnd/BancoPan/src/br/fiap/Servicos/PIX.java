@@ -1,5 +1,7 @@
 package br.fiap.Servicos;
 
+import br.fiap.Cliente.Cliente;
+
 import java.sql.Date;
 
 public class PIX extends Servicos{
@@ -13,8 +15,8 @@ public class PIX extends Servicos{
     private Date limiteHorario;
     private double valorPix;
 
-    public PIX(int idCliente, int idPIX, String chaveConta, String chaveDestino, double valorPix, Date data) {
-        super(idCliente);
+    public PIX(Cliente cliente, int idPIX, String chaveConta, String chaveDestino, double valorPix, Date data) {
+        super(cliente);
         this.idPIX = idPIX;
         this.chaveConta = chaveConta;
         this.chaveDestino = chaveDestino;
@@ -22,8 +24,8 @@ public class PIX extends Servicos{
         this.data=data;
     }
 
-    public PIX(int idCliente, int idPIX, String chaveConta, String chaveDestino, double limiteValor, double valorPix, Date data) {
-        super(idCliente);
+    public PIX(Cliente cliente, int idPIX, String chaveConta, String chaveDestino, double limiteValor, double valorPix, Date data) {
+        super(cliente);
         this.idPIX = idPIX;
         this.chaveConta = chaveConta;
         this.chaveDestino = chaveDestino;
@@ -32,8 +34,8 @@ public class PIX extends Servicos{
         this.data=data;
     }
 
-    public PIX(int idCliente, int idPIX, String chaveConta, String chaveDestino, Date limiteHorario, double valorPix, Date data) {
-        super(idCliente);
+    public PIX(Cliente cliente, int idPIX, String chaveConta, String chaveDestino, Date limiteHorario, double valorPix, Date data) {
+        super(cliente);
         this.idPIX = idPIX;
         this.chaveConta = chaveConta;
         this.chaveDestino = chaveDestino;
@@ -42,8 +44,8 @@ public class PIX extends Servicos{
         this.data=data;
     }
 
-    public PIX(int idCliente, int idPIX, String chaveConta, String chaveDestino, double limiteValor, Date limiteHorario, double valorPix, Date data) {
-        super(idCliente);
+    public PIX(Cliente cliente, int idPIX, String chaveConta, String chaveDestino, double limiteValor, Date limiteHorario, double valorPix, Date data) {
+        super(cliente);
         this.idPIX = idPIX;
         this.chaveConta = chaveConta;
         this.chaveDestino = chaveDestino;

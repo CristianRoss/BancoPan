@@ -1,5 +1,7 @@
 package br.fiap.Servicos;
 
+import br.fiap.Cliente.Cliente;
+
 import java.sql.Date;
 
 public class Emprestimos extends Servicos{
@@ -11,8 +13,8 @@ public class Emprestimos extends Servicos{
     private Date diaPagamento;
     private int qtdParcelas;
 
-    public Emprestimos(int idCliente, int idEmprestimo, double valor, double juros, Date dataRealizacao, Date diaPagamento, int qtdParcelas) {
-        super(idCliente);
+    public Emprestimos(Cliente cliente, int idEmprestimo, double valor, double juros, Date dataRealizacao, Date diaPagamento, int qtdParcelas) {
+        super(cliente);
         this.idEmprestimo = idEmprestimo;
         this.valor = valor;
         this.juros = juros;

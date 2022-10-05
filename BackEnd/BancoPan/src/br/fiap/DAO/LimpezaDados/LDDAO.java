@@ -85,15 +85,16 @@ public class LDDAO {
 
             while (rs.next()) {
 
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+
                 switch (codProd) {
 
                     case 1: {
                         if (rs.getString("cpf")!=null) {
-                            int id=getIdCliente(rs.getString("cpf"));
-                            lista.put(""+rs.getInt("id"),new CartaoDebito(id,rs.getInt("id"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+
+                            lista.put(""+rs.getInt("id"),new CartaoDebito(cliente,rs.getInt("id"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
                         }else{
-                            int id=getIdCliente(rs.getString("cnpj"));
-                            lista.put(""+rs.getInt("id"),new CartaoDebito(id,rs.getInt("id"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            lista.put(""+rs.getInt("id"),new CartaoDebito(cliente,rs.getInt("id"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
                         }
                         break;
                     }

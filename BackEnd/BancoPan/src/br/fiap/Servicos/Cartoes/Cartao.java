@@ -1,5 +1,6 @@
 package br.fiap.Servicos.Cartoes;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Servicos.Servicos;
 
 public abstract class Cartao extends Servicos {
@@ -9,8 +10,8 @@ public abstract class Cartao extends Servicos {
     protected int idCartao;
     protected double limite;
 
-    public Cartao(int idCliente,int idCartao, int numero, double limite) {
-        super(idCliente);
+    public Cartao(Cliente cliente, int idCartao, int numero, double limite) {
+        super(cliente);
         this.numero = numero;
         this.limite = limite;
         this.idCartao=idCartao;

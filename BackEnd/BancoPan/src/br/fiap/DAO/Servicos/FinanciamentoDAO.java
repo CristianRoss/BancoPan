@@ -1,6 +1,8 @@
 package br.fiap.DAO.Servicos;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Financiamentos;
 
 import java.sql.Connection;
@@ -37,7 +39,7 @@ public class FinanciamentoDAO {
             ps.setDouble(6, f.getEntrada());
             ps.setDate(7, f.getDataRealizacao());
             ps.setDate(8, f.getData_fim());
-            ps.setInt(9, f.getIdCliente());
+            ps.setInt(9, f.getCliente().getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
@@ -64,7 +66,8 @@ public class FinanciamentoDAO {
         try {
 
             while (rs.next()) {
-                lista.add(new Financiamentos(idCliente, rs.getInt("id_financiamento"), rs.getDouble("valor_total"),
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                lista.add(new Financiamentos(cliente, rs.getInt("id_financiamento"), rs.getDouble("valor_total"),
                         rs.getDouble("valor_parcelas"), rs.getInt("qtd_parcelas"), rs.getDouble("juros"),
                         rs.getDate("data_realizacao"),rs.getDate("data_fim"), rs.getDouble("entrada")));
             }

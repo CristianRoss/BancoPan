@@ -2,6 +2,7 @@ package br.fiap.DAO.Servicos;
 
 import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.PIX;
 
 import java.sql.*;
@@ -36,7 +37,7 @@ public class PIXDAO {
             }else{
                 ps.setDate(6, pix.getLimiteHorario());
             }
-            ps.setInt(7, pix.getIdCliente());
+            ps.setInt(7, pix.getCliente().getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
@@ -61,7 +62,8 @@ public class PIXDAO {
         try {
 
             if (!rs.wasNull()) {
-                return new PIX(rs.getInt("id_cliente"),id,rs.getString("chave_conta"),
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                return new PIX(cliente,id,rs.getString("chave_conta"),
                         rs.getString("chave_destino"),rs.getDouble("limite_valor"),
                         rs.getDate("limite_horario"), rs.getDouble("valor"),rs.getDate("data"));
             }
@@ -92,7 +94,8 @@ public class PIXDAO {
         try {
 
             while (rs.next()) {
-                lista.add(new PIX(rs.getInt("id_cliente"), rs.getInt("id_pix"), rs.getString("chave_conta"),
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                lista.add(new PIX(cliente, rs.getInt("id_pix"), rs.getString("chave_conta"),
                         rs.getString("chave_destino"),rs.getDouble("limite_valor"),
                         rs.getDate("limite_horario"), rs.getDouble("valor"),rs.getDate("data")));
             }

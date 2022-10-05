@@ -1,5 +1,8 @@
 package br.fiap.Cliente;
 
+import br.fiap.Servicos.Contas.Conta;
+
+import java.util.HashMap;
 import java.util.Objects;
 
 public abstract class Cliente {
@@ -12,6 +15,8 @@ public abstract class Cliente {
     protected int telefone;
 
     protected String CEP;
+
+    public static HashMap<Integer, Cliente> clientes=new HashMap<Integer,Cliente>();
 
     public Cliente(int idCliente, String nome, String email, String endereco, int telefone,String CEP) {
         this.idCliente = idCliente;
