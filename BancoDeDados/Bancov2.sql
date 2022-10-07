@@ -127,7 +127,7 @@ CREATE TABLE USUARIOS(
 
 alter table usuarios add constraint usuarios_pk primary key (id);
 
--- PARA INSERIR: insert into usuarios(numero,senha) values (52245692,'abc');
+-- PARA INSERIR: insert into usuarios(numero,senha) values (NUMERO DA CONTA,SENHA);
 
 CREATE TABLE conta_poupanca (
     id_poupanca    INTEGER NOT NULL,
