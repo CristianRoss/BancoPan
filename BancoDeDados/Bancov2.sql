@@ -119,6 +119,14 @@ START WITH 1
 INCREMENT BY 1
 CACHE 10;
 
+CREATE TABLE LOGINS(
+     id_login INTEGER NOT NULL,
+     numero INTEGER NOT NULL,
+     senha VARCHAR2(100) NOT NULL,
+);
+
+ALTER TABLE LOGINS ADD CONSTRAINT logins_pk PRIMARY KEY (id_login);
+
 CREATE TABLE conta_poupanca (
     id_poupanca    INTEGER NOT NULL,
     numero         INTEGER NOT NULL,
@@ -277,6 +285,10 @@ ALTER TABLE maquininha
 ALTER TABLE pix
     ADD CONSTRAINT pix_clientes_fk FOREIGN KEY ( id_cliente )
         REFERENCES clientes ( id_cliente );  
+        
+ALTER TABLE LOGINS 
+    ADD CONSTRAINT logins_fk FOREIGN KEY (numero)
+        REFERENCES conta_corrente (numero);
         
 --Populando Clientes
 
