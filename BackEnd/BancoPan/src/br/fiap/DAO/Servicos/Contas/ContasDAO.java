@@ -30,11 +30,12 @@ public class ContasDAO {
 
           sql="insert into conta_corrente values(seq_conta_corrente.nextval,?,?,?,?,?,?)";
 
+          int numero = new Random().nextInt(9999999);
 
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, new Random().nextInt(9999999));
+                ps.setInt(1, numero);
                 ps.setDouble(2, conta.getSaldo());
                 ps.setDouble(3, conta.getJuros());
                 ps.setDate(4, conta.getDataCriacao());
@@ -46,10 +47,13 @@ public class ContasDAO {
                 }
                 ps.execute();
                 linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
+                conta.setNumero(numero);
+
 
             }catch (SQLException e){
                 System.out.println("Erro ao Linkar Contas: "+e);
             }
+
 
         }else {
 
@@ -57,10 +61,12 @@ public class ContasDAO {
             sql="insert into conta_poupanca values(seq_conta_poupanca.nextval,?,?,?,?,?,?)";
 
 
+            int numero = new Random().nextInt(9999999);
+
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, conta.getNumero());
+                ps.setInt(1, numero);
                 ps.setDouble(2, conta.getSaldo());
                 ps.setDouble(3, conta.getJuros());
                 ps.setDate(4, conta.getDataCriacao());
@@ -68,10 +74,12 @@ public class ContasDAO {
                 ps.setInt(6, conta.getCliente().getIdCliente());
                 ps.execute();
                 linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
+                conta.setNumero(numero);
 
             }catch (SQLException e){
                 System.out.println("Erro ao Linkar Contas: "+e);
             }
+
 
         }
 
