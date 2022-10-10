@@ -8,6 +8,7 @@ drop table Emprestimos cascade constraints purge;
 drop table Financiamentos cascade constraints purge;
 drop table Maquininha cascade constraints purge;
 drop table PIX cascade constraints purge;
+drop table Usuarios cascade constraints purge;
 drop sequence seq_cartao_credito;
 drop sequence seq_cartao_debito;
 drop sequence seq_clientes;
