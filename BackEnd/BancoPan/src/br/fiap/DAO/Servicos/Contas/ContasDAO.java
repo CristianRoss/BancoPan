@@ -34,7 +34,7 @@ public class ContasDAO {
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, conta.getNumero());
+                ps.setInt(1, new Random().nextInt(9999999));
                 ps.setDouble(2, conta.getSaldo());
                 ps.setDouble(3, conta.getJuros());
                 ps.setDate(4, conta.getDataCriacao());
