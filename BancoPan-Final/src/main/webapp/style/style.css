@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background-color: rgb(7, 178, 253);
+  width: 80%;
+  margin: 5rem auto;
+  color: rgb(33, 37, 41);
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(7, 178, 253);
+  /* color of the scroll thumb */
+  border-radius: 5px;
+  /* roundness of the scroll thumb */
+  border: 2px solid rgb(255, 255, 255);
+}
+
+p,
+a {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+
+/* Select inacabado (trocado por "radio") */
+/* select{
+  border: none;
+  color: rgb(5, 144, 206);
+  background-color: rgb(7, 178, 253);
+  padding: 0 0 5px 10px;
+  width: 88%;
+  font-size: calc(1em + 3.8vw);
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+.select-sexo {
+  color: rgb(5, 144, 206);
+  padding: 0 0 5px 10px;
+  width: 88%;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.select-sexo h1 {
+  padding-bottom: 10px;
+  font-size: calc(1em + 3.8vw);
+}
+
+.select-label {
+  /* Cor das opçoes */
+  /* color: rgb(255, 255, 255); */
+  font-size: calc(1em + 2vw);
+  display: grid;
+  grid-template-columns: 0.8em auto;
+  gap: 0.2em;
+}
+
+.select-linha {
+  padding-top: 10px;
+}
+
+input {
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: #fff;
+  font-size: calc(1em + 3.8vw);
+  font-weight: 600;
+  padding: 0 0 5px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input::placeholder {
+  color: rgb(5, 144, 206);
+}
+
+input[type="submit"] {
+  border-bottom: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 40%;
+  background-color: rgb(5, 144, 206);
+  color: rgb(130, 199, 231);
+  cursor: pointer;
+  font-weight: 400;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(33, 37, 41);
+}
+
+.rua {
+  width: 60%;
+}
+
+.numero_rua {
+  width: 20%;
+}
+
+.textDescricao {
+  margin-bottom: 1rem;
+}
+
+input:focus,
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: none;
+}
+
+#cadastrarCliente {
+  margin-top: 3.5rem;
+}
+
+.logo_bancoPan {
+  margin-bottom: 3rem;
+}
+
+#campoCPF {
+  margin: 2rem 0 1rem 0;
+}
+
+.descricaoInput {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.linha {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.448);
+  width: 88%;
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0);
+  height: 100px;
+  width: 88%;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 20px 15px;
+  margin-bottom: 1.5rem;
+  /* box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2); */
+}
+
+.wrapper .option {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid rgb(5, 144, 206);
+  transition: all 0.3s ease;
+}
+
+.wrapper .option .dot {
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+
+.wrapper .option .dot::before {
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: rgb(5, 144, 206);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2 {
+  border-color: rgb(5, 144, 206);
+  background: rgb(5, 144, 206);
+}
+
+#option-1:checked:checked~.option-1 .dot,
+#option-2:checked:checked~.option-2 .dot {
+  background: #fff;
+}
+
+#option-1:checked:checked~.option-1 .dot::before,
+#option-2:checked:checked~.option-2 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wrapper .option span {
+  font-size: 2vw;
+  color: #808080;
+}
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span {
+  color: #fff;
+}
+
+
+@media (max-width:530px) {
+
+  input[type="text"],
+  input[type="date"] {
+    font-size: calc(1em + 3vw);
+  }
+}
+
+@media (max-width:420px) {
+
+  input[type="text"],
+  input[type="date"] {
+    font-size: calc(1em + 2.5vw);
+  }
+}
