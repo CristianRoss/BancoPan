@@ -48,10 +48,67 @@ public class ClienteDAO {
             System.out.println("Falha ao inserir Cliente: "+e);
         }
 
+        cliente.setIdCliente(getID(cliente));
+
         if (!Cliente.clientes.containsKey(cliente.getIdCliente())) {
             Cliente.clientes.put(cliente.getIdCliente(),cliente);
         }
 
+    }
+
+    public int getID(Cliente cliente) {
+
+        if (cliente instanceof  ClienteFisico) {
+
+            sql="select id_cliente from clientes where cpf = ?";
+
+            try {
+
+                ps=connection.prepareStatement(sql);
+                ps.setString(1,((ClienteFisico) cliente).getCpf());
+                rs=ps.executeQuery();
+
+            }catch (SQLException e){
+                System.out.println("Falha ao pesquisar id do cliente: "+e);
+            }
+
+            try {
+
+                while (rs.next()){
+                    return rs.getInt("id_cliente");
+                }
+
+            }catch (SQLException e) {
+                System.out.println("Falha ao pesquisar id do cliente: "+e);
+            }
+
+        }else{
+
+            sql="select id_cliente from clientes where cnpj = ?";
+
+            try {
+
+                ps=connection.prepareStatement(sql);
+                ps.setString(1,((ClienteJuridico) cliente).getCnpj());
+                rs=ps.executeQuery();
+
+            }catch (SQLException e){
+                System.out.println("Falha ao pesquisar id do cliente: "+e);
+            }
+
+            try {
+
+                while (rs.next()){
+                    return rs.getInt("id_cliente");
+                }
+
+            }catch (SQLException e) {
+                System.out.println("Falha ao pesquisar id do cliente: "+e);
+            }
+
+        }
+
+        return 0;
     }
 
     public Cliente getCliente(String identificacao){
