@@ -6,6 +6,7 @@ import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.Conexao.Conexao;
 import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Cartoes.CartaoDebito;
+import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Servicos;
 
 import java.sql.Connection;
@@ -100,6 +101,13 @@ public class LDDAO {
                         break;
                     }
                     case 2:{
+
+                        if (rs.getString("cpf")!=null) {
+
+                            lista.put(""+rs.getInt("id"),new ContaCorrente(cliente,rs.getInt("id"),rs.getInt("numero"),rs.getDouble("saldo"),rs.getDate("data"),rs.getDouble("juros")));
+                        }else{
+                            lista.put(""+rs.getInt("id"),new ContaCorrente(cliente,rs.getInt("id"),rs.getInt("numero"),rs.getDouble("saldo"),rs.getDate("data"),rs.getDouble("juros")));
+                        }
 
                         break;
                     }
