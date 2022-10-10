@@ -1,5 +1,7 @@
 package br.fiap.Usuario;
 
+import br.fiap.Util.Util;
+
 public class Usuario {
 
     private int numero;
@@ -7,7 +9,7 @@ public class Usuario {
 
     public Usuario(int numero, String senha) {
         this.numero = numero;
-        this.senha = senha;
+        this.senha = new Util().criptografar(senha);
     }
 
     public int getNumero() {
