@@ -304,6 +304,7 @@ INSERT INTO clientes VALUES (
     'ricaro@gmail.com',
     'Rua Domingos Marino 1182',
     '15810-090',
+    'MASCULINO',
     TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -317,6 +318,7 @@ INSERT INTO clientes VALUES (
     'rodolfo@gmail.com',
     'Rua Irmã Efigênia 255',
     '04017-060',
+    'MASCULINO',
     TO_DATE('1977/10/15 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -330,6 +332,7 @@ INSERT INTO clientes VALUES (
     'joaofe@gmail.com',
     'Rua José de La Morena 430',
     '15061-753',
+    'MASCULINO',
     TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -343,6 +346,7 @@ INSERT INTO clientes VALUES (
     'magomes@gmail.com',
     'Avenida Américo Brasiliense 661',
     '13405-244',
+    'FEMININO',
     TO_DATE('1992/04/25 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -356,6 +360,7 @@ INSERT INTO clientes VALUES (
     'bobrogers@hotmail.com',
     'Rua Abel Cabral 1265',
     '59080-550',
+    'MASCULINO',
     TO_DATE('1972/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -369,6 +374,7 @@ INSERT INTO clientes VALUES (
     'joel@ig.com',
     'Rua Guaíra 929',
     '86188-520',
+    'MASCULINO',
     TO_DATE('2000/11/21 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -382,6 +388,7 @@ INSERT INTO clientes VALUES (
     'dia@dia.com',
     'Rua Bento Fernandes 1014',
     '07160-050',
+    NULL,
     NULL
 );
 
@@ -395,6 +402,7 @@ INSERT INTO clientes VALUES (
     'admDourados@gmail.com',
     'Rua José Ademar R. Perdomo 1084',
     '79814-090',
+    NULL,
     NULL
 );
 
@@ -408,6 +416,7 @@ INSERT INTO clientes VALUES (
     'paodeacucar@gmail.com',
     'Travessa Caroba 1766',
     '98805-785',
+    NULL,
     NULL
 );
 
@@ -421,6 +430,7 @@ INSERT INTO clientes VALUES (
     'razer@hotmail.com',
     'Rua Francisco Gonçalves Santos 1580',
     '39401-430',
+    NULL,
     NULL
 );
 
@@ -434,6 +444,7 @@ INSERT INTO clientes VALUES (
     'DonaldHRich@teleworm.us',
     '3122 Libby Street',
     '90291',
+    'MASCULINO',
     TO_DATE('1973/09/24 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -447,6 +458,7 @@ INSERT INTO clientes VALUES (
     'MateusOliveiraLima@dayrep.com',
     'Estrada da Alpina 351',
     '06278-020',
+    'MASCULINO',
     TO_DATE('1974/07/23 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -460,6 +472,7 @@ INSERT INTO clientes VALUES (
     'MuriloCunhaBarbosa@dayrep.com',
     'Rua Vinte e Oito de Setembro 833',
     '12282-270',
+    'MASCULINO',
     TO_DATE('1978/05/22 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -473,6 +486,7 @@ INSERT INTO clientes VALUES (
     'GuilhermeRodriguesCardoso@rhyta.com',
     'Rua Sete 496',
     '24738-522',
+    'MASCULINO',
     TO_DATE('1967/10/18 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
@@ -486,6 +500,7 @@ INSERT INTO clientes VALUES (
     'MarianaAlmeidaGoncalves@armyspy.com',
     'Vila Neza 1405',
     '60540-281',
+    'FEMININO',
     TO_DATE('1991/12/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')
 );
 
