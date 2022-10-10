@@ -70,6 +70,11 @@ public class MaquininhaDAO {
             System.out.println("Erro ao listar maquininhas: "+e);
         }
 
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return lista;
     }
 

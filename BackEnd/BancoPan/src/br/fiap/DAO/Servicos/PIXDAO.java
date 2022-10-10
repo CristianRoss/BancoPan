@@ -104,6 +104,12 @@ public class PIXDAO {
             System.out.println("Falha ao listar PIXS: "+e);
         }
 
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         return lista;
     }
 

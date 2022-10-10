@@ -1,6 +1,7 @@
 package br.fiap.DAO.Usuario;
 
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Servicos.Contas.ContaCorrenteDAO;
 import br.fiap.Usuario.Usuario;
 
 import java.sql.Connection;
@@ -26,7 +27,7 @@ public class UsuarioDAO {
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1,usuario.getNumero());
+            ps.setInt(1,usuario.getConta().getNumero());
             ps.setString(2,usuario.getSenha());
             ps.execute();
 
@@ -52,8 +53,10 @@ public class UsuarioDAO {
 
         try {
 
+            ContaCorrenteDAO dao=new ContaCorrenteDAO();
+
             while (rs.next()){
-                return new Usuario(numeroConta, rs.getString("senha"));
+                return new Usuario(dao.pesquisarConta(numeroConta), rs.getString("senha"));
             }
 
         }catch (SQLException e) {
@@ -70,7 +73,7 @@ public class UsuarioDAO {
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1,usuario.getNumero());
+            ps.setInt(1,usuario.getConta().getNumero());
             rs= ps.executeQuery();
 
         }catch (SQLException e) {
@@ -80,7 +83,7 @@ public class UsuarioDAO {
         try {
 
             while (rs.next()){
-                if (rs.getInt("numero")==usuario.getNumero()) {
+                if (rs.getInt("numero")==usuario.getConta().getNumero()) {
                     if (rs.getString("senha").equals(usuario.getSenha())) {
                         return true;
                     }

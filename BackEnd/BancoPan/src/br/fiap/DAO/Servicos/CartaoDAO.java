@@ -72,7 +72,7 @@ public class CartaoDAO {
     public List<Cartao> listarCartoes(int idCliente){
         List<Cartao> lista=new LinkedList<Cartao>();
 
-        sql="select * from cartao_debito where id_cliente=?";
+        sql="select * from cartao_debito where ID_CLIENTE=?";
 
         try {
 
@@ -88,7 +88,7 @@ public class CartaoDAO {
 
             while (rs.next()) {
                 Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
-                lista.add(new CartaoDebito(cliente,rs.getInt("id_cartao_debito"), rs.getInt("numro"),
+                lista.add(new CartaoDebito(cliente,rs.getInt("id_cartao_debito"), rs.getInt("numero"),
                         rs.getDouble("limite")));
             }
 
@@ -96,7 +96,7 @@ public class CartaoDAO {
             System.out.println("Falha ao pesquisar cartao de debito: "+e);
         }
 
-        sql="select * from cartao_credito where id_cliente=?";
+        sql="select * from cartao_credito where ID_CLIENTE=?";
 
         try {
 
@@ -113,13 +113,19 @@ public class CartaoDAO {
             while (rs.next()) {
                 Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
                 lista.add(new CartaoCredito(cliente,
-                        rs.getInt("id_cartao_debito"), rs.getInt("numro"),
-                        rs.getDouble("limite"), rs.getDouble("fatura"),
+                        rs.getInt("ID_CARTAO_CREDITO"), rs.getInt("NUMERO_CREDITO"),
+                        rs.getDouble("LIMITE_CREDITO"), rs.getDouble("fatura"),
                         rs.getDate("data_vencimento"),rs.getDouble("juros_credito"), rs.getInt("cvv")));
             }
 
         }catch (SQLException e){
             System.out.println("Falha ao pesquisar cartao de credito: "+e);
+        }
+
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
         return lista;

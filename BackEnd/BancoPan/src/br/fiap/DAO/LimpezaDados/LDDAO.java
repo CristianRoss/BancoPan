@@ -45,7 +45,7 @@ public class LDDAO {
 
             while (rs.next()){
                 if (rs.getString("cpf")!=null) {
-                    lista.put(rs.getString("cpf"), new ClienteFisico(cont, rs.getString("nome").toUpperCase(),rs.getString("email"),rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"), rs.getString("cpf"), rs.getString("sobrenome").toUpperCase(),rs.getDate("aniversario")));
+                    lista.put(rs.getString("cpf"), new ClienteFisico(cont, rs.getString("nome").toUpperCase(),rs.getString("email"),rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep"), rs.getString("cpf"), rs.getString("sobrenome").toUpperCase(),rs.getDate("aniversario"),rs.getString("sexo")));
                 }else {
                     lista.put(rs.getString("cnpj"), new ClienteJuridico(cont, rs.getString("cnpj"), rs.getString("nome").toUpperCase(), rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep")));
                 }
@@ -82,10 +82,11 @@ public class LDDAO {
         }
 
         try {
+           ClienteDAO dao = new ClienteDAO();
 
             while (rs.next()) {
 
-                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                Cliente cliente=dao.getCliente(rs.getInt("id_cliente"));
 
                 switch (codProd) {
 

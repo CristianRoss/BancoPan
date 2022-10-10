@@ -25,7 +25,7 @@ public class ContaPoupancaDAO {
 
     public ContaPoupanca pesquisar(int id){
 
-        sql="select * from conta_poupanca where id_conta_poupanca=?";
+        sql="select * from conta_poupanca where ID_POUPANCA=?";
 
         try {
 
@@ -40,10 +40,13 @@ public class ContaPoupancaDAO {
 
         try {
 
-            Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
-            return new ContaPoupanca(cliente,id, rs.getInt("numero"), rs.getDouble("saldo"),
-                    rs.getDate("data_criacao"),rs.getDate("data_acrescimo"), rs.getDouble("juros"));
+           while (rs.next()) {
+               Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+               return new ContaPoupanca(cliente,id, rs.getInt("numero"), rs.getDouble("saldo"),
+                       rs.getDate("data_criacao"),rs.getDate("data_acrescimo"), rs.getDouble("juros"));
 
+
+           }
 
         }catch (SQLException e){
             System.out.println("Falha ao pesquisar Conta Poupanca: "+e);

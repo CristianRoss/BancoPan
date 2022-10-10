@@ -55,4 +55,37 @@ public class ContaCorrenteDAO {
         return null;
     }
 
+    public ContaCorrente pesquisarConta(int numero){
+
+        sql="select * from conta_corrente where numero=?";
+
+        try {
+
+            ps=connection.prepareStatement(sql);
+            ps.setInt(1, numero);
+            rs=ps.executeQuery();
+
+
+        }catch (SQLException e){
+            System.out.println("Falha ao pesquisar Conta Corrente: "+e);
+        }
+
+        try {
+
+            while (rs.next())  {
+                Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
+                return new ContaCorrente(cliente,rs.getInt("id_conta_corrente"), rs.getInt("numero"), rs.getDouble("saldo"),
+                        rs.getDate("data_criacao"),rs.getDouble("juros"),rs.getString("chave_pix"));
+
+            }
+
+        }catch (SQLException e){
+            System.out.println("Falha ao pesquisar Conta Corrente: "+e);
+        }
+
+
+
+        return null;
+    }
+
 }

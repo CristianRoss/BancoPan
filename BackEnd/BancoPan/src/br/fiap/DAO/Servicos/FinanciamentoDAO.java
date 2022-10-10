@@ -76,6 +76,12 @@ public class FinanciamentoDAO {
             System.out.println("Erro ao listar financiamentos : "+e);
         }
 
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         return lista;
     }
 

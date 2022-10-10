@@ -164,7 +164,7 @@ public class ClienteDAO {
                     ClienteFisico cliente = new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
                             rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
                             ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
-                            rs.getDate("data_nascimento"));
+                            rs.getDate("data_nascimento"),rs.getString("sexo"));
                     Cliente.clientes.put(cliente.getIdCliente(),cliente);
                     return cliente;
                 }
@@ -198,7 +198,7 @@ public class ClienteDAO {
                         ClienteFisico cliente = new ClienteFisico(id, rs.getString("nome"),
                                 rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone")
                                 ,rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
-                                rs.getDate("data_nascimento"));
+                                rs.getDate("data_nascimento"),rs.getString("sexo"));
                         Cliente.clientes.put(cliente.getIdCliente(),cliente);
                         return cliente;
                     }else{
@@ -242,7 +242,7 @@ public class ClienteDAO {
                     Cliente.clientes.put(rs.getInt("id_cliente"), new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
                             rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone"),
                             rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
-                            rs.getDate("data_nascimento")));
+                            rs.getDate("data_nascimento"),rs.getString("sexo")));
                 }else{
                     Cliente.clientes.put(rs.getInt("id_cliente"), new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
                             rs.getString("nome"),rs.getString("email"),

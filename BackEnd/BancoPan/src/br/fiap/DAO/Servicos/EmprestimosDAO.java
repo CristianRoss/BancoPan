@@ -75,6 +75,12 @@ public class EmprestimosDAO {
             System.out.println("Falha ao listar emprestimos: "+e);
         }
 
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         return lista;
     }
 

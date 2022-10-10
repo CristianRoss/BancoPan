@@ -1,23 +1,24 @@
 package br.fiap.Usuario;
 
+import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Util.Util;
 
 public class Usuario {
 
-    private int numero;
+    private ContaCorrente conta;
     private String senha;
 
-    public Usuario(int numero, String senha) {
-        this.numero = numero;
+    public Usuario(ContaCorrente conta, String senha) {
+        this.conta = conta;
         this.senha = new Util().criptografar(senha);
     }
 
-    public int getNumero() {
-        return numero;
+    public ContaCorrente getConta() {
+        return conta;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setConta(ContaCorrente conta) {
+        this.conta = conta;
     }
 
     public String getSenha() {
