@@ -101,7 +101,6 @@ public class ContasDAO {
 
     }
 
-    @Deprecated
     public List<Conta> listarContas(int idCliente) {
         List<Conta> lista=new LinkedList<Conta>();
 

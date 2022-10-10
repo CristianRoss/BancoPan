@@ -4,6 +4,11 @@ import br.fiap.Cliente.Cliente;
 import br.fiap.Cliente.ClienteFisico;
 import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Servicos.*;
+import br.fiap.DAO.Servicos.Contas.ContasDAO;
+import br.fiap.Servicos.*;
+import br.fiap.Servicos.Cartoes.Cartao;
+import br.fiap.Servicos.Contas.Conta;
 
 import java.sql.*;
 import java.util.*;
@@ -249,6 +254,54 @@ public class ClienteDAO {
             System.out.println("Falha ao listar clientes: "+e);
         }
 
+    }
+
+    public List<Servicos> listarServicos(Cliente cliente) {
+        ArrayList<Servicos> lista=new ArrayList<Servicos>();
+
+        List<Cartao> cartoes=new CartaoDAO().listarCartoes(cliente.getIdCliente());
+        if (cartoes!=null) {
+            for (Cartao c : cartoes) {
+                lista.add(c);
+            }
+        }
+
+        List<PIX> pixs=new PIXDAO().getPIXS(cliente.getIdCliente());
+        if (pixs!=null) {
+            for (PIX p:pixs){
+                lista.add(p);
+            }
+        }
+
+        List<Emprestimos> emprestimos=new EmprestimosDAO().lisarEmprestimos(cliente.getIdCliente());
+        if (emprestimos!=null){
+            for (Emprestimos s:emprestimos){
+                lista.add(s);
+            }
+        }
+
+        List<Conta> contas=new ContasDAO().listarContas(cliente.getIdCliente());
+        if (contas!=null){
+            for (Conta s:contas){
+                lista.add(s);
+            }
+        }
+
+        List<Maquininha> maquininhas=new MaquininhaDAO().listarMaquininhas(cliente.getIdCliente());
+        if (maquininhas!=null){
+            for (Maquininha s:maquininhas){
+                lista.add(s);
+            }
+        }
+
+        List<Financiamentos> financiamentos=new FinanciamentoDAO().listarFinanciamentos(cliente.getIdCliente());
+        if (financiamentos!=null){
+            for (Financiamentos s:financiamentos){
+                lista.add(s);
+            }
+        }
+
+        return lista;
     }
 
 }

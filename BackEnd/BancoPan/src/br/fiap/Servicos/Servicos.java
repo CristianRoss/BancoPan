@@ -2,6 +2,8 @@ package br.fiap.Servicos;
 
 import br.fiap.Cliente.Cliente;
 
+import java.util.Map;
+
 public abstract class Servicos {
 
     protected Cliente cliente;

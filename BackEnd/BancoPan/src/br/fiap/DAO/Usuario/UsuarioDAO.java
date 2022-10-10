@@ -81,7 +81,7 @@ public class UsuarioDAO {
 
             while (rs.next()){
                 if (rs.getInt("numero")==usuario.getNumero()) {
-                    if (rs.getString("senha").equalsIgnoreCase(usuario.getSenha())) {
+                    if (rs.getString("senha").equals(usuario.getSenha())) {
                         return true;
                     }
                 }
