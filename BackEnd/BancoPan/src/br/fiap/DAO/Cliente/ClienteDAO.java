@@ -216,9 +216,8 @@ public class ClienteDAO {
         return null;
     }
 
-    @Deprecated
-    public List<Cliente> listarClientes(){
-        List<Cliente> lista=new LinkedList<Cliente>();
+
+    public void listarClientes(){
 
         sql="select * from Clientes";
 
@@ -235,12 +234,12 @@ public class ClienteDAO {
 
             while (rs.next()) {
                 if (rs.getString("cpf")!=null) {
-                    lista.add(new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
+                    Cliente.clientes.put(rs.getInt("id_cliente"), new ClienteFisico(rs.getInt("id_cliente"), rs.getString("nome"),
                             rs.getString("email"), rs.getString("endereco"), rs.getInt("telefone"),
                             rs.getString("cep"),rs.getString("cpf"), rs.getString("sobrenome"),
                             rs.getDate("data_nascimento")));
                 }else{
-                    lista.add(new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
+                    Cliente.clientes.put(rs.getInt("id_cliente"), new ClienteJuridico(rs.getInt("id_cliente"), rs.getString("cnpj"),
                             rs.getString("nome"),rs.getString("email"),
                             rs.getString("endereco"), rs.getInt("telefone"),rs.getString("cep")));
                 }
@@ -250,7 +249,6 @@ public class ClienteDAO {
             System.out.println("Falha ao listar clientes: "+e);
         }
 
-        return lista;
     }
 
 }
