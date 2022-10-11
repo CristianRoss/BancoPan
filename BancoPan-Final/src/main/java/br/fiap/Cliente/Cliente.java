@@ -1,9 +1,6 @@
 package br.fiap.Cliente;
 
-import br.fiap.Servicos.Contas.Conta;
-
 import java.util.HashMap;
-import java.util.Objects;
 
 public abstract class Cliente {
 

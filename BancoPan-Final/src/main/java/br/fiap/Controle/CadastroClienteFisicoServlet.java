@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.fiap.Cliente.Cliente;
 import br.fiap.Cliente.ClienteFisico;
 import br.fiap.DAO.Cliente.ClienteDAO;
-import br.fiap.DAO.Servicos.Contas.ContaCorrenteDAO;
 import br.fiap.DAO.Servicos.Contas.ContasDAO;
 import br.fiap.DAO.Usuario.UsuarioDAO;
 import br.fiap.Servicos.Contas.ContaCorrente;

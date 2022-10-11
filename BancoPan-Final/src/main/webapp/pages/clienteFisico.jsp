@@ -27,7 +27,6 @@
 
 
 		<section id="transaction">
-			<!-- TODO: COLOCAR NOME -->
 			<p>
 				Bem vindo(a) <span class="nome"><%= cliente.getNome() %></span>!
 			</p>
@@ -38,7 +37,7 @@
 			<table id="data-table">
 				<thead>
 					<tr>
-						<th><h3>Nome do Serviço</h3></th>
+						<th><h3>Serviços</h3></th>
 						<th></th>
 					</tr>
 				</thead>

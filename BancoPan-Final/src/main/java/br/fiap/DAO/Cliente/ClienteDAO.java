@@ -120,7 +120,7 @@ public class ClienteDAO {
 
     public Cliente getCliente(String identificacao){
 
-        if (identificacao.length()>13) {
+        if (identificacao.length()>14) {
             sql = "select * from Clientes where cnpj = ?";
 
             try {
@@ -149,7 +149,7 @@ public class ClienteDAO {
 
         }else{
             sql = "select * from Clientes where cpf = ?";
-
+            
             try {
 
                 ps=connection.prepareStatement(sql);

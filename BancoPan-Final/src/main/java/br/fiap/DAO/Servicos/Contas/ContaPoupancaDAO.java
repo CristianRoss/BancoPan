@@ -3,7 +3,6 @@ package br.fiap.DAO.Servicos.Contas;
 import br.fiap.Cliente.Cliente;
 import br.fiap.Conexao.Conexao;
 import br.fiap.DAO.Cliente.ClienteDAO;
-import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Contas.ContaPoupanca;
 
 import java.sql.Connection;

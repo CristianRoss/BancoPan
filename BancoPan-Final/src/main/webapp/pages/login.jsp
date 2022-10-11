@@ -24,12 +24,12 @@
 					<fieldset>
 						<div class="input-block">
 							<label for="login-ident">CPF/CNPJ</label> <input id="login-ident"
-								type="text" maxlength="18" onkeypress="mascaraIdent(this)"
+								type="text" name="ident" maxlength="18" onkeypress="mascaraIdent(this)"
 								onkeyup="mascaraIdent(this)" required>
 						</div>
 						<div class="input-block">
 							<label for="login-password">Senha</label> <input
-								id="login-password" type="password" required>
+								id="login-password" name="senha" type="password" required>
 						</div>
 					</fieldset>
 					<button type="submit" class="btn-login">Login</button>
@@ -39,11 +39,11 @@
 				<button type="button" class="switcher switcher-signup">
 					Admin <span class="underline"></span>
 				</button>
-				<form action="" class="form form-signup">
+				<form action="../loginAdmin" class="form form-signup">
 					<fieldset>
 						<div class="input-block">
-							<label for="signup-email">E-mail</label> <input id="signup-email"
-								type="email" name="adminLogin" required>
+							<label for="loginAdm">Login</label> <input id="loginAdm"
+								type="text" name="loginAdm" required>
 						</div>
 						<div class="input-block">
 							<label for="signup-password">Senha</label> <input

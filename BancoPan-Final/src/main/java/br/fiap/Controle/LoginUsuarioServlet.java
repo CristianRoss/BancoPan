@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.fiap.Cliente.Cliente;
 import br.fiap.Cliente.ClienteFisico;
+import br.fiap.Cliente.ClienteJuridico;
+import br.fiap.DAO.Cliente.ClienteDAO;
 
 /**
  * Servlet implementation class LoginUsuarioServlet
@@ -25,11 +28,39 @@ public class LoginUsuarioServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String ident = request.getParameter("ident");
+		String senha = request.getParameter("senha");
+
+		Cliente cliente = new ClienteDAO().getCliente(ident);
+		String pageUrl;
+		
+		//Cliente não encontrado
+		if(cliente == null) {
+			//TODO: Tratar cliente não encontrado
+			System.out.println("Cliente não encontrado");
+			return;
+		}
+		
+		if(ident.length() <= 14) {
+			cliente = (ClienteFisico) cliente;
+			pageUrl = "./pages/clienteFisico.jsp";
+			
+		}
+		else {
+			cliente = (ClienteJuridico) cliente;
+			pageUrl = "./pages/clienteJuridico.jsp";
+		}
+		
+		//TODO: Validar senha
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("./pages/clienteFisico.jsp");
-		//request.setAttribute("cliente", cliente);
+		
+		
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
+		request.setAttribute("cliente", cliente);
 		rd.forward(request, response);
 	}
 

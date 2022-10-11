@@ -6,7 +6,6 @@ import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Contas.ContaPoupanca;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
