@@ -29,7 +29,7 @@
 	</p>
 
 
-	<form action="" method="post">
+	<form action="../cadastroClienteJuridico" method="post">
 		<input type="text" name="nomeCliente" id="nomeCliente"
 			autocomplete="off" maxlength="38" placeholder="Nome"
 			title="Digite o nome corretamente"
@@ -77,8 +77,8 @@
 			oninput="this.value = this.value.toUpperCase()" autocomplete="off">
 		<div class="linha"></div>
 
-		<input type="text" placeholder="Data de criaÃ§Ã£o"
-			title="Digite sua data de criaÃ§Ã£o"
+		<input type="text" placeholder="Data de criação"
+			title="Digite sua data de criação"
 			pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" onfocus="(this.type='date')"
 			name="dataNasc" id="dataNasc" autocomplete="off" maxlength="20"
 			min="1900-01-01" required>

@@ -1,6 +1,7 @@
 package br.fiap.Controle;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -10,10 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.fiap.Cliente.Cliente;
-import br.fiap.Cliente.ClienteFisico;
+import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.DAO.Cliente.ClienteDAO;
-import br.fiap.DAO.Servicos.Contas.ContaCorrenteDAO;
 import br.fiap.DAO.Servicos.Contas.ContasDAO;
 import br.fiap.DAO.Usuario.UsuarioDAO;
 import br.fiap.Servicos.Contas.ContaCorrente;
@@ -21,13 +20,11 @@ import br.fiap.Servicos.Contas.DocumentoConta;
 import br.fiap.Usuario.Usuario;
 import br.fiap.Util.Util;
 
-import java.sql.Date;
-
 /**
- * Servlet implementation class cadastroClienteFisicoServlet
+ * Servlet implementation class CadastroClienteJuridicoServlet
  */
-@WebServlet("/cadastroClienteFisico")
-public class CadastroClienteFisicoServlet extends HttpServlet {
+@WebServlet("/cadastroClienteJuridico")
+public class CadastroClienteJuridicoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -42,12 +39,9 @@ public class CadastroClienteFisicoServlet extends HttpServlet {
 			throws ServletException, IOException {
 		double jurosConta = 6.17;
 		String nome = request.getParameter("nomeCliente");
-		String sobrenome = request.getParameter("sobrenomeCliente");
-		String cpf = request.getParameter("cpf");
-		String email = request.getParameter("email");
-		String sexo = request.getParameter("sexo");
-		Date dataNasc = Date.valueOf(new Util().formatarData(request.getParameter("dataNasc")));
+		String cnpj = request.getParameter("cnpj");
 		Long telefone = Long.parseLong(request.getParameter("telefone").replaceAll("[^0-9]", ""));
+		String email = request.getParameter("email");
 		String cep = request.getParameter("cep");
 		String rua = request.getParameter("rua");
 		String nRua = request.getParameter("numero_rua");
@@ -55,11 +49,10 @@ public class CadastroClienteFisicoServlet extends HttpServlet {
 		String endereco = rua + " - N° " + nRua;
 		if (complemento != null && !complemento.equalsIgnoreCase(""))
 			endereco += " (" + complemento + ")";
-
+		Date datacriacao = Date.valueOf(new Util().formatarData(request.getParameter("dataNasc")));
 		String senha = request.getParameter("senha");
 
-		ClienteFisico cliente = new ClienteFisico(0, nome, email, endereco, telefone, cep, cpf, sobrenome, dataNasc,
-				sexo);
+		ClienteJuridico cliente = new ClienteJuridico(0, cnpj, nome, email, endereco, telefone, cep);
 		ContaCorrente conta = new ContaCorrente(cliente, 0, 0, 0, Date.valueOf(LocalDate.now()), jurosConta);
 		Usuario usuario = new Usuario(conta, senha);
 		DocumentoConta docConta = new DocumentoConta(cliente, 0);
@@ -69,10 +62,8 @@ public class CadastroClienteFisicoServlet extends HttpServlet {
 		new ClienteDAO().inserirCliente(cliente);
 		new ContasDAO().inserir(conta);
 		new UsuarioDAO().inserir(usuario);
-		
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("./pages/clienteFisico.jsp");
+
+		RequestDispatcher rd = request.getRequestDispatcher("./pages/clienteJuridico.jsp");
 		request.setAttribute("cliente", cliente);
 		rd.forward(request, response);
 

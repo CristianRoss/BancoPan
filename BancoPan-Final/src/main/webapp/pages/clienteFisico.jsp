@@ -1,3 +1,5 @@
+<%@page import="br.fiap.Cliente.ClienteFisico"%>
+<% ClienteFisico cliente = (ClienteFisico) request.getAttribute("cliente"); %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,7 +12,7 @@
 	type="image/x-icon">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../style/pageClienteFisico.css">
+<link rel="stylesheet" href="./style/pageClienteFisico.css">
 <title>Banco PAN - Cliente Fisico</title>
 </head>
 
@@ -27,7 +29,7 @@
 		<section id="transaction">
 			<!-- TODO: COLOCAR NOME -->
 			<p>
-				Bem vindo <span class="nome">@nome</span>!
+				Bem vindo(a) <span class="nome"><%= cliente.getNome() %></span>!
 			</p>
 
 			<a href="#" onclick="" class="button new">+ Adicionar novo
