@@ -24,7 +24,7 @@ public class ClienteDAO {
         connection=new Conexao().conectar();
     }
 
-    public void inserirCliente(Cliente cliente) {
+    public boolean inserirCliente(Cliente cliente) {
         sql = "insert into clientes values(seq_clientes.nextval,?,?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -53,6 +53,7 @@ public class ClienteDAO {
 
         }catch (SQLException e) {
             System.out.println("Falha ao inserir Cliente: "+e);
+            return false;
         }
 
         cliente.setIdCliente(getID(cliente));
@@ -60,7 +61,7 @@ public class ClienteDAO {
         if (!Cliente.clientes.containsKey(cliente.getIdCliente())) {
             Cliente.clientes.put(cliente.getIdCliente(),cliente);
         }
-
+        return true;
     }
 
     public int getID(Cliente cliente) {

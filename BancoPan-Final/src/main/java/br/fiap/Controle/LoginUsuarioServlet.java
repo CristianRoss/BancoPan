@@ -13,6 +13,7 @@ import br.fiap.Cliente.Cliente;
 import br.fiap.Cliente.ClienteFisico;
 import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.DAO.Cliente.ClienteDAO;
+import br.fiap.DAO.Usuario.UsuarioDAO;
 
 /**
  * Servlet implementation class LoginUsuarioServlet
@@ -32,36 +33,32 @@ public class LoginUsuarioServlet extends HttpServlet {
 		String ident = request.getParameter("ident");
 		String senha = request.getParameter("senha");
 
-		Cliente cliente = new ClienteDAO().getCliente(ident);
+		Cliente cliente;
 		String pageUrl;
 		
-		//Cliente não encontrado
-		if(cliente == null) {
-			//TODO: Tratar cliente não encontrado
-			System.out.println("Cliente não encontrado");
-			return;
-		}
 		
 		if(ident.length() <= 14) {
-			cliente = (ClienteFisico) cliente;
+			cliente = (ClienteFisico) null;
 			pageUrl = "./pages/clienteFisico.jsp";
 			
 		}
 		else {
-			cliente = (ClienteJuridico) cliente;
+			cliente = (ClienteJuridico) null;
 			pageUrl = "./pages/clienteJuridico.jsp";
 		}
 		
-		//TODO: Validar senha
+		if(new UsuarioDAO().fazerLogin(ident, senha)) {
+			cliente = new ClienteDAO().getCliente(ident);
+			
+			RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
+			request.setAttribute("cliente", cliente);
+			rd.forward(request, response);
+			return;
+		}
+
+		//TODO: Tratar falha no login (credenciais erradas)
 		
 		
-		
-		
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
-		request.setAttribute("cliente", cliente);
-		rd.forward(request, response);
 	}
 
 }

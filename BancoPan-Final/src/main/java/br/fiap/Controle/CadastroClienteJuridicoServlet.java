@@ -59,7 +59,10 @@ public class CadastroClienteJuridicoServlet extends HttpServlet {
 		docConta.setContaCorrente(conta);
 		//TODO: Erro ao linkar contas (DOCUMENTO_CONTA_CORRENTE_FK) violated - parent key not found
 
-		new ClienteDAO().inserirCliente(cliente);
+		if(!new ClienteDAO().inserirCliente(cliente)) {
+			System.out.println("Cliente nao inserido");
+			return;
+		}
 		new ContasDAO().inserir(conta);
 		new UsuarioDAO().inserir(usuario);
 
