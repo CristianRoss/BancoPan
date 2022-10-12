@@ -1,6 +1,7 @@
 package br.fiap.DAO.Servicos.Contas;
 
 import br.fiap.Conexao.Conexao;
+import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.Servicos.Contas.Conta;
 import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Contas.ContaPoupanca;
@@ -45,9 +46,10 @@ public class ContasDAO {
                     ps.setNull(6, Types.VARCHAR);
                 }
                 ps.execute();
-                linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
                 conta.setNumero(numero);
-
+                conta.setIdConta(getContaid(conta));
+                conta.getCliente().setIdCliente(new ClienteDAO().getID(conta.getCliente()));
+                linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
 
             }catch (SQLException e){
                 System.out.println("Erro ao Linkar Contas: "+e);
@@ -72,8 +74,10 @@ public class ContasDAO {
                 ps.setDate(5, ((ContaPoupanca) conta).getDataAcrescimo());
                 ps.setInt(6, conta.getCliente().getIdCliente());
                 ps.execute();
-                linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
                 conta.setNumero(numero);
+                conta.setIdConta(getContaid(conta));
+                conta.getCliente().setIdCliente(new ClienteDAO().getID(conta.getCliente()));
+                linkarContaAoCliente(conta, conta.getCliente().getIdCliente());
 
             }catch (SQLException e){
                 System.out.println("Erro ao Linkar Contas: "+e);
@@ -141,5 +145,58 @@ public class ContasDAO {
         return lista;
     }
 
+    public int getContaid(Conta conta) {
 
+        if (conta instanceof ContaCorrente) {
+            sql="select id_conta_corrente from Conta_Corrente where numero = ?";
+
+            try {
+
+                ps=connection.prepareStatement(sql);
+                ps.setInt(1,conta.getNumero());
+                rs= ps.executeQuery();
+
+            }catch (SQLException e){
+                System.out.println("Erro ao pegar id da conta: "+e);
+            }
+
+            try {
+
+                while (rs.next()){
+                    return rs.getInt("id_conta_corrente");
+                }
+
+            }catch (SQLException e){
+                System.out.println("Erro ao pegar id da conta: "+e);
+            }
+
+        }else{
+
+            sql="select id_poupanca from Conta_Poupanca where numero = ?";
+
+            try {
+
+                ps=connection.prepareStatement(sql);
+                ps.setInt(1,conta.getNumero());
+                rs= ps.executeQuery();
+
+            }catch (SQLException e){
+                System.out.println("Erro ao pegar id da conta: "+e);
+            }
+
+            try {
+
+                while (rs.next()){
+                    return rs.getInt("id_poupanca");
+                }
+
+            }catch (SQLException e){
+                System.out.println("Erro ao pegar id da conta: "+e);
+            }
+
+        }
+        
+        return 0;
+    }
+        
 }

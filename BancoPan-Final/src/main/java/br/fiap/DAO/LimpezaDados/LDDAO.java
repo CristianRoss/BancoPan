@@ -67,6 +67,7 @@ public class LDDAO {
         }
     }
 
+    @Deprecated
     public Map<String,Servicos> getServicos(String nomeTabela,int codProd) {
         Map<String,Servicos> lista = new HashMap<String,Servicos>();
 

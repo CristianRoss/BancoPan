@@ -62,9 +62,9 @@ public class CadastroClienteFisicoServlet extends HttpServlet {
 		Usuario usuario = new Usuario(conta, senha);
 		DocumentoConta docConta = new DocumentoConta(cliente, 0);
 		docConta.setContaCorrente(conta);
-		//TODO: Erro ao linkar contas (DOCUMENTO_CONTA_CORRENTE_FK) violated - parent key not found
 
 		if(!new ClienteDAO().inserirCliente(cliente)) {
+			//TODO: Tratar cliente não inserido
 			System.out.println("Cliente nao inserido");
 			return;
 		}

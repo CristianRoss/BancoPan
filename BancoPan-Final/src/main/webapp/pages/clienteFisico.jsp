@@ -1,3 +1,6 @@
+<%@page import="br.fiap.Servicos.Servicos"%>
+<%@page import="br.fiap.DAO.Cliente.ClienteDAO"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="br.fiap.Cliente.ClienteFisico"%>
 <% ClienteFisico cliente = (ClienteFisico) request.getAttribute("cliente"); %>
 <!DOCTYPE html>
@@ -42,8 +45,14 @@
 					</tr>
 				</thead>
 				<tbody>
+				
+				<!-- TODO: Lista inacabada -->
+					<% for (Servicos servicos : new ClienteDAO().listarServicos(cliente)) {
+						out.println("<tr>"+servicos+"<tr>");
+					} %>
+					
 
-					<tr>
+					<!-- <tr>
 						<td>Conta Poupança</td>
 						<td><a href="#">Entrar</a></td>
 					</tr>
@@ -81,7 +90,7 @@
 					<tr>
 						<td>PIX</td>
 						<td><a href="#">Entrar</a></td>
-					</tr>
+					</tr> -->
 
 				</tbody>
 			</table>

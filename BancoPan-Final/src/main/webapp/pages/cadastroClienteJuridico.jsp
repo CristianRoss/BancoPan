@@ -77,13 +77,6 @@
 			oninput="this.value = this.value.toUpperCase()" autocomplete="off">
 		<div class="linha"></div>
 
-		<input type="text" placeholder="Data de criação"
-			title="Digite sua data de criação"
-			pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" onfocus="(this.type='date')"
-			name="dataNasc" id="dataNasc" autocomplete="off" maxlength="20"
-			min="1900-01-01" required>
-		<div class="linha"></div>
-
 		<input type="password" name="senha" id="senha" placeholder="Senha"
 			title="Digite uma senha" autocomplete="off" required>
 		<div class="linha"></div>

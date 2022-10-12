@@ -18,7 +18,6 @@ import br.fiap.DAO.Usuario.UsuarioDAO;
 import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Contas.DocumentoConta;
 import br.fiap.Usuario.Usuario;
-import br.fiap.Util.Util;
 
 /**
  * Servlet implementation class CadastroClienteJuridicoServlet
@@ -49,7 +48,6 @@ public class CadastroClienteJuridicoServlet extends HttpServlet {
 		String endereco = rua + " - N° " + nRua;
 		if (complemento != null && !complemento.equalsIgnoreCase(""))
 			endereco += " (" + complemento + ")";
-		Date datacriacao = Date.valueOf(new Util().formatarData(request.getParameter("dataNasc")));
 		String senha = request.getParameter("senha");
 
 		ClienteJuridico cliente = new ClienteJuridico(0, cnpj, nome, email, endereco, telefone, cep);
@@ -57,9 +55,9 @@ public class CadastroClienteJuridicoServlet extends HttpServlet {
 		Usuario usuario = new Usuario(conta, senha);
 		DocumentoConta docConta = new DocumentoConta(cliente, 0);
 		docConta.setContaCorrente(conta);
-		//TODO: Erro ao linkar contas (DOCUMENTO_CONTA_CORRENTE_FK) violated - parent key not found
 
 		if(!new ClienteDAO().inserirCliente(cliente)) {
+			//TODO: Tratar cliente não inserido
 			System.out.println("Cliente nao inserido");
 			return;
 		}

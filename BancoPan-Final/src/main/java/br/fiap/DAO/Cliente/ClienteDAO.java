@@ -303,7 +303,7 @@ public class ClienteDAO {
                 lista.add(s);
             }
         }
-
+        
         return lista;
     }
 

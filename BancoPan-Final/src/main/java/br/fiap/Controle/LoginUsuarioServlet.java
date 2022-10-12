@@ -21,44 +21,43 @@ import br.fiap.DAO.Usuario.UsuarioDAO;
 @WebServlet("/loginUsuario")
 public class LoginUsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
 
 	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String ident = request.getParameter("ident");
 		String senha = request.getParameter("senha");
 
 		Cliente cliente;
 		String pageUrl;
-		
-		
-		if(ident.length() <= 14) {
+
+		if (ident.length() <= 14) {
 			cliente = (ClienteFisico) null;
 			pageUrl = "./pages/clienteFisico.jsp";
-			
-		}
-		else {
+
+		} else {
 			cliente = (ClienteJuridico) null;
 			pageUrl = "./pages/clienteJuridico.jsp";
 		}
-		
-		if(new UsuarioDAO().fazerLogin(ident, senha)) {
+
+		if (new UsuarioDAO().fazerLogin(ident, senha)) {
 			cliente = new ClienteDAO().getCliente(ident);
-			
+
 			RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
 			request.setAttribute("cliente", cliente);
 			rd.forward(request, response);
 			return;
 		}
 
-		//TODO: Tratar falha no login (credenciais erradas)
-		
-		
+		// TODO: Tratar falha no login (credenciais erradas)
+
 	}
 
 }
