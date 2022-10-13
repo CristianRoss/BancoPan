@@ -13,13 +13,12 @@ import br.fiap.Cliente.Cliente;
 import br.fiap.Cliente.ClienteFisico;
 import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.DAO.Cliente.ClienteDAO;
-import br.fiap.DAO.Usuario.UsuarioDAO;
 
 /**
- * Servlet implementation class LoginUsuarioServlet
+ * Servlet implementation class ConsultaClienteServlet
  */
-@WebServlet("/loginUsuario")
-public class LoginUsuarioServlet extends HttpServlet {
+@WebServlet("/consultaCliente")
+public class ConsultaClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,7 +32,6 @@ public class LoginUsuarioServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String ident = request.getParameter("ident");
-		String senha = request.getParameter("senha");
 
 		Cliente cliente;
 		String pageUrl;
@@ -47,16 +45,15 @@ public class LoginUsuarioServlet extends HttpServlet {
 			pageUrl = "./pages/clienteJuridico.jsp";
 		}
 
-		if (new UsuarioDAO().fazerLogin(ident, senha)) {
-			cliente = new ClienteDAO().getCliente(ident);
-			
-			RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
-			request.setAttribute("cliente", cliente);
+		cliente = new ClienteDAO().getCliente(ident);
+
+		if (cliente == null) {
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
 			rd.forward(request, response);
-			return;
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
+		request.setAttribute("cliente", cliente);
 		rd.forward(request, response);
 
 	}

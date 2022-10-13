@@ -40,6 +40,7 @@ public class LDDAO {
 
         }catch (SQLException e) {
             System.out.println("Erro ao pesquisar tabela suja : "+e);
+            return lista;
         }
 
         try {
@@ -54,6 +55,7 @@ public class LDDAO {
 
         }catch (SQLException e) {
             System.out.println("Erro ao pesquisar tabela suja : "+e);
+            return lista;
         }
 
 

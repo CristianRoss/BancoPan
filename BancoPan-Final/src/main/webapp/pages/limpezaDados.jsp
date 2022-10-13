@@ -21,21 +21,15 @@
   <img src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg" alt="Logo banco PAN"
     class="logo_bancoPan">
 
-  <p class="textDescricao">Pra consultar<br />
-    o Pan Online, precisamos <br />
-    do CPF ou CNPJ.
-  </p>
+  <p class="textDescricao">Digite o nome da tabela que será limpa</p>
 
 
-  <form action="../consultaCliente" method="post">
-    <input type="text" name="ident" id="ident" autocomplete="off" maxlength="18"
-      placeholder="Digite seu CPF ou CNPJ" title="Digite um CPF ou CNPJ" onkeypress="mascaraIdent(this)"
-      onkeyup="mascaraIdent(this)" required>
+  <form action="../limpezaDados" method="post">
+    <input type="text" name="tabela" id="tabela" autocomplete="off"
+      placeholder="Digite o nome da tabela" title="Digite o nome da tabela" required>
     <div class="linha"></div>
 
-    <p class="descricaoInput">Use apenas números</p>
-
-    <input type="submit" id="pesquisarIdent" value="Pesquisar">
+    <input type="submit" id="pesquisarTabela" value="Pesquisar">
   </form>
 
 

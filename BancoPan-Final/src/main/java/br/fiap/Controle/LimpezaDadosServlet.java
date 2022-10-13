@@ -1,6 +1,7 @@
 package br.fiap.Controle;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.fiap.Cliente.Cliente;
+import br.fiap.DAO.LimpezaDados.LDDAO;
+
 /**
- * Servlet implementation class LoginAdminServlet
+ * Servlet implementation class LimpezaDadosServlet
  */
-@WebServlet("/loginAdmin")
-public class LoginAdminServlet extends HttpServlet {
+@WebServlet("/limpezaDados")
+public class LimpezaDadosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -24,21 +28,21 @@ public class LoginAdminServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String login = request.getParameter("loginAdm");
-		String senha = request.getParameter("adminSenha");
+		String table = request.getParameter("tabela");
+		LDDAO limpeza = new LDDAO();
 		
-		if(!login.equals("Admin")) {
+		Map<String, Cliente> clientes = limpeza.getClientes(table);
+		
+		if(clientes.isEmpty()) {
 			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
 			rd.forward(request, response);
 		}
 		
-		if(!senha.equals("admin")) {
-			//Todo: Tratar senha adm errada
-			return;
-		}
+		limpeza.inserirNovosClientes(clientes);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("./pages/admin.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./pages/sucessoLimpeza.jsp");
 		rd.forward(request, response);
+		
 	}
 
 }

@@ -64,9 +64,8 @@ public class CadastroClienteFisicoServlet extends HttpServlet {
 		docConta.setContaCorrente(conta);
 
 		if(!new ClienteDAO().inserirCliente(cliente)) {
-			//TODO: Tratar cliente não inserido
-			System.out.println("Cliente nao inserido");
-			return;
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
+			rd.forward(request, response);
 		}
 		new ContasDAO().inserir(conta);
 		new UsuarioDAO().inserir(usuario);

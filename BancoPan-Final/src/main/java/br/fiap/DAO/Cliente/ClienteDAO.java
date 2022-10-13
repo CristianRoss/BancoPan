@@ -121,7 +121,7 @@ public class ClienteDAO {
 
     public Cliente getCliente(String identificacao){
 
-        if (identificacao.length()>14) {
+        if (identificacao.length()>15) {
             sql = "select * from Clientes where cnpj = ?";
 
             try {
@@ -262,6 +262,13 @@ public class ClienteDAO {
     public List<Servicos> listarServicos(Cliente cliente) {
         ArrayList<Servicos> lista=new ArrayList<Servicos>();
 
+        List<Conta> contas=new ContasDAO().listarContas(cliente.getIdCliente());
+        if (contas!=null){
+            for (Conta s:contas){
+                lista.add(s);
+            }
+        }
+        
         List<Cartao> cartoes=new CartaoDAO().listarCartoes(cliente.getIdCliente());
         if (cartoes!=null) {
             for (Cartao c : cartoes) {
@@ -279,13 +286,6 @@ public class ClienteDAO {
         List<Emprestimos> emprestimos=new EmprestimosDAO().lisarEmprestimos(cliente.getIdCliente());
         if (emprestimos!=null){
             for (Emprestimos s:emprestimos){
-                lista.add(s);
-            }
-        }
-
-        List<Conta> contas=new ContasDAO().listarContas(cliente.getIdCliente());
-        if (contas!=null){
-            for (Conta s:contas){
                 lista.add(s);
             }
         }
