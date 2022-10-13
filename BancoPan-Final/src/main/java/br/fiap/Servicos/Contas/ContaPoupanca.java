@@ -20,4 +20,13 @@ public class ContaPoupanca extends Conta{
     public void setDataAcrescimo(Date dataAcrescimo) {
         this.dataAcrescimo = dataAcrescimo;
     }
+    
+    @Override
+    public String toString(){
+        String aux="Conta Poupanca:\n";
+        aux+="Numero: "+getNumero();
+        aux+="\nSaldo: "+getSaldo();
+        aux+="\nJuros: "+getJuros();
+        return aux;
+    }
 }

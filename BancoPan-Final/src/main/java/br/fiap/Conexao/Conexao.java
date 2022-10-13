@@ -18,7 +18,7 @@ public class Conexao {
             conexao = DriverManager.getConnection(caminho, login, senha);
         }
         catch(ClassNotFoundException e) {
-            System.out.println("Erro ao carregar o driver de conex\n"+e);
+            System.out.println("Erro ao carregar o driver de conexao\n"+e);
         }
         catch(SQLException e) {
             System.out.println("Erro ao conectar com o banco de dados\n"+e);

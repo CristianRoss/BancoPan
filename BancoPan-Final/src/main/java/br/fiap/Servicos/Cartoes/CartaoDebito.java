@@ -8,4 +8,11 @@ public class CartaoDebito extends Cartao{
         super(cliente, idCartao, numero, limite );
     }
 
+    @Override
+    public String toString(){
+        String aux="Cartao de Debito:\n";
+        aux+="Numero: "+getNumero();
+        aux+="\nLimite: "+getLimite();
+        return aux;
+    }
 }

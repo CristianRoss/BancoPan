@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class CartaoDAO {
 
@@ -26,8 +27,11 @@ public class CartaoDAO {
         connection=new Conexao().conectar();
     }
 
-    public void inserir(Cartao cartao) {
+    public boolean inserir(Cartao cartao) {
 
+    	int numero=new Random().nextInt(999999);
+        cartao.setNumero(numero);
+    	
         if (cartao instanceof CartaoDebito) {
 
             sql="insert into cartao_debito values(seq_cartao_debito.nextval,?,?,?)";
@@ -42,6 +46,7 @@ public class CartaoDAO {
 
             }catch (SQLException e) {
                 System.out.println("Falha ao inserir Cartao de Debito: "+e);
+                return false;
             }
 
         }else {
@@ -63,10 +68,11 @@ public class CartaoDAO {
 
             }catch (SQLException e) {
                 System.out.println("Falha ao inserir Cartao de Credito: "+e);
+                return false;
             }
 
         }
-
+        return true;
     }
 
     public List<Cartao> listarCartoes(int idCliente){

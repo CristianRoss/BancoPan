@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,9 +49,13 @@ public class ConsultaClienteServlet extends HttpServlet {
 		cliente = new ClienteDAO().getCliente(ident);
 
 		if (cliente == null) {
-			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/clienteNaoEncontrado.jsp");
 			rd.forward(request, response);
 		}
+		
+		Cookie c = new Cookie("cliente", ""+cliente.getIdCliente());
+		c.setMaxAge(3060*60);
+		response.addCookie(c);
 
 		RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
 		request.setAttribute("cliente", cliente);

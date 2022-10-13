@@ -16,4 +16,20 @@ public class ClienteJuridico extends Cliente{
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+    
+    @Override
+    public String toString() {
+        String aux = " ";
+        aux += getNome() + ", ";
+        aux+= " , ";
+        aux+= " , ";
+        aux+= getEmail() + ", ";
+        aux+= getEndereco() + ", ";
+        aux+= getCEP() + ", ";
+        aux+= " , ";
+        aux+= " ,  ";
+        aux+= getCnpj() + "";
+
+        return aux;
+    }
 }

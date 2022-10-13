@@ -107,4 +107,13 @@ public class PIX extends Servicos{
         this.valorPix = valorPix;
     }
 
+    @Override
+    public String toString(){
+        String aux="PIX:\n";
+        aux+="Valor: "+getValorPix();
+        aux+="\nPara: "+getChaveDestino();
+        aux+="\nDia: "+getData();
+        aux+="\nLimite"+ getLimiteValor();
+        return aux;
+    }
 }

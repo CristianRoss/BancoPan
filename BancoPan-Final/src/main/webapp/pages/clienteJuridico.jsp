@@ -23,18 +23,18 @@ ClienteJuridico cliente = (ClienteJuridico) request.getAttribute("cliente");
 	<main class="container">
 
 		<div class="titleContainer">
-			<h1>Meus Serviços</h1>
-		</div>
+            <h1>Meus Serviços</h1>
+            <a href="./index.jsp">Voltar</a>
+        </div>
 
 
 		<section id="transaction">
-			<!-- TODO: COLOCAR NOME -->
 			<p>
 				Bem vindo(a) <span class="nome"><%=cliente.getNome()%></span>!
 			</p>
 
-			<a href="#" onclick="" class="button new">+ Adicionar novo
-				Serviço</a>
+			<a href="pages/paginaNaoServicos.jsp" class="button new">+
+				Adicionar novo Serviço</a>
 
 			<table id="data-table">
 				<thead>
@@ -44,61 +44,17 @@ ClienteJuridico cliente = (ClienteJuridico) request.getAttribute("cliente");
 					</tr>
 				</thead>
 				<tbody>
-				
+
+					<%
+					for (Servicos servicos : new ClienteDAO().listarServicos(cliente)) {
+					%>
 					<tr>
-						<%
-						for (Servicos servicos : new ClienteDAO().listarServicos(cliente)) {
-						%>
 						<td><%=servicos%></td>
-
-						<td><a href="#">Entrar</a></td>
-						<%
-						}
-						%>
 					</tr>
+					<%
+					}
+					%>
 
-
-
-					<!-- <tr>
-						<td>Conta Poupança</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>Conta Corrente</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>Maquininha</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>Cartão de Crédito</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>Cartão de Débito</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>Financiamento</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>Emprestimo</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
-
-					<tr>
-						<td>PIX</td>
-						<td><a href="#">Entrar</a></td>
-					</tr>
- -->
 				</tbody>
 			</table>
 		</section>

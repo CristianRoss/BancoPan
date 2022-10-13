@@ -67,4 +67,14 @@ public class Emprestimos extends Servicos{
         this.qtdParcelas = qtdParcelas;
     }
 
+    @Override
+    public String toString(){
+        String aux="Emprestimo:\n";
+        aux+="Valor: "+getValor();
+        aux+="\nQuantidade de parcelas: "+getQtdParcelas();
+        aux+="\nJuros: "+getJuros();
+        aux+="\nData do Parcela"+ getDiaPagamento();
+        aux+="\nData Realizacao: "+getDataRealizacao();
+        return aux;
+    }
 }

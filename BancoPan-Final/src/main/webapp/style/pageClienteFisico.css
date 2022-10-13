@@ -32,6 +32,12 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

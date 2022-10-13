@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banco PAN - Tabela limpa!</title>
+  <title>Banco PAN - Ops!</title>
 </head>
 
 <link rel="shortcut icon"
@@ -63,7 +63,8 @@ a:hover{
 <body>
   
   
-<h1>Tabela limpa com sucesso!</h1>
+<h1>Ooops!</h1>
+<p>Tabela não encontrada.</p>
 <a href="pages/limpezaDados.jsp">Voltar</a>
 
 </body>

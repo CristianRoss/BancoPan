@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banco PAN - Consultar cliente</title>
+  <title>Banco PAN - Cartão Débito</title>
 
-  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <link rel="shortcut icon" href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
     type="image/x-icon">
@@ -21,25 +21,22 @@
   <img src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg" alt="Logo banco PAN"
     class="logo_bancoPan">
 
-  <p class="textDescricao">Pra consultar<br />
-    o Pan Online, precisamos <br />
-    do CPF ou CNPJ.
+  <p class="textDescricao">Pra cadastrar<br />
+    um cartão de débito <br />
+    Digite um limite.
   </p>
 
 
-  <form action="../consultaCliente" method="post">
-    <input type="text" name="ident" id="ident" autocomplete="off" maxlength="18"
-      placeholder="Digite um CPF ou CNPJ" title="Digite um CPF ou CNPJ" onkeypress="mascaraIdent(this)"
-      onkeyup="mascaraIdent(this)" required>
+  <form action="./cartaoDebito" method="post">
+    <input type="text" name="limiteDebito" id="limiteDebito" autocomplete="off" maxlength="7"
+      placeholder="Digite um limite" title="Limite cartão débito" required>
     <div class="linha"></div>
 
     <p class="descricaoInput">Use apenas números</p>
 
-    <input type="submit" id="pesquisarIdent" value="Pesquisar">
+    <input type="submit" id="cadastrarCartaoDebito" value="Cadastrar">
   </form>
 
-
-  <script src="../script/util.js"></script>
 </body>
 
 </html>

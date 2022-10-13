@@ -34,7 +34,7 @@ public class LimpezaDadosServlet extends HttpServlet {
 		Map<String, Cliente> clientes = limpeza.getClientes(table);
 		
 		if(clientes.isEmpty()) {
-			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/tabelaNaoEncontrada.jsp");
 			rd.forward(request, response);
 		}
 		

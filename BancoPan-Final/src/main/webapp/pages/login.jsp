@@ -24,8 +24,9 @@
 					<fieldset>
 						<div class="input-block">
 							<label for="login-ident">CPF/CNPJ</label> <input id="login-ident"
-								type="text" name="ident" maxlength="18" onkeypress="mascaraIdent(this)"
-								onkeyup="mascaraIdent(this)" required>
+								type="text" name="ident" maxlength="18"
+								onkeypress="mascaraIdent(this)" onkeyup="mascaraIdent(this)"
+								required>
 						</div>
 						<div class="input-block">
 							<label for="login-password">Senha</label> <input
@@ -47,7 +48,7 @@
 						</div>
 						<div class="input-block">
 							<label for="signup-password">Senha</label> <input
-								id="signup-password"name="adminSenha" type="password" required>
+								id="signup-password" name="adminSenha" type="password" required>
 						</div>
 					</fieldset>
 					<button type="submit" class="btn-signup">Continue</button>

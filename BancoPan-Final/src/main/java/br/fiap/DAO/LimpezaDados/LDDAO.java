@@ -69,16 +69,14 @@ public class LDDAO {
         }
     }
 
-    @Deprecated
-    public Map<String,Servicos> getServicos(String nomeTabela,int codProd) {
+    public Map<String,Servicos> getServicos(String nomeTabela,int codProd,String tabelaServ) {
         Map<String,Servicos> lista = new HashMap<String,Servicos>();
 
-        sql = "select * from "+nomeTabela+" where codProd = ?";
+        sql = "select * from "+tabelaServ+" p inner join "+nomeTabela+" t on p.cod_prod = t.cod_prod";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1,codProd);
             rs=ps.executeQuery();
 
         }catch (SQLException e){
@@ -97,9 +95,9 @@ public class LDDAO {
                     case 1: {
                         if (rs.getString("cpf")!=null) {
 
-                            lista.put(""+rs.getInt("id"),new CartaoDebito(cliente,rs.getInt("id"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            lista.put(""+rs.getInt("cod_prod"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
                         }else{
-                            lista.put(""+rs.getInt("id"),new CartaoDebito(cliente,rs.getInt("id"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            lista.put(""+rs.getInt("cod_prod"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
                         }
                         break;
                     }
@@ -107,9 +105,9 @@ public class LDDAO {
 
                         if (rs.getString("cpf")!=null) {
 
-                            lista.put(""+rs.getInt("id"),new ContaCorrente(cliente,rs.getInt("id"),rs.getInt("numero"),rs.getDouble("saldo"),rs.getDate("data"),rs.getDouble("juros")));
+                            lista.put(""+rs.getInt("cod_prod"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
                         }else{
-                            lista.put(""+rs.getInt("id"),new ContaCorrente(cliente,rs.getInt("id"),rs.getInt("numero"),rs.getDouble("saldo"),rs.getDate("data"),rs.getDouble("juros")));
+                            lista.put(""+rs.getInt("cod_prod"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
                         }
 
                         break;
