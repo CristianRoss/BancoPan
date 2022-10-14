@@ -141,6 +141,11 @@ public class ContasDAO {
             System.out.println("falha ao listar contas: "+e);
         }
 
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         return lista;
     }

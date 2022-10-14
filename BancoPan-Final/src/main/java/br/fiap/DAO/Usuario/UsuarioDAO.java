@@ -86,6 +86,11 @@ public class UsuarioDAO {
 			while (rs.next()) {
 				if (rs.getInt("numero") == usuario.getConta().getNumero()) {
 					if (rs.getString("senha").equals(usuario.getSenha())) {
+						try {
+				            connection.close();
+				        } catch (SQLException e) {
+				            throw new RuntimeException(e);
+				        }
 						return true;
 					}
 				}
@@ -95,6 +100,12 @@ public class UsuarioDAO {
 			System.out.println("falha ao pesquisar usuario: " + e);
 		}
 
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+		
 		return false;
 	}
 
@@ -120,6 +131,13 @@ public class UsuarioDAO {
 			while (rs.next()) {
 				if (rs.getString(tipoConta).equals(ident)) {
 					if (rs.getString("senha").equals(new Util().criptografar(senha))) {
+						
+						try {
+				            connection.close();
+				        } catch (SQLException e) {
+				            throw new RuntimeException(e);
+				        }
+						
 						return true;
 					}
 				}
@@ -129,6 +147,12 @@ public class UsuarioDAO {
 			System.out.println("Falha ao logar cliente: " + e);
 		}
 
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+		
 		return false;
 	}
 

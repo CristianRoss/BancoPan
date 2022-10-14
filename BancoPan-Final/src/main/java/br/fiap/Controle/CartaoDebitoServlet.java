@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import br.fiap.Cliente.Cliente;
 import br.fiap.Cliente.ClienteFisico;
 import br.fiap.Cliente.ClienteJuridico;
-import br.fiap.DAO.Cliente.ClienteDAO;
 import br.fiap.DAO.Servicos.CartaoDAO;
 import br.fiap.Servicos.Cartoes.CartaoDebito;
 
@@ -39,7 +38,7 @@ public class CartaoDebitoServlet extends HttpServlet {
 		
 		for (int i = 0; i < cookies.length; i++) {
 			if(cookies[i].getName().equalsIgnoreCase("cliente")) {
-				cliente = new ClienteDAO().getCliente(Integer.parseInt(cookies[i].getValue()));
+				cliente = Cliente.clientes.get(Integer.parseInt(cookies[i].getValue()));
 				break;
 			}
 		}

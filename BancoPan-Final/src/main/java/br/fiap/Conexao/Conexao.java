@@ -8,8 +8,8 @@ public class Conexao {
 
     private String driver = "oracle.jdbc.driver.OracleDriver";
     private String caminho = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
-    private String login = "rm89291";
-    private String senha = "220303";
+    private String login = "rm87896";
+    private String senha = "311002";
     private Connection conexao;  //armazena a conexque serestabelecida com o banco
 
     public Connection conectar() {

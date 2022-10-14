@@ -36,6 +36,7 @@ public class LoginUsuarioServlet extends HttpServlet {
 		String ident = request.getParameter("ident");
 		String senha = request.getParameter("senha");
 
+		UsuarioDAO dao = new UsuarioDAO();
 		Cliente cliente;
 		String pageUrl;
 
@@ -48,7 +49,7 @@ public class LoginUsuarioServlet extends HttpServlet {
 			pageUrl = "./pages/clienteJuridico.jsp";
 		}
 
-		if (new UsuarioDAO().fazerLogin(ident, senha)) {
+		if (dao.fazerLogin(ident, senha)) {
 			cliente = new ClienteDAO().getCliente(ident);
 			
 			Cookie c = new Cookie("cliente", ""+cliente.getIdCliente());
