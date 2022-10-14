@@ -60,6 +60,12 @@ public class LDDAO {
         }catch (SQLException e) {
             System.out.println("Erro ao pesquisar tabela suja : "+e);
         }
+        
+         try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 
         return lista;
@@ -125,6 +131,12 @@ public class LDDAO {
         }catch (SQLException e){
             System.out.println("Erro ao limpar servicos :"+e);
         }
+        
+         try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         return lista;
     }
@@ -142,6 +154,11 @@ public class LDDAO {
             }
         }else {
             System.out.println("Lista de Servicos Vazia");
+        }
+         try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
