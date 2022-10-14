@@ -5,6 +5,8 @@ import br.fiap.Cliente.ClienteFisico;
 import br.fiap.Cliente.ClienteJuridico;
 import br.fiap.Conexao.Conexao;
 import br.fiap.DAO.Cliente.ClienteDAO;
+import br.fiap.DAO.Servicos.CartaoDAO;
+import br.fiap.DAO.Servicos.Contas.ContasDAO;
 import br.fiap.Servicos.Cartoes.CartaoDebito;
 import br.fiap.Servicos.Contas.ContaCorrente;
 import br.fiap.Servicos.Servicos;
@@ -17,138 +19,173 @@ import java.util.*;
 
 public class LDDAO {
 
-    private PreparedStatement ps; // configurar o sql que serexecutado
-    private Connection connection; // armazena a conexestabelecida com o banco de dados
-    private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
-    private String sql; // utilizada para montar as instrusql
+	private PreparedStatement ps; // configurar o sql que serexecutado
+	private Connection connection; // armazena a conexestabelecida com o banco de dados
+	private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
+	private String sql; // utilizada para montar as instrusql
 
-    private int cont;
+	private int cont;
 
-    public LDDAO(){
-        connection=new Conexao().conectar();
-    }
+	public LDDAO() {
+		connection = new Conexao().conectar();
+	}
 
-    public Map<String, Cliente> getClientes(String nomeTabela) {
-        Map<String, Cliente> lista=new HashMap<String, Cliente>();
+	public Map<String, Cliente> getClientes(String nomeTabela) {
+		Map<String, Cliente> lista = new HashMap<String, Cliente>();
 
-        sql="select * from "+nomeTabela;
+		sql = "select * from " + nomeTabela;
 
-        try {
+		try {
 
-            ps= connection.prepareStatement(sql);
-            rs=ps.executeQuery();
+			ps = connection.prepareStatement(sql);
+			rs = ps.executeQuery();
 
-        }catch (SQLException e) {
-            System.out.println("Erro ao pesquisar tabela suja : "+e);
-            return lista;
-        }
+		} catch (SQLException e) {
+			System.out.println("Erro ao pesquisar tabela suja : " + e);
+		}
 
-        try {
+		try {
 
-            while (rs.next()){
-                if (rs.getString("cpf")!=null) {
-                    lista.put(rs.getString("cpf"), new ClienteFisico(cont, rs.getString("nome").toUpperCase(),rs.getString("email"),rs.getString("endereco"), rs.getLong("telefone"),rs.getString("cep"), rs.getString("cpf"), rs.getString("sobrenome").toUpperCase(),rs.getDate("aniversario"),rs.getString("sexo")));
-                }else {
-                    lista.put(rs.getString("cnpj"), new ClienteJuridico(cont, rs.getString("cnpj"), rs.getString("nome").toUpperCase(), rs.getString("email"), rs.getString("endereco"), rs.getLong("telefone"),rs.getString("cep")));
-                }
-            }
+			while (rs.next()) {
+				if (rs.getString("cpf") != null) {
+					lista.put(rs.getString("cpf"),
+							new ClienteFisico(cont, rs.getString("nome").toUpperCase(), rs.getString("email"),
+									rs.getString("endereco").toUpperCase(), rs.getLong("telefone"), rs.getString("cep"),
+									rs.getString("cpf"), rs.getString("sobrenome").toUpperCase(),
+									rs.getDate("aniversario"), rs.getString("sexo").toUpperCase()));
+				} else {
+					lista.put(rs.getString("cnpj"),
+							new ClienteJuridico(cont, rs.getString("cnpj"), rs.getString("nome").toUpperCase(),
+									rs.getString("email"), rs.getString("endereco").toUpperCase(),
+									rs.getLong("telefone"), rs.getString("cep")));
+				}
+			}
 
-        }catch (SQLException e) {
-            System.out.println("Erro ao pesquisar tabela suja : "+e);
-            return lista;
-        }
+		} catch (SQLException e) {
+			System.out.println("Erro ao pesquisar tabela suja : " + e);
+		}
 
+		return lista;
+	}
 
-        return lista;
-    }
+	public void inserirNovosClientes(Map<String, Cliente> lista) {
+		ClienteDAO dao = new ClienteDAO();
+		for (Map.Entry<String, Cliente> clientes : lista.entrySet()) {
+			dao.inserirCliente(clientes.getValue());
+		}
+	}
 
-    public void inserirNovosClientes(Map<String, Cliente> lista){
-        ClienteDAO dao=new ClienteDAO();
-        for (Map.Entry<String,Cliente> clientes:lista.entrySet()) {
-             dao.inserirCliente(clientes.getValue());
-        }
-    }
+	public Map<String, Servicos> getServicos(String nomeTabela, int codProd, String tabelaServ) {
+		Map<String, Servicos> lista = new HashMap<String, Servicos>();
 
-    public Map<String,Servicos> getServicos(String nomeTabela,int codProd,String tabelaServ) {
-        Map<String,Servicos> lista = new HashMap<String,Servicos>();
+		try {
 
-        sql = "select * from "+tabelaServ+" p inner join "+nomeTabela+" t on p.cod_prod = t.cod_prod";
+			sql = "select DISTINCT * from " + tabelaServ + " p inner join " + nomeTabela
+					+ " t on p.cod_prod = t.cod_prod where p.cod_prod in (select distinct cod_prod from " + tabelaServ
+					+ ")";
+			ps = connection.prepareStatement(sql);
+			rs = ps.executeQuery();
 
-        try {
+		} catch (SQLException e) {
+			System.out.println("Erro ao limpar servicos :" + e);
+		}
 
-            ps=connection.prepareStatement(sql);
-            rs=ps.executeQuery();
+		try {
 
-        }catch (SQLException e){
-            System.out.println("Erro ao limpar servicos :"+e);
-        }
+			while (rs.next()) {
+				ClienteDAO dao = new ClienteDAO();
 
-        try {
-           ClienteDAO dao = new ClienteDAO();
+				switch (codProd) {
 
-            while (rs.next()) {
+				case 1: {
+					if (rs.getString("cpf") != null) {
+						Cliente cliente = dao.getCliente(rs.getString("cpf"));
+						if (rs.getInt("numero_debito") != 0) {
+							lista.put(rs.getString("cpf"), new CartaoDebito(cliente, rs.getInt("cod_prod"),
+									rs.getInt("numero_debito"), rs.getDouble("limite_debito")));
+						}
+					} else {
+						Cliente cliente = dao.getCliente(rs.getString("cnpj"));
+						if (rs.getInt("numero_debito") != 0) {
+							lista.put("" + rs.getInt("numero_debito"), new CartaoDebito(cliente, rs.getInt("cod_prod"),
+									rs.getInt("numero_debito"), rs.getDouble("limite_debito")));
+						}
+					}
+					break;
+				}
+				case 2: {
 
-                Cliente cliente=dao.getCliente(rs.getInt("id_cliente"));
+					if (rs.getString("cpf") != null) {
+						Cliente cliente = dao.getCliente(rs.getString("cpf"));
 
-                switch (codProd) {
+						if (rs.getInt("numero_conta") != 0) {
+							lista.put(rs.getString("cpf"),
+									new ContaCorrente(cliente, rs.getInt("cod_prod"), rs.getInt("numero_conta"),
+											rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
+						}
 
-                    case 1: {
-                        if (rs.getString("cpf")!=null) {
+					} else {
+						Cliente cliente = dao.getCliente(rs.getString("cnpj"));
+						lista.put("" + rs.getInt("numero_conta"),
+								new ContaCorrente(cliente, rs.getInt("cod_prod"), rs.getInt("numero_conta"),
+										rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
+					}
 
-                            lista.put(""+rs.getInt("cod_prod"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
-                        }else{
-                            lista.put(""+rs.getInt("cod_prod"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
-                        }
-                        break;
-                    }
-                    case 2:{
+					break;
+				}
 
-                        if (rs.getString("cpf")!=null) {
+				}
 
-                            lista.put(""+rs.getInt("cod_prod"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
-                        }else{
-                            lista.put(""+rs.getInt("cod_prod"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
-                        }
+			}
 
-                        break;
-                    }
+		} catch (SQLException e) {
+			System.out.println("Erro ao limpar servicos :" + e);
+		}
 
-                }
+		return lista;
+	}
 
-            }
+	public void inserirNovosServicos(Map<String, Servicos> lista) {
+		if (lista != null) {
+			CartaoDAO cartaoDAO = new CartaoDAO();
+			ContasDAO contasDAO = new ContasDAO();
+			lista.forEach((key, value) -> {
+				if (value instanceof CartaoDebito) {
+					cartaoDAO.inserir((CartaoDebito) value);
+				} else if (value instanceof ContaCorrente) {
+					contasDAO.inserir((ContaCorrente) value);
+				}
+			});
+		} else {
+			System.out.println("Lista de Servicos Vazia");
+		}
+	}
 
-        }catch (SQLException e){
-            System.out.println("Erro ao limpar servicos :"+e);
-        }
+	public int getIdCliente(String cpf) {
 
-        return lista;
-    }
+		sql = "select id_cliente from Clientes where cpf = ?";
 
-    public int getIdCliente(String cpf){
+		try {
 
-        sql = "select id_cliente from Clientes where cpf = ?";
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, cpf);
+			rs = ps.executeQuery();
 
-        try {
+		} catch (SQLException e) {
+			System.out.println("Falha ao pesquisar id do cliente: " + e);
+		}
 
-            ps=connection.prepareStatement(sql);
-            ps.setString(1,cpf);
-            rs=ps.executeQuery();
+		try {
 
-        }catch (SQLException e){
-            System.out.println("Falha ao pesquisar id do cliente: "+e);
-        }
+			while (rs.next()) {
+				return rs.getInt("id_cliente");
+			}
 
-        try {
+		} catch (SQLException e) {
+			System.out.println("Falha ao pesquisar id do cliente: " + e);
+		}
 
-            while (rs.next()){
-                return rs.getInt("id_cliente");
-            }
-
-        }catch (SQLException e){
-            System.out.println("Falha ao pesquisar id do cliente: "+e);
-        }
-
-        return 0;
-    }
+		return 0;
+	}
 
 }

@@ -43,7 +43,7 @@
 
 				<article class="card card--2">
 					<div class="card__img"></div>
-					<a href="pages/limpezaDados.jsp" class="card_link">
+					<a href="pages/opcoesLimpeza.jsp" class="card_link">
 						<div class="card__img--hover"></div>
 					</a>
 					<div class="card__info">

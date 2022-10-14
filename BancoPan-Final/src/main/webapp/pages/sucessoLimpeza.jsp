@@ -64,7 +64,7 @@ a:hover{
   
   
 <h1>Tabela limpa com sucesso!</h1>
-<a href="pages/limpezaDados.jsp">Voltar</a>
+<a href="pages/opcoesLimpeza.jsp">Voltar</a>
 
 </body>
 </html>

@@ -20,11 +20,10 @@ public class ClienteDAO {
 	private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
 	private String sql; // utilizada para montar as instrusql
 
-	public ClienteDAO() {
-		connection = new Conexao().conectar();
-	}
-
 	public boolean inserirCliente(Cliente cliente) {
+
+		connection = new Conexao().conectar();
+		
 		sql = "insert into clientes values(seq_clientes.nextval,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
@@ -78,6 +77,8 @@ public class ClienteDAO {
 
 	public int getID(Cliente cliente) {
 
+		connection = new Conexao().conectar();
+		
 		if (cliente instanceof ClienteFisico) {
 
 			sql = "select id_cliente from clientes where cpf = ?";
@@ -138,6 +139,8 @@ public class ClienteDAO {
 	}
 
 	public Cliente getCliente(String identificacao) {
+
+		connection = new Conexao().conectar();
 
 		if (identificacao.length() > 15) {
 			sql = "select * from Clientes where cnpj = ?";
@@ -219,6 +222,9 @@ public class ClienteDAO {
 	}
 
 	public Cliente getCliente(int id) {
+
+		connection = new Conexao().conectar();
+		
 		if (!Cliente.clientes.containsKey(id)) {
 			sql = "select * from Clientes where id_cliente = ?";
 
@@ -290,6 +296,8 @@ public class ClienteDAO {
 	}
 
 	public void listarClientes() {
+		
+		connection = new Conexao().conectar();
 
 		sql = "select * from Clientes";
 
@@ -332,6 +340,9 @@ public class ClienteDAO {
 	}
 
 	public List<Servicos> listarServicos(Cliente cliente) {
+
+		connection = new Conexao().conectar();
+		
 		ArrayList<Servicos> lista = new ArrayList<Servicos>();
 
 		List<Conta> contas = new ContasDAO().listarContas(cliente.getIdCliente());

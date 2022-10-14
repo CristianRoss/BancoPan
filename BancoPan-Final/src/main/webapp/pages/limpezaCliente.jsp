@@ -26,10 +26,10 @@
 
   <form action="../limpezaDados" method="post">
     <input type="text" name="tabela" id="tabela" autocomplete="off"
-      placeholder="Digite o nome da tabela" title="Digite o nome da tabela" required>
+      placeholder="Nome da tabela" title="Digite o nome da tabela" required>
     <div class="linha"></div>
 
-    <input type="submit" id="pesquisarTabela" value="Pesquisar">
+    <input type="submit" id="pesquisarTabela" value="Limpar">
   </form>
 
 
