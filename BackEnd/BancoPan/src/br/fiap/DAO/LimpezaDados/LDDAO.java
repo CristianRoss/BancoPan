@@ -60,12 +60,6 @@ public class LDDAO {
         }catch (SQLException e) {
             System.out.println("Erro ao pesquisar tabela suja : "+e);
         }
-        
-         try {
-            connection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
 
         return lista;
@@ -82,10 +76,11 @@ public class LDDAO {
     public Map<String,Servicos> getServicos(String nomeTabela,int codProd,String tabelaServ) {
         Map<String,Servicos> lista = new HashMap<String,Servicos>();
 
-        sql = "select * from "+tabelaServ+" p inner join "+nomeTabela+" t on p.cod_prod = t.cod_prod";
+
 
         try {
 
+            sql="select DISTINCT * from "+tabelaServ+" p inner join "+nomeTabela+" t on p.cod_prod = t.cod_prod where p.cod_prod in (select distinct cod_prod from "+tabelaServ+")";
             ps=connection.prepareStatement(sql);
             rs=ps.executeQuery();
 
@@ -95,19 +90,23 @@ public class LDDAO {
 
         try {
 
-           ClienteDAO dao = new ClienteDAO();
-
             while (rs.next()) {
+                ClienteDAO dao = new ClienteDAO();
 
                 switch (codProd) {
+
 
                     case 1: {
                         if (rs.getString("cpf")!=null) {
                             Cliente cliente=dao.getCliente(rs.getString("cpf"));
-                            lista.put(""+rs.getInt("numero_debito"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            if (rs.getInt("numero_debito")!=0) {
+                                lista.put(rs.getString("cpf"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            }
                         }else{
                             Cliente cliente=dao.getCliente(rs.getString("cnpj"));
-                            lista.put(""+rs.getInt("numero_debito"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            if (rs.getInt("numero_debito")!=0) {
+                                lista.put(""+rs.getInt("numero_debito"),new CartaoDebito(cliente,rs.getInt("cod_prod"),rs.getInt("numero_debito"),rs.getDouble("limite_debito")));
+                            }
                         }
                         break;
                     }
@@ -115,7 +114,11 @@ public class LDDAO {
 
                         if (rs.getString("cpf")!=null) {
                             Cliente cliente=dao.getCliente(rs.getString("cpf"));
-                            lista.put(""+rs.getInt("numero_conta"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
+
+                            if (rs.getInt("numero_conta")!=0) {
+                                lista.put(rs.getString("cpf"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
+                            }
+
                         }else{
                             Cliente cliente=dao.getCliente(rs.getString("cnpj"));
                             lista.put(""+rs.getInt("numero_conta"),new ContaCorrente(cliente,rs.getInt("cod_prod"),rs.getInt("numero_conta"),rs.getDouble("saldo"),rs.getDate("data_conta"),rs.getDouble("juros")));
@@ -130,12 +133,6 @@ public class LDDAO {
 
         }catch (SQLException e){
             System.out.println("Erro ao limpar servicos :"+e);
-        }
-        
-         try {
-            connection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
 
         return lista;
@@ -154,11 +151,6 @@ public class LDDAO {
             }
         }else {
             System.out.println("Lista de Servicos Vazia");
-        }
-         try {
-            connection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
