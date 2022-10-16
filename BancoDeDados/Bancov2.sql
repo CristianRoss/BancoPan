@@ -194,7 +194,7 @@ CREATE TABLE financiamentos (
     valor_total      NUMBER(38, 2) NOT NULL,
     valor_parcelas   NUMBER(38, 2) NOT NULL,
     qtd_parcelas     INTEGER NOT NULL,
-    juros            NUMBER(5, 2) NOT NULL,
+    juros            NUMBER(7, 4) NOT NULL,
     entrada          NUMBER(38, 2) NOT NULL,
     data_realizacao  DATE NOT NULL,
     data_fim         DATE NOT NULL,
