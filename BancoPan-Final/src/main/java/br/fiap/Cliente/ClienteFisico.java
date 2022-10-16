@@ -53,15 +53,15 @@ public class ClienteFisico extends Cliente{
     @Override
     public String toString() {
         String aux = " ";
-        aux += getNome() + ", ";
-        aux+= getSobrenome() + ", ";
-        aux+= getCpf() + ", ";
-        aux+= getEmail() + ", ";
-        aux+= getEndereco() + ", ";
-        aux+= getCEP() + ", ";
-        aux+= getSexo() + ", ";
-        aux+= getDataNascimento() + "";
-        aux+= "";
+        aux += getNome() + ", ";        //Nome
+        aux+= getSobrenome() + ", ";    //Sobrenome
+        aux+= getCpf() + ", ";          //CPF
+        aux+= ", ";                     //CNPJ
+        aux+= getEmail() + ", ";        // email
+        aux+= getEndereco() + ", ";     // endereco
+        aux+= getCEP() + ", ";          // CEP
+        aux+= getSexo() + ", ";         // Sexo
+        aux+= getDataNascimento() + ""; // aniversario
         return aux;
     }
 }

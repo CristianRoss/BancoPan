@@ -37,7 +37,7 @@ public class AdicionarServicosServlet extends HttpServlet {
 			break;
 
 		case "Cartao Credito":
-
+			url = "./pages/cartaoCredito.jsp";
 			break;
 
 		case "Poupanca":
@@ -45,11 +45,11 @@ public class AdicionarServicosServlet extends HttpServlet {
 			break;
 
 		case "Emprestimo":
-
+			url = "./pages/emprestimo.jsp";
 			break;
 
 		case "Financiamento":
-
+			url = "./pages/financiamento.jsp";
 			break;
 
 		case "Maquininha":

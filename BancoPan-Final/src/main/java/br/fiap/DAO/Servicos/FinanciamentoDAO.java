@@ -20,7 +20,7 @@ public class FinanciamentoDAO {
     private String sql; // utilizada para montar as instrusql
 
 
-    public void inserir(Financiamentos f){
+    public boolean inserir(Financiamentos f){
 
     	connection=new Conexao().conectar();
     	
@@ -41,6 +41,13 @@ public class FinanciamentoDAO {
 
         }catch (SQLException e){
             System.out.println("Falha ao inserir financiamento: "+e);
+            try {
+                connection.close();
+            } catch (SQLException x) {
+                throw new RuntimeException(x);
+            }
+            
+            return false;
         }
         
         try {
@@ -48,6 +55,8 @@ public class FinanciamentoDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        
+        return true;
 
     }
 

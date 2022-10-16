@@ -20,16 +20,15 @@ public class ClienteJuridico extends Cliente{
     @Override
     public String toString() {
         String aux = " ";
-        aux += getNome() + ", ";
-        aux+= " , ";
-        aux+= " , ";
-        aux+= getEmail() + ", ";
-        aux+= getEndereco() + ", ";
-        aux+= getCEP() + ", ";
-        aux+= " , ";
-        aux+= " ,  ";
-        aux+= getCnpj() + "";
-
+        aux += getNome() + ", ";         //Nome
+        aux+= " , ";                     // Sobrenome
+        aux+= " , ";                     // CPF
+        aux+= getCnpj() + ",";           // CNPJ 
+        aux+= getEmail() + ", ";         // email
+        aux+= getEndereco() + ", ";      // endereco
+        aux+= getCEP() + ", ";           //CEP 
+        aux+= " , ";                     // Sexo
+        aux+= " ,  ";                    // aniversario
         return aux;
     }
 }

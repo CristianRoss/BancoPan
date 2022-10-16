@@ -19,7 +19,7 @@ public class EmprestimosDAO {
     private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
     private String sql; // utilizada para montar as instrusql
 
-    public void inserir(Emprestimos emp){
+    public boolean inserir(Emprestimos emp){
     	
     	connection=new Conexao().conectar();
 
@@ -38,6 +38,12 @@ public class EmprestimosDAO {
 
         }catch (SQLException e){
             System.out.println("Erro ao inserir Emprestimo: "+e);
+            try {
+                connection.close();
+            } catch (SQLException e1) {
+                throw new RuntimeException(e1);
+            }
+            return false;
         }
         
         try {
@@ -45,7 +51,7 @@ public class EmprestimosDAO {
         } catch (SQLException e1) {
             throw new RuntimeException(e1);
         }
-        
+        return true;
 
     }
 

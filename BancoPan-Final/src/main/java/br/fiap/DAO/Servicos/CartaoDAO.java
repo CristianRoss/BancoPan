@@ -54,14 +54,13 @@ public class CartaoDAO {
             try {
 
                 ps=connection.prepareStatement(sql);
-                ps.setInt(1, cartao.getIdCartao());
-                ps.setInt(2, cartao.getNumero());
-                ps.setInt(3, ((CartaoCredito)cartao).getCvv());
-                ps.setDouble(4, ((CartaoCredito)cartao).getFatura());
-                ps.setDate(5, ((CartaoCredito)cartao).getDataVencimento());
-                ps.setDouble(6, ((CartaoCredito)cartao).getJurosCredito());
-                ps.setDouble(7, ((CartaoCredito)cartao).getLimite());
-                ps.setInt(8, cartao.getCliente().getIdCliente());
+                ps.setInt(1, cartao.getNumero());
+                ps.setInt(2, ((CartaoCredito)cartao).getCvv());
+                ps.setDouble(3, ((CartaoCredito)cartao).getFatura());
+                ps.setDate(4, ((CartaoCredito)cartao).getDataVencimento());
+                ps.setDouble(5, ((CartaoCredito)cartao).getJurosCredito());
+                ps.setDouble(6, ((CartaoCredito)cartao).getLimite());
+                ps.setInt(7, cartao.getCliente().getIdCliente());
                 ps.execute();
 
             }catch (SQLException e) {

@@ -37,8 +37,14 @@ ClienteFisico cliente = (ClienteFisico) request.getAttribute("cliente");
 				Bem vindo(a) <span class="nome"><%=cliente.getNome()%></span>!
 			</p>
 
-			<a href="pages/paginaNaoServicos.jsp" onclick="" class="button new">+
-				Adicionar novo Serviço</a>
+			<div class="addPix">
+                <a href="pages/paginaNaoServicos.jsp" onclick="" class="button new">+
+                Adicionar novo Serviço</a>
+
+                <a href="#" class="linkPIX">
+                    Gerar nova chave PIX
+                </a>
+            </div>
 
 			<table id="data-table">
 				<thead>

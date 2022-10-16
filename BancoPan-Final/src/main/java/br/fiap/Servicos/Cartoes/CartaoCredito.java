@@ -3,6 +3,8 @@ package br.fiap.Servicos.Cartoes;
 import br.fiap.Cliente.Cliente;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Random;
 
 public class CartaoCredito extends Cartao{
 
@@ -18,6 +20,13 @@ public class CartaoCredito extends Cartao{
         this.dataVencimento = dataVencimento;
         this.jurosCredito = jurosCredito;
         this.cvv=cvv;
+    }
+    
+    public CartaoCredito(Cliente cliente, int idCartao, int numero, double limite, Date dataVencimento) {
+        super(cliente, idCartao, numero, limite);
+        this.dataVencimento = dataVencimento;
+        this.jurosCredito = 6.17;
+        this.cvv= new Random().nextInt(900) + 100;
     }
 
     public double getFatura() {
@@ -59,7 +68,7 @@ public class CartaoCredito extends Cartao{
     	aux+="<br>CVV: "+getCvv();
     	aux+="<br>Fatura: "+getFatura();
     	aux+="<br>Limite: "+getLimite();
-    	aux+="<br>Dia da Fatura: "+getDataVencimento().toLocaleString();
+    	aux+="<br>Dia da Fatura: "+getDataVencimento().getDate();
     	return aux;
     }
     

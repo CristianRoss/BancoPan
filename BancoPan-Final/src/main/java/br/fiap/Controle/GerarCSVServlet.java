@@ -37,7 +37,7 @@ public class GerarCSVServlet extends HttpServlet {
             PrintStream ps = new PrintStream(f);
             //ps.println("ID_CLIENTE, CPF, CPNJ, NOME, SOBRENOME, TELEFONE, EMAIL, ENDERECO, CEP, SEXO, DATA_NASCIMENTO");
 
-            ps.println("Nome, Sobrenome, CPF, email, endereco, CEP, Sexo, aniversario, CNPJ");
+            ps.println("Nome, Sobrenome, CPF, CNPJ, email, endereco, CEP, Sexo, aniversario");
 
             new ClienteDAO().listarClientes();
             HashMap<Integer, Cliente> clientes = Cliente.clientes;

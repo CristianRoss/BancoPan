@@ -384,3 +384,18 @@ input:checked + label::after {
 label:active:after {
   width: 45px;
 }
+
+/* =============== PIX =============== */
+.addPix {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.linkPIX {
+  color: #22bf9b;
+}
+
+.linkPIX:hover {
+  color: #0c8d6f;
+}

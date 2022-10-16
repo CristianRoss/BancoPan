@@ -1,7 +1,6 @@
 package br.fiap.Servicos;
 
 import br.fiap.Cliente.Cliente;
-import br.fiap.Util.Util;
 
 import java.sql.Date;
 
@@ -74,7 +73,7 @@ public class Emprestimos extends Servicos{
         aux+="Valor: "+getValor();
         aux+="<br>Quantidade de parcelas: "+getQtdParcelas();
         aux+="<br>Juros: "+getJuros();
-        aux+="<br>Dia do Parcela: "+ getDiaPagamento().toLocaleString();
+        aux+="<br>Dia do Parcela: "+ getDiaPagamento().getDate();
         return aux;
     }
 }
