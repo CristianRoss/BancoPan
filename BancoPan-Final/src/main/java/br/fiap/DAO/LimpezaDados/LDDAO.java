@@ -26,11 +26,10 @@ public class LDDAO {
 
 	private int cont;
 
-	public LDDAO() {
-		connection = new Conexao().conectar();
-	}
-
 	public Map<String, Cliente> getClientes(String nomeTabela) {
+		
+		connection = new Conexao().conectar();
+		
 		Map<String, Cliente> lista = new HashMap<String, Cliente>();
 
 		sql = "select * from " + nomeTabela;
@@ -64,6 +63,12 @@ public class LDDAO {
 		} catch (SQLException e) {
 			System.out.println("Erro ao pesquisar tabela suja : " + e);
 		}
+		
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 		return lista;
 	}
@@ -76,6 +81,7 @@ public class LDDAO {
 	}
 
 	public Map<String, Servicos> getServicos(String nomeTabela, int codProd, String tabelaServ) {
+		connection = new Conexao().conectar();
 		Map<String, Servicos> lista = new HashMap<String, Servicos>();
 
 		try {
@@ -107,7 +113,7 @@ public class LDDAO {
 					} else {
 						Cliente cliente = dao.getCliente(rs.getString("cnpj"));
 						if (rs.getInt("numero_debito") != 0) {
-							lista.put("" + rs.getInt("numero_debito"), new CartaoDebito(cliente, rs.getInt("cod_prod"),
+							lista.put(rs.getString("cnpj"), new CartaoDebito(cliente, rs.getInt("cod_prod"),
 									rs.getInt("numero_debito"), rs.getDouble("limite_debito")));
 						}
 					}
@@ -126,7 +132,7 @@ public class LDDAO {
 
 					} else {
 						Cliente cliente = dao.getCliente(rs.getString("cnpj"));
-						lista.put("" + rs.getInt("numero_conta"),
+						lista.put(rs.getString("cnpj"),
 								new ContaCorrente(cliente, rs.getInt("cod_prod"), rs.getInt("numero_conta"),
 										rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
 					}
@@ -141,6 +147,12 @@ public class LDDAO {
 		} catch (SQLException e) {
 			System.out.println("Erro ao limpar servicos :" + e);
 		}
+		
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 		return lista;
 	}
@@ -162,6 +174,8 @@ public class LDDAO {
 	}
 
 	public int getIdCliente(String cpf) {
+		
+		connection = new Conexao().conectar();
 
 		sql = "select id_cliente from Clientes where cpf = ?";
 
@@ -178,12 +192,27 @@ public class LDDAO {
 		try {
 
 			while (rs.next()) {
-				return rs.getInt("id_cliente");
+				
+				int id=rs.getInt("id_cliente");
+				
+				try {
+		            connection.close();
+		        } catch (SQLException e) {
+		            throw new RuntimeException(e);
+		        }
+				
+				return id;
 			}
 
 		} catch (SQLException e) {
 			System.out.println("Falha ao pesquisar id do cliente: " + e);
 		}
+		
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 		return 0;
 	}

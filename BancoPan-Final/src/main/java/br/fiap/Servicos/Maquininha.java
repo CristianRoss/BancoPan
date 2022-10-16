@@ -44,5 +44,14 @@ public class Maquininha extends Servicos{
     public void setVendasPorMes(int vendasPorMes) {
         this.vendasPorMes = vendasPorMes;
     }
+    
+    @Override
+    public String toString() {
+    	String aux="<B>Maquininha:</B><br>";
+    	aux+="Taxa: "+getTaxa();
+    	aux+="<br>Vendas Totais: "+getVendas();
+    	aux+="<br>Vendas Por Mês: "+getVendasPorMes();
+    	return aux;
+    }
 
 }

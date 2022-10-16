@@ -19,12 +19,9 @@ public class ContasDAO {
     private String sql; // utilizada para montar as instrusql
 
 
-    public ContasDAO(){
-        connection=new Conexao().conectar();
-    }
-
-
     public void inserir(Conta conta) {
+    	
+    	connection=new Conexao().conectar();
 
         if (conta instanceof ContaCorrente) {
 
@@ -85,10 +82,17 @@ public class ContasDAO {
 
 
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     public void linkarContaAoCliente(Conta conta, int idCliente) {
+    	connection=new Conexao().conectar();
 
         sql="insert into Documento_Conta values(seq_documento_conta.nextval,?,?,?,?)";
 
@@ -109,10 +113,17 @@ public class ContasDAO {
         }catch (SQLException e){
             System.out.println("Erro ao Linkar Contas: "+e);
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     public List<Conta> listarContas(int idCliente) {
+    	connection=new Conexao().conectar();
         List<Conta> lista=new LinkedList<Conta>();
 
         sql= "select id_poupanca,id_conta_corrente from documento_conta where id_cliente=?";
@@ -151,6 +162,8 @@ public class ContasDAO {
     }
 
     public int getContaid(Conta conta) {
+    	
+    	connection=new Conexao().conectar();
 
         if (conta instanceof ContaCorrente) {
             sql="select id_conta_corrente from Conta_Corrente where numero = ?";
@@ -168,7 +181,16 @@ public class ContasDAO {
             try {
 
                 while (rs.next()){
-                    return rs.getInt("id_conta_corrente");
+                	
+                	int id=rs.getInt("id_conta_corrente");
+                	
+                	try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                	
+                    return id;
                 }
 
             }catch (SQLException e){
@@ -192,13 +214,28 @@ public class ContasDAO {
             try {
 
                 while (rs.next()){
-                    return rs.getInt("id_poupanca");
+                	
+                	int id=rs.getInt("id_poupanca");
+                	
+                	try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                	
+                    return id;
                 }
 
             }catch (SQLException e){
                 System.out.println("Erro ao pegar id da conta: "+e);
             }
 
+        }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         
         return 0;

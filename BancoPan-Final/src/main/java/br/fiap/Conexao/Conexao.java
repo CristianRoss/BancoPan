@@ -26,5 +26,14 @@ public class Conexao {
 
         return conexao;
     }
+    
+    public Connection Desconectar() {
+    	try {
+			this.conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	return conexao;
+    }
 
 }

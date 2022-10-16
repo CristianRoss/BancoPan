@@ -19,34 +19,38 @@ public class EmprestimosDAO {
     private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
     private String sql; // utilizada para montar as instrusql
 
-
-    public EmprestimosDAO(){
-        connection=new Conexao().conectar();
-    }
-
     public void inserir(Emprestimos emp){
+    	
+    	connection=new Conexao().conectar();
 
-        sql="insert into Emprestimos values(?,?,?,?,?,?,?)";
+        sql="insert into Emprestimos values(seq_emprestimos.nextval,?,?,?,?,?,?)";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1, emp.getIdEmprestimo());
-            ps.setDouble(2, emp.getValor());
-            ps.setDouble(3, emp.getJuros());
-            ps.setInt(4, emp.getQtdParcelas());
-            ps.setDate(5, emp.getDataRealizacao());
-            ps.setDate(6, emp.getDiaPagamento());
-            ps.setInt(7, emp.getCliente().getIdCliente());
+            ps.setDouble(1, emp.getValor());
+            ps.setDouble(2, emp.getJuros());
+            ps.setInt(3, emp.getQtdParcelas());
+            ps.setDate(4, emp.getDataRealizacao());
+            ps.setDate(5, emp.getDiaPagamento());
+            ps.setInt(6, emp.getCliente().getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
             System.out.println("Erro ao inserir Emprestimo: "+e);
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e1) {
+            throw new RuntimeException(e1);
+        }
+        
 
     }
 
     public List<Emprestimos> lisarEmprestimos(int idCliente) {
+    	 connection=new Conexao().conectar();
         List<Emprestimos> lista=new LinkedList<Emprestimos>();
 
         sql="select * from Emprestimos where id_cliente=?";

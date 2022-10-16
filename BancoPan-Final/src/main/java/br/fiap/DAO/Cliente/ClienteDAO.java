@@ -96,7 +96,15 @@ public class ClienteDAO {
 			try {
 
 				while (rs.next()) {
-					return rs.getInt("id_cliente");
+					int id = rs.getInt("id_cliente");
+					
+					try {
+			            connection.close();
+			        } catch (SQLException e) {
+			            throw new RuntimeException(e);
+			        }
+					
+					return id;
 				}
 
 			} catch (SQLException e) {
@@ -120,7 +128,15 @@ public class ClienteDAO {
 			try {
 
 				while (rs.next()) {
-					return rs.getInt("id_cliente");
+					int id=rs.getInt("id_cliente"); 
+					
+					try {
+			            connection.close();
+			        } catch (SQLException e) {
+			            throw new RuntimeException(e);
+			        }
+					
+					return id;
 				}
 
 			} catch (SQLException e) {

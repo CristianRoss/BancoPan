@@ -10,9 +10,9 @@ public class CartaoDebito extends Cartao{
 
     @Override
     public String toString(){
-        String aux="Cartao de Debito:\n";
+        String aux="<b>Cartao de Debito:</b><br>";
         aux+="Numero: "+getNumero();
-        aux+="\nLimite: "+getLimite();
+        aux+="<br>Limite: "+getLimite();
         return aux;
     }
 }

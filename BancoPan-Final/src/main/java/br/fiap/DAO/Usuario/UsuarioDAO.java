@@ -17,12 +17,10 @@ public class UsuarioDAO {
 	private ResultSet rs; // armazena o resultada da pesquisa no banco de dados
 	private String sql; // utilizada para montar as instrusql
 
-	public UsuarioDAO() {
-		connection = new Conexao().conectar();
-	}
-
 	public void inserir(Usuario usuario) {
 
+		connection = new Conexao().conectar();
+		
 		sql = "insert into usuarios(numero,senha) values (?,?)";
 
 		try {
@@ -35,10 +33,18 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			System.out.println("falha ao inserir usuario: " + e);
 		}
+		
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 	}
 
 	public Usuario getUsuario(int numeroConta) {
+		
+		connection = new Conexao().conectar();
 
 		sql = "select * from usuarios where numero = ?";
 
@@ -57,17 +63,33 @@ public class UsuarioDAO {
 			ContaCorrenteDAO dao = new ContaCorrenteDAO();
 
 			while (rs.next()) {
-				return new Usuario(dao.pesquisarConta(numeroConta), rs.getString("senha"));
+				Usuario usuario=new Usuario(dao.pesquisarConta(numeroConta), rs.getString("senha"));
+				
+				try {
+		            connection.close();
+		        } catch (SQLException e) {
+		            throw new RuntimeException(e);
+		        }
+				
+				return usuario;
 			}
 
 		} catch (SQLException e) {
 			System.out.println("falha ao pesquisar usuario: " + e);
 		}
+		
+		try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 		return null;
 	}
 
 	public boolean fazerLogin(Usuario usuario) {
+		
+		connection = new Conexao().conectar();
 
 		sql = "select * from usuarios where numero = ?";
 
@@ -110,6 +132,8 @@ public class UsuarioDAO {
 	}
 
 	public boolean fazerLogin(String ident, String senha) {
+		
+		connection = new Conexao().conectar();
 
 		String tipoConta;
 		if (ident.length() <= 14) {			

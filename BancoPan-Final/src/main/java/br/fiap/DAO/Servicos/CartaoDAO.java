@@ -23,14 +23,12 @@ public class CartaoDAO {
     private String sql; // utilizada para montar as instrusql
 
 
-    public CartaoDAO(){
-        connection=new Conexao().conectar();
-    }
-
     public boolean inserir(Cartao cartao) {
 
     	int numero=new Random().nextInt(999999);
         cartao.setNumero(numero);
+        
+        connection=new Conexao().conectar();
     	
         if (cartao instanceof CartaoDebito) {
 
@@ -68,14 +66,29 @@ public class CartaoDAO {
 
             }catch (SQLException e) {
                 System.out.println("Falha ao inserir Cartao de Credito: "+e);
+                
+                try {
+                    connection.close();
+                } catch (SQLException e1) {
+                    throw new RuntimeException(e1);
+                }
+                
                 return false;
             }
 
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
         return true;
     }
 
     public List<Cartao> listarCartoes(int idCliente){
+    	connection=new Conexao().conectar();
         List<Cartao> lista=new LinkedList<Cartao>();
 
         sql="select * from cartao_debito where ID_CLIENTE=?";

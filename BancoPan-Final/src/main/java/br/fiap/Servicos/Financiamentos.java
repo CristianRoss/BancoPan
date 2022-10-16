@@ -97,5 +97,16 @@ public class Financiamentos extends Servicos{
     public void setEntrada(double entrada) {
         this.entrada = entrada;
     }
+    
+    @Override
+    public String toString() {
+    	String aux="<B>Financiamento:</B><br>";
+    	aux+="Valor Total: "+valorTotal;
+    	aux+="<br>Valor Parcelas: "+valorParcelas;
+    	aux+="<br>Quantidade de Parcelas: "+qtdParcelas;
+    	aux+="<br>Proxima Parcela: "+qtdParcelas;
+    	 aux+="<br>Dia do Pagamento: "+getDataRealizacao().toLocaleString();
+    	return aux;
+    }
 
 }

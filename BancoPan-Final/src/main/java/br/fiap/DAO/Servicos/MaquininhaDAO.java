@@ -20,11 +20,9 @@ public class MaquininhaDAO {
     private String sql; // utilizada para montar as instrusql
 
 
-    public MaquininhaDAO(){
-        connection=new Conexao().conectar();
-    }
-
     public void inserir(Maquininha m) {
+    	
+    	connection=new Conexao().conectar();
 
         sql="insert into Maquininha values(seq_maquininha.nextval,?,?,?,?)";
 
@@ -40,10 +38,19 @@ public class MaquininhaDAO {
         }catch (SQLException e){
             System.out.println("falha ao inserir maquininha: "+e);
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     public List<Maquininha> listarMaquininhas(int idCliente) {
+    	
+    	connection=new Conexao().conectar();
+    	
         List<Maquininha> lista=new LinkedList<Maquininha>();
 
         sql="select * from Maquininha where id_cliente=?";

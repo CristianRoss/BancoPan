@@ -20,35 +20,41 @@ public class FinanciamentoDAO {
     private String sql; // utilizada para montar as instrusql
 
 
-    public FinanciamentoDAO(){
-        connection=new Conexao().conectar();
-    }
-
     public void inserir(Financiamentos f){
 
-        sql="insert into Financiamentos values(?,?,?,?,?,?,?,?,?)";
+    	connection=new Conexao().conectar();
+    	
+        sql="insert into Financiamentos values(seq_financiamento.nextval,?,?,?,?,?,?,?,?)";
 
         try {
 
             ps=connection.prepareStatement(sql);
-            ps.setInt(1,f.getIdFinanciamneto());
-            ps.setDouble(2, f.getValorTotal());
-            ps.setDouble(3, f.getValorParcelas());
-            ps.setInt(4, f.getQtdParcelas());
-            ps.setDouble(5, f.getJuros());
-            ps.setDouble(6, f.getEntrada());
-            ps.setDate(7, f.getDataRealizacao());
-            ps.setDate(8, f.getData_fim());
-            ps.setInt(9, f.getCliente().getIdCliente());
+            ps.setDouble(1, f.getValorTotal());
+            ps.setDouble(2, f.getValorParcelas());
+            ps.setInt(3, f.getQtdParcelas());
+            ps.setDouble(4, f.getJuros());
+            ps.setDouble(5, f.getEntrada());
+            ps.setDate(6, f.getDataRealizacao());
+            ps.setDate(7, f.getData_fim());
+            ps.setInt(8, f.getCliente().getIdCliente());
             ps.execute();
 
         }catch (SQLException e){
             System.out.println("Falha ao inserir financiamento: "+e);
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     public List<Financiamentos> listarFinanciamentos(int idCliente){
+    	
+    	connection=new Conexao().conectar();
+    	
         List<Financiamentos> lista=new LinkedList<Financiamentos>();
 
         sql="select * from Financiamentos where id_cliente=?";

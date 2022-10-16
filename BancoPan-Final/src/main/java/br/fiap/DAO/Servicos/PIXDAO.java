@@ -17,11 +17,10 @@ public class PIXDAO {
     private String sql; // utilizada para montar as instrusql
 
 
-    public PIXDAO(){
-        connection=new Conexao().conectar();
-    }
-
     public void inserirPIX(PIX pix) {
+    	
+    	connection=new Conexao().conectar();
+    	
         sql="insert into PIX values(seq_pix.nextval,?,?,?,?,?,?,?)";
 
         try {
@@ -43,9 +42,19 @@ public class PIXDAO {
         }catch (SQLException e){
             System.out.println("Falha ao inserir pix: "+e);
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
+    
+    
     public PIX getPIX(int id){
+    	
+    	connection=new Conexao().conectar();
 
         sql="select * from PIX where id_pix=?";
 
@@ -63,20 +72,35 @@ public class PIXDAO {
 
             if (!rs.wasNull()) {
                 Cliente cliente=new ClienteDAO().getCliente(rs.getInt("id_cliente"));
-                return new PIX(cliente,id,rs.getString("chave_conta"),
+                PIX pix=new PIX(cliente,id,rs.getString("chave_conta"),
                         rs.getString("chave_destino"),rs.getDouble("limite_valor"),
                         rs.getDate("limite_horario"), rs.getDouble("valor"),rs.getDate("data"));
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                
+                return pix;
+                
             }
 
 
         }catch (SQLException e) {
             System.out.println("Erro ao pesquisar PIX: "+e);
         }
+        
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         return null;
     }
 
     public List<PIX> getPIXS(int idCliente) {
+    	connection=new Conexao().conectar();
         List<PIX> lista = new LinkedList<PIX>();
 
         sql="select * from PIX where id_cliente=?";

@@ -23,10 +23,10 @@ public class ContaPoupanca extends Conta{
     
     @Override
     public String toString(){
-        String aux="Conta Poupanca:\n";
+        String aux="<B>Conta Poupanca:</B><br>";
         aux+="Numero: "+getNumero();
-        aux+="\nSaldo: "+getSaldo();
-        aux+="\nJuros: "+getJuros();
+        aux+="<br>Saldo: "+getSaldo();
+        aux+="<br>Juros: "+getJuros();
         return aux;
     }
 }

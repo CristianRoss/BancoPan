@@ -51,4 +51,16 @@ public class CartaoCredito extends Cartao{
     public void setCvv(int cvv) {
         this.cvv = cvv;
     }
+    
+    @Override
+    public String toString() {
+    	String aux="<B>Cartão de Crédito:</B><br>";
+    	aux+="Numero: "+getNumero();
+    	aux+="<br>CVV: "+getCvv();
+    	aux+="<br>Fatura: "+getFatura();
+    	aux+="<br>Limite: "+getLimite();
+    	aux+="<br>Dia da Fatura: "+getDataVencimento().toLocaleString();
+    	return aux;
+    }
+    
 }

@@ -56,28 +56,35 @@ public class CadastroClienteFisicoServlet extends HttpServlet {
 			endereco += " (" + complemento + ")";
 
 		String senha = request.getParameter("senha");
+		
+		
+		if (Util.isCPF(cpf)) {
+			ClienteFisico cliente = new ClienteFisico(0, nome, email, endereco, telefone, cep, cpf, sobrenome, dataNasc,
+					sexo);
+			ContaCorrente conta = new ContaCorrente(cliente, 0, 0, 0, Date.valueOf(LocalDate.now()), jurosConta);
+			Usuario usuario = new Usuario(conta, senha);
+			DocumentoConta docConta = new DocumentoConta(cliente, 0);
+			docConta.setContaCorrente(conta);
 
-		ClienteFisico cliente = new ClienteFisico(0, nome, email, endereco, telefone, cep, cpf, sobrenome, dataNasc,
-				sexo);
-		ContaCorrente conta = new ContaCorrente(cliente, 0, 0, 0, Date.valueOf(LocalDate.now()), jurosConta);
-		Usuario usuario = new Usuario(conta, senha);
-		DocumentoConta docConta = new DocumentoConta(cliente, 0);
-		docConta.setContaCorrente(conta);
-
-		if(!new ClienteDAO().inserirCliente(cliente)) {
-			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
+			if(!new ClienteDAO().inserirCliente(cliente)) {
+				RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
+				rd.forward(request, response);
+			}
+			new ContasDAO().inserir(conta);
+			new UsuarioDAO().inserir(usuario);
+			
+			Cookie c = new Cookie("cliente", ""+cliente.getIdCliente());
+			c.setMaxAge(3060*60);
+			response.addCookie(c);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/clienteFisico.jsp");
+			request.setAttribute("cliente", cliente);
+			rd.forward(request, response);
+		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("./pages/ErroIdentificacao.jsp");
 			rd.forward(request, response);
 		}
-		new ContasDAO().inserir(conta);
-		new UsuarioDAO().inserir(usuario);
-		
-		Cookie c = new Cookie("cliente", ""+cliente.getIdCliente());
-		c.setMaxAge(3060*60);
-		response.addCookie(c);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("./pages/clienteFisico.jsp");
-		request.setAttribute("cliente", cliente);
-		rd.forward(request, response);
+
 
 	}
 

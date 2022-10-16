@@ -1,6 +1,7 @@
 package br.fiap.Servicos;
 
 import br.fiap.Cliente.Cliente;
+import br.fiap.Util.Util;
 
 import java.sql.Date;
 
@@ -69,12 +70,11 @@ public class Emprestimos extends Servicos{
 
     @Override
     public String toString(){
-        String aux="Emprestimo:\n";
+        String aux="<b>Emprestimo:</b><br>";
         aux+="Valor: "+getValor();
-        aux+="\nQuantidade de parcelas: "+getQtdParcelas();
-        aux+="\nJuros: "+getJuros();
-        aux+="\nData do Parcela"+ getDiaPagamento();
-        aux+="\nData Realizacao: "+getDataRealizacao();
+        aux+="<br>Quantidade de parcelas: "+getQtdParcelas();
+        aux+="<br>Juros: "+getJuros();
+        aux+="<br>Dia do Parcela: "+ getDiaPagamento().toLocaleString();
         return aux;
     }
 }

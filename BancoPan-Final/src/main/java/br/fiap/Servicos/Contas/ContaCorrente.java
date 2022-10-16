@@ -28,11 +28,11 @@ public class ContaCorrente extends Conta {
 
 	@Override
 	public String toString() {
-		String aux = "Conta Corrente:\n";
+		String aux = "<B>Conta Corrente:</B><br>";
 		aux += "Numero: " + getNumero();
-		aux += "\nSaldo: " + getSaldo();
+		aux += "<br>Saldo: " + getSaldo();
 		if (chavePIX != null) {
-			aux += "\nChavePIX: " + getChavePIX();
+			aux += "<br>ChavePIX: " + getChavePIX();
 		}
 		return aux;
 	}
