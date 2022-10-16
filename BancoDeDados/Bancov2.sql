@@ -174,7 +174,7 @@ CACHE 10;
 CREATE TABLE emprestimos (
     id_emprestimo   INTEGER NOT NULL,
     valor           NUMBER(38, 2) NOT NULL,
-    juros           NUMBER(5, 2) NOT NULL,
+    juros           NUMBER(7, 4) NOT NULL,
     qtd_parcelas    INTEGER NOT NULL,
     data_realizacao DATE NOT NULL,
     dia_parcela     DATE NOT NULL,
