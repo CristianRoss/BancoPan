@@ -1,3 +1,6 @@
+<%@page import="br.fiap.DAO.Servicos.Contas.ContaCorrenteDAO"%>
+<%@page import="br.fiap.DAO.Servicos.Contas.ContasDAO"%>
+<%@page import="br.fiap.Servicos.Contas.ContaCorrente"%>
 <%@page import="br.fiap.Servicos.Servicos"%>
 <%@page import="br.fiap.DAO.Cliente.ClienteDAO"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
@@ -40,10 +43,6 @@ ClienteFisico cliente = (ClienteFisico) request.getAttribute("cliente");
 			<div class="addPix">
                 <a href="pages/paginaNaoServicos.jsp" onclick="" class="button new">+
                 Adicionar novo Serviço</a>
-
-                <a href="#" class="linkPIX">
-                    Gerar nova chave PIX
-                </a>
             </div>
 
 			<table id="data-table">

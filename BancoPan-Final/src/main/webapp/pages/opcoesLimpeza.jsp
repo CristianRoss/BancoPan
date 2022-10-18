@@ -11,13 +11,17 @@
 
   <link rel="shortcut icon" href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
     type="image/x-icon">
-
+    
+    
 </head>
 
 <body>
 
-  <img src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg" alt="Logo banco PAN"
+  <div class="logoBack">
+        <img src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg" alt="Logo banco PAN"
     class="logo_bancoPan">
+    
+    </div>
 
   <p class="textDescricao">Escolha entre: </p>
 

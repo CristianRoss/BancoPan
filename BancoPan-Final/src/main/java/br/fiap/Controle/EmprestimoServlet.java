@@ -56,7 +56,7 @@ public class EmprestimoServlet extends HttpServlet {
 			pageUrl = "./pages/clienteJuridico.jsp";
 		}
 
-		if (!new EmprestimosDAO().inserir(new Emprestimos(cliente, 0, valor, 1.49, Date.valueOf(LocalDate.now()), Date.valueOf(diaParcela), qntParcelas))) {
+		if (!new EmprestimosDAO().inserir(new Emprestimos(cliente, 0, valor, 0.0149, Date.valueOf(LocalDate.now()), Date.valueOf(diaParcela), qntParcelas))) {
 			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
 			rd.forward(request, response);
 		}

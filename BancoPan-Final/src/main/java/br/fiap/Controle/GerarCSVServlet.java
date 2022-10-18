@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -33,21 +32,18 @@ public class GerarCSVServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-            File f = new File("C:\\Users\\fsous\\Desktop\\clientes.csv");
+            File f = new File("C:\\Users\\fsous\\Downloads\\clientes.csv");
             PrintStream ps = new PrintStream(f);
             //ps.println("ID_CLIENTE, CPF, CPNJ, NOME, SOBRENOME, TELEFONE, EMAIL, ENDERECO, CEP, SEXO, DATA_NASCIMENTO");
 
             ps.println("Nome, Sobrenome, CPF, CNPJ, email, endereco, CEP, Sexo, aniversario");
 
             new ClienteDAO().listarClientes();
-            HashMap<Integer, Cliente> clientes = Cliente.clientes;
-
-            for (Map.Entry<Integer, Cliente> c : clientes.entrySet()) {
+            
+            for (Map.Entry<Integer, Cliente> c : Cliente.clientes.entrySet()) {
                 ps.println(c);
             }
-
-            ps.println();
-
+            
             ps.close();
             System.out.println("CSV gerado com Sucesso!");
         } catch (FileNotFoundException e) {

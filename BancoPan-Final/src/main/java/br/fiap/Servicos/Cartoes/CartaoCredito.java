@@ -3,7 +3,6 @@ package br.fiap.Servicos.Cartoes;
 import br.fiap.Cliente.Cliente;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.Random;
 
 public class CartaoCredito extends Cartao{
@@ -66,7 +65,7 @@ public class CartaoCredito extends Cartao{
     	String aux="<B>Cartão de Crédito:</B><br>";
     	aux+="Numero: "+getNumero();
     	aux+="<br>CVV: "+getCvv();
-    	aux+="<br>Fatura: "+getFatura();
+    	aux+="<br>Fatura: R$"+getFatura();
     	aux+="<br>Limite: "+getLimite();
     	aux+="<br>Dia da Fatura: "+getDataVencimento().getDate();
     	return aux;

@@ -240,5 +240,41 @@ public class ContasDAO {
         
         return 0;
     }
+    
+    public boolean atualizarPIX(ContaCorrente conta,String chave) {
+    	
+    	connection=new Conexao().conectar();
+    	
+    	sql="update conta_corrente set chave_pix = ? where id_conta_corrente = ?";
+    	
+    	try {
+			ps=connection.prepareStatement(sql);
+			ps.setString(1, chave);
+			ps.setInt(2, conta.getIdConta());
+			ps.execute();
+			
+			try {
+	            connection.close();
+	        } catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+	    	
+			conta.setChavePIX(chave);
+			
+			return true;
+		} catch (SQLException e) {
+			System.out.println("Erro ao atualizar chave PIX: "+e);
+			
+			try {
+	            connection.close();
+	        } catch (SQLException e1) {
+	            throw new RuntimeException(e1);
+	        }
+	    	
+			
+			return false;
+		}
+    	
+    }
         
 }

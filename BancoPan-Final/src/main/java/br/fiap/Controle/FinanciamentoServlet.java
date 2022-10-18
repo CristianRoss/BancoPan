@@ -60,7 +60,7 @@ public class FinanciamentoServlet extends HttpServlet {
 			pageUrl = "./pages/clienteJuridico.jsp";
 		}
 
-		if (!new FinanciamentoDAO().inserir(new Financiamentos(cliente, 0, valor, valorParcelas, qntParcelas, 1.49,
+		if (!new FinanciamentoDAO().inserir(new Financiamentos(cliente, 0, valor, valorParcelas, qntParcelas, 0.149,
 				Date.valueOf(LocalDate.now()), Date.valueOf(datafinal), entrada))) {
 			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
 			rd.forward(request, response);

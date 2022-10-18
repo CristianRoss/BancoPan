@@ -30,9 +30,13 @@ public class ContaCorrente extends Conta {
 	public String toString() {
 		String aux = "<B>Conta Corrente:</B><br>";
 		aux += "Numero: " + getNumero();
-		aux += "<br>Saldo: " + getSaldo();
+		aux += "<br>Saldo: R$" + getSaldo();
 		if (chavePIX != null) {
 			aux += "<br>ChavePIX: " + getChavePIX();
+		}else {
+			aux+="<br><a href=\"./pages/cadastroChavePIX.jsp\" class=\"linkPIX\">\n"
+					+ "                   Gerar chave PIX\n"
+					+ "               </a>";
 		}
 		return aux;
 	}

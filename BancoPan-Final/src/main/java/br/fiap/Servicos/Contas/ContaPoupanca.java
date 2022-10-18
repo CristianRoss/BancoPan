@@ -25,8 +25,8 @@ public class ContaPoupanca extends Conta{
     public String toString(){
         String aux="<B>Conta Poupanca:</B><br>";
         aux+="Numero: "+getNumero();
-        aux+="<br>Saldo: "+getSaldo();
-        aux+="<br>Juros: "+getJuros();
+        aux+="<br>Saldo: R$"+getSaldo();
+        aux+="<br>Juros: "+getJuros()*100+"%";
         return aux;
     }
 }

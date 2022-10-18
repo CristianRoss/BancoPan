@@ -103,8 +103,8 @@ public class Financiamentos extends Servicos {
 	@Override
 	public String toString() {
 		String aux = "<B>Financiamento:</B><br>";
-		aux += "Valor Total: " + valorTotal;
-		aux += "<br>Valor Parcelas: " + valorParcelas;
+		aux += "Valor Total: R$" + valorTotal;
+		aux += "<br>Valor Parcelas: R$" + valorParcelas;
 		aux += "<br>Quantidade de Parcelas: " + qtdParcelas;
 		aux += "<br>Dia do Pagamento: " + getDataRealizacao().getDate();
 		return aux;

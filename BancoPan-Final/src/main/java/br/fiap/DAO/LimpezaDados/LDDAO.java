@@ -9,6 +9,7 @@ import br.fiap.DAO.Servicos.CartaoDAO;
 import br.fiap.DAO.Servicos.Contas.ContasDAO;
 import br.fiap.Servicos.Cartoes.CartaoDebito;
 import br.fiap.Servicos.Contas.ContaCorrente;
+import br.fiap.Util.Util;
 import br.fiap.Servicos.Servicos;
 
 import java.sql.Connection;
@@ -47,16 +48,20 @@ public class LDDAO {
 
 			while (rs.next()) {
 				if (rs.getString("cpf") != null) {
+					if (Util.isCPF(rs.getString("cpf")))
 					lista.put(rs.getString("cpf"),
 							new ClienteFisico(cont, rs.getString("nome").toUpperCase(), rs.getString("email"),
 									rs.getString("endereco").toUpperCase(), rs.getLong("telefone"), rs.getString("cep"),
 									rs.getString("cpf"), rs.getString("sobrenome").toUpperCase(),
 									rs.getDate("aniversario"), rs.getString("sexo").toUpperCase()));
+					
 				} else {
-					lista.put(rs.getString("cnpj"),
-							new ClienteJuridico(cont, rs.getString("cnpj"), rs.getString("nome").toUpperCase(),
-									rs.getString("email"), rs.getString("endereco").toUpperCase(),
-									rs.getLong("telefone"), rs.getString("cep")));
+					if (Util.isCNPJ(rs.getString("cnpj"))) {
+						lista.put(rs.getString("cnpj"),
+								new ClienteJuridico(cont, rs.getString("cnpj"), rs.getString("nome").toUpperCase(),
+										rs.getString("email"), rs.getString("endereco").toUpperCase(),
+										rs.getLong("telefone"), rs.getString("cep")));
+					}
 				}
 			}
 
@@ -85,10 +90,14 @@ public class LDDAO {
 		Map<String, Servicos> lista = new HashMap<String, Servicos>();
 
 		try {
+			
+//			sql = "select * from " + tabelaServ + " p inner join " + nomeTabela
+//					+ " t on p.cod_prod = t.cod_prod where p.cod_prod in (select cod_prod from " + tabelaServ
+//					+ ")";
 
-			sql = "select DISTINCT * from " + tabelaServ + " p inner join " + nomeTabela
-					+ " t on p.cod_prod = t.cod_prod where p.cod_prod in (select distinct cod_prod from " + tabelaServ
-					+ ")";
+			sql = "select distinct numero_debito,limite_debito,numero_conta,saldo,data_conta,juros,cpf,cnpj from "+tabelaServ+" p inner join "+nomeTabela+" t \n"
+					+ "on p.cod_prod = t.cod_prod where p.cod_prod in \n"
+					+ "(select distinct cod_prod from "+tabelaServ+")";
 			ps = connection.prepareStatement(sql);
 			rs = ps.executeQuery();
 
@@ -105,16 +114,20 @@ public class LDDAO {
 
 				case 1: {
 					if (rs.getString("cpf") != null) {
+						if (Util.isCPF(rs.getString("cpf"))) {
 						Cliente cliente = dao.getCliente(rs.getString("cpf"));
 						if (rs.getInt("numero_debito") != 0) {
-							lista.put(rs.getString("cpf"), new CartaoDebito(cliente, rs.getInt("cod_prod"),
+							lista.put(rs.getString("cpf"), new CartaoDebito(cliente, codProd,
 									rs.getInt("numero_debito"), rs.getDouble("limite_debito")));
+						  }
 						}
 					} else {
-						Cliente cliente = dao.getCliente(rs.getString("cnpj"));
-						if (rs.getInt("numero_debito") != 0) {
-							lista.put(rs.getString("cnpj"), new CartaoDebito(cliente, rs.getInt("cod_prod"),
-									rs.getInt("numero_debito"), rs.getDouble("limite_debito")));
+						if (Util.isCNPJ(rs.getString("cnpj"))) {
+							Cliente cliente = dao.getCliente(rs.getString("cnpj"));
+							if (rs.getInt("numero_debito") != 0) {
+								lista.put(rs.getString("cnpj"), new CartaoDebito(cliente, codProd,
+										rs.getInt("numero_debito"), rs.getDouble("limite_debito")));
+							}
 						}
 					}
 					break;
@@ -122,19 +135,28 @@ public class LDDAO {
 				case 2: {
 
 					if (rs.getString("cpf") != null) {
-						Cliente cliente = dao.getCliente(rs.getString("cpf"));
+						if (Util.isCPF(rs.getString("cpf"))) {
+							Cliente cliente = dao.getCliente(rs.getString("cpf"));
+							
+							if (cliente!=null) {
+								System.out.println(cliente);
 
-						if (rs.getInt("numero_conta") != 0) {
-							lista.put(rs.getString("cpf"),
-									new ContaCorrente(cliente, rs.getInt("cod_prod"), rs.getInt("numero_conta"),
-											rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
+								if (rs.getInt("numero_conta") != 0) {
+									lista.put(rs.getString("cpf"),
+											new ContaCorrente(cliente, codProd, rs.getInt("numero_conta"),
+													rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
+									System.out.println("\n\n"+rs.getInt("numero_conta"));
+								}
+							}
 						}
 
 					} else {
-						Cliente cliente = dao.getCliente(rs.getString("cnpj"));
-						lista.put(rs.getString("cnpj"),
-								new ContaCorrente(cliente, rs.getInt("cod_prod"), rs.getInt("numero_conta"),
-										rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
+						if (Util.isCNPJ(rs.getString("cnpj"))) {
+							Cliente cliente = dao.getCliente(rs.getString("cnpj"));
+							lista.put(rs.getString("cnpj"),
+									new ContaCorrente(cliente, codProd, rs.getInt("numero_conta"),
+											rs.getDouble("saldo"), rs.getDate("data_conta"), rs.getDouble("juros")));
+						}
 					}
 
 					break;
@@ -153,6 +175,11 @@ public class LDDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+		
+		lista.forEach((key,value) -> {
+			System.out.println(key);
+			System.out.println("\n"+value);
+		});
 
 		return lista;
 	}

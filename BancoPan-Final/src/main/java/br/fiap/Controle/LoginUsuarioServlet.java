@@ -35,10 +35,12 @@ public class LoginUsuarioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String ident = request.getParameter("ident");
 		String senha = request.getParameter("senha");
+		
 
 		UsuarioDAO dao = new UsuarioDAO();
 		Cliente cliente;
 		String pageUrl;
+		
 
 		if (ident.length() <= 14) {
 			cliente = (ClienteFisico) null;
@@ -59,6 +61,7 @@ public class LoginUsuarioServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher(pageUrl);
 			request.setAttribute("cliente", cliente);
 			rd.forward(request, response);
+			
 			
 			return;
 		}

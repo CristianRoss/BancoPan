@@ -48,7 +48,7 @@ public class Maquininha extends Servicos{
     @Override
     public String toString() {
     	String aux="<B>Maquininha:</B><br>";
-    	aux+="Taxa: "+getTaxa();
+    	aux+="Taxa: "+getTaxa()*100+"%";
     	aux+="<br>Vendas Totais: "+getVendas();
     	aux+="<br>Vendas Por Mês: "+getVendasPorMes();
     	return aux;

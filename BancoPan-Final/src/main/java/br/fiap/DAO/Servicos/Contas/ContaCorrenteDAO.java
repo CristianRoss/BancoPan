@@ -113,5 +113,46 @@ public class ContaCorrenteDAO {
 
         return null;
     }
+    
+    public ContaCorrente getContaporCliente(int id) {
+    	
+    	connection=new Conexao().conectar();
+    	
+    	 sql= "select id_conta_corrente from documento_conta where id_cliente=?";
+    	 
+    	 try {
+
+             ps=connection.prepareStatement(sql);
+             ps.setInt(1 , id);
+             rs=ps.executeQuery();
+
+         }catch (SQLException e){
+             System.out.println("falha ao pegar conta corrente: "+e);
+         }
+    	 
+    	 try {
+			while (rs.next()) {
+				 ContaCorrente conta=pesquisar(rs.getInt("id_conta_corrente"));
+				 
+				 try {
+			            connection.close();
+			        } catch (SQLException e) {
+			            throw new RuntimeException(e);
+			        }
+				 
+				 return conta;
+			 }
+		} catch (SQLException e) {
+			System.out.println("falha ao pegar conta corrente: "+e);
+		}
+    	
+    	 try {
+             connection.close();
+         } catch (SQLException e) {
+             throw new RuntimeException(e);
+         }
+    	 
+    	return null;
+    }
 
 }

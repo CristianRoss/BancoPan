@@ -70,9 +70,9 @@ public class Emprestimos extends Servicos{
     @Override
     public String toString(){
         String aux="<b>Emprestimo:</b><br>";
-        aux+="Valor: "+getValor();
+        aux+="Valor: R$"+getValor();
         aux+="<br>Quantidade de parcelas: "+getQtdParcelas();
-        aux+="<br>Juros: "+getJuros();
+        aux+="<br>Juros: "+getJuros()*100+"%";
         aux+="<br>Dia do Parcela: "+ getDiaPagamento().getDate();
         return aux;
     }

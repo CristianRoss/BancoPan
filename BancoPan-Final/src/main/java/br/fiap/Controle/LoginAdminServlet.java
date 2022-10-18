@@ -27,16 +27,13 @@ public class LoginAdminServlet extends HttpServlet {
 		String login = request.getParameter("loginAdm");
 		String senha = request.getParameter("adminSenha");
 		
-		if(!login.equals("Admin")) {
+		if(!login.equals("Admin") || !senha.equals("admin")) {
 			RequestDispatcher rd = request.getRequestDispatcher("./pages/error.jsp");
 			rd.forward(request, response);
-		}
-		
-		if(!senha.equals("admin")) {
-			//Todo: Tratar senha adm errada
+
 			return;
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("./pages/admin.jsp");
 		rd.forward(request, response);
 	}

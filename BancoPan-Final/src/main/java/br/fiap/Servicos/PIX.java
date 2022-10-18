@@ -109,11 +109,11 @@ public class PIX extends Servicos{
 
     @Override
     public String toString(){
-        String aux="PIX:<br>";
-        aux+="Valor: "+getValorPix();
-        aux+="\nPara: "+getChaveDestino();
-        aux+="\nDia: "+getData();
-        aux+="\nLimite"+ getLimiteValor();
+        String aux="<b>PIX:</b><br>";
+        aux+="Valor: R$"+getValorPix();
+        aux+="<br>Para: "+getChaveDestino();
+        aux+="<br>Dia: "+getData();
+        aux+="<br>Limite"+ getLimiteValor();
         return aux;
     }
 }
