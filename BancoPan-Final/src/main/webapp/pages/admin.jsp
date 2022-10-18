@@ -8,11 +8,14 @@
 <title>Banco PAN - Página Administrador</title>
 
 <link rel="shortcut icon"
-	href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+	href="./Images/LogoPan_white.svg"
 	type="image/x-icon">
 
 <link rel="stylesheet" type="text/css" href="./style/AdminStyles.css">
 <link rel="stylesheet" href="./style/AdminCard.css">
+
+<link rel="stylesheet" type="text/css" href="../style/AdminStyles.css">
+<link rel="stylesheet" href="../style/AdminCard.css">
 
 </head>
 
@@ -43,7 +46,7 @@
 
 			<div class="logoBack">
 				<img
-					src="https://www.bancopan.com.br/bancopan-institucional/conteudo/estrutura/assets/img/mh-icons/mh-icon--logo-desktop.svg"
+					src="./Images/logo-desktop.svg"
 					alt=""> <a href="./index.jsp"> <img
 					src="./Images/left.png" alt="" width="100">
 				</a>

@@ -5,13 +5,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banco PAN - Escolha um serviÃ§o</title>
+<title>Banco PAN - Escolha um serviço</title>
 
 <!-- <link rel="stylesheet" href="./style/style.css"> -->
 <link rel="stylesheet" href="../style/styleDebito.css">
 
 <link rel="shortcut icon"
-	href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+	href="../Images/LogoPan_white.svg"
 	type="image/x-icon">
 
 </head>
@@ -21,7 +21,7 @@
 
 
 	<img
-		src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+		src="../Images/LogoPan_white.svg"
 		alt="Logo banco PAN" class="logo_bancoPan">
 
 	<p class="textDescricao">

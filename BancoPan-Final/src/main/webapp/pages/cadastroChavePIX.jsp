@@ -9,9 +9,12 @@
 
   <link rel="stylesheet" href="../style/style.css">
   <link rel="stylesheet" href="../style/opcoesPIX.css">
+  
+   <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/opcoesPIX.css">
 
 
-  <link rel="shortcut icon" href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+  <link rel="shortcut icon" href="../Images/LogoPan_white.svg"
     type="image/x-icon">
 
 </head>
@@ -20,7 +23,7 @@
 
 
 
-  <img src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg" alt="Logo banco PAN"
+  <img src="../Images/LogoPan_white.svg" alt="Logo banco PAN"
     class="logo_bancoPan">
 
   <p class="textDescricao">Selecione Uma opção de cadastro para PIX</p>

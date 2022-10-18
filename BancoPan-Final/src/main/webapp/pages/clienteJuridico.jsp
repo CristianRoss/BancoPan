@@ -13,7 +13,7 @@ ClienteJuridico cliente = (ClienteJuridico) request.getAttribute("cliente");
 <title>Banca PAN - Cliente Juridico</title>
 
 <link rel="shortcut icon"
-	href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+	href="./Images/LogoPan_white.svg"
 	type="image/x-icon">
 <link rel="stylesheet" href="./style/pageClienteFisico.css">
 </head>

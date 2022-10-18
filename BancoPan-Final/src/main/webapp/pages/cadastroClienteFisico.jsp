@@ -8,9 +8,10 @@
 <title>Banca PAN - Cadastro cliente</title>
 
 <link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="./style/style.css">
 
 <link rel="shortcut icon"
-	href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+	href="../Images/LogoPan_white.svg"
 	type="image/x-icon">
 
 </head>
@@ -18,7 +19,7 @@
 <body>
 
 	<img
-		src="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+		src="../Images/LogoPan_white.svg"
 		alt="Logo banco PAN" class="logo_bancoPan">
 
 	<p class="textDescricao">

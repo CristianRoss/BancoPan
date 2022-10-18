@@ -13,7 +13,7 @@ Cliente cliente = (Cliente)request.getAttribute("cliente");
 </head>
 
 <link rel="shortcut icon"
-	href="https://accountstemplates.bancopan.com.br/assets/img/LogoPan_white.svg"
+	href="../Images/LogoPan_white.svg"
 	type="image/x-icon">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
